@@ -1,0 +1,25 @@
+# Quarto
+/.quarto/
+/_site/
+*_files/
+*.html
+!docs/*.html
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+renv/library/
+renv/staging/
+renv/local/
+
+# Large raw data stays local (each script re-downloads it)
+data/raw/*
+!data/raw/.gitkeep
+
+# Data under restricted terms is never committed (e.g. BTO/JNCC SMP downloads)
+data/restricted/
+
+# Mac
+.DS_Store

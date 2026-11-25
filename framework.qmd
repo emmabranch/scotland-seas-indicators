@@ -1,0 +1,40 @@
+---
+title: "Framework map"
+subtitle: "How each indicator links to the strategies, laws, and conventions with assessment and reporting requirements"
+page-layout: full
+---
+
+```{r}
+#| include: false
+fw <- readr::read_csv(here::here("data", "lookup", "framework_mapping.csv"),
+                      show_col_types = FALSE)
+```
+
+This table is the spine of the project. Each indicator is mapped to the reporting framework it would feed into. Links are my reading of the published documents and are marked as checked once I have confirmed them against the source text.
+
+```{r}
+fw |>
+  dplyr::mutate(verified = ifelse(verified, "✓ Checked", "Draft")) |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "Indicator",
+    scottish_biodiversity_strategy = "Scottish Biodiversity Strategy",
+    habitats_regs_or_scottish_law = "Habitats Regulations and Scottish law",
+    ospar = "OSPAR",
+    uk_marine_strategy = "UK Marine Strategy descriptor",
+    gbf_targets = "Global Biodiversity Framework",
+    verified = "Status"
+  ) |>
+  gt::tab_style(gt::cell_text(weight = "bold"), gt::cells_body(columns = indicator)) |>
+  gt::opt_interactive(use_search = TRUE, use_highlight = TRUE, page_size_default = 10)
+```
+
+## Frameworks in brief
+
+- **Scottish Biodiversity Strategy to 2045:** Scotland's overarching biodiversity strategy and delivery plan.
+- **Marine (Scotland) Act 2010:** marine planning, Nature Conservation MPAs, and seal conservation in Scottish territorial waters.
+- **Natural Environment (Scotland) Act:** <!-- confirm year, current status, and what it sets for statutory nature targets -->
+- **Habitats Regulations:** protection of SACs and SPAs (the site network formerly part of Natura 2000).
+- **UK Marine Strategy:** Good Environmental Status assessed against 11 descriptors.
+- **OSPAR:** the North-East Atlantic regional convention; Quality Status Report 2023.
+- **Kunming-Montreal Global Biodiversity Framework:** 23 targets for 2030, including Target 3 (30x30).

@@ -1,0 +1,89 @@
+/*-- scss:defaults --*/
+// Placeholder sea palette. Replace with your shared brand kit variables later.
+$primary:   #0B3C5D;   // deep sea
+$secondary: #328CC1;   // shallow water
+$body-bg:   #FBFCFD;
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+$headings-font-weight: 700;
+
+/*-- scss:rules --*/
+
+// ---------- Hero ----------
+.seas-hero {
+  position: relative;
+  padding: 3rem 1.5rem 4.5rem;
+  margin: -1rem -1rem 2rem;
+  color: #fff;
+  background: linear-gradient(180deg, #0B3C5D 0%, #145C8A 60%, #328CC1 100%);
+  border-radius: 0 0 1.25rem 1.25rem;
+  overflow: hidden;
+  h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: .5rem; }
+  p  { max-width: 46rem; font-size: 1.1rem; opacity: .95; }
+  // animated waves (pure CSS, respects reduced-motion below)
+  &::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 60px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'><path d='M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z' fill='%23FBFCFD'/></svg>") repeat-x;
+    background-size: 1200px 60px;
+    animation: seas-wave 18s linear infinite;
+  }
+}
+@keyframes seas-wave { from { background-position-x: 0; } to { background-position-x: 1200px; } }
+@media (prefers-reduced-motion: reduce) { .seas-hero::after { animation: none; } }
+
+// ---------- Report card tiles ----------
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+.report-tile {
+  display: block;
+  padding: 1.1rem 1.2rem 1rem;
+  border-radius: .9rem;
+  background: #fff;
+  border: 1px solid #DDE6EE;
+  border-top: 6px solid var(--status-col, #8C8C8C);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(11,60,93,.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+  &:hover, &:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11,60,93,.14);
+    color: inherit;
+  }
+  &:focus-visible { outline: 3px solid $secondary; outline-offset: 2px; }
+  .tile-theme  { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #5A6B7B; }
+  .tile-title  { font-size: 1.15rem; font-weight: 700; margin: .15rem 0 .6rem; color: $primary; }
+  .tile-status { display: flex; align-items: center; gap: .5rem; font-weight: 600; }
+  .tile-icon   {
+    display: inline-grid; place-items: center;
+    width: 1.8rem; height: 1.8rem; border-radius: 50%;
+    background: var(--status-col, #8C8C8C); color: #fff; font-size: 1rem;
+  }
+  .tile-trend  { margin: .35rem 0; font-size: .95rem; }
+  .tile-headline { font-size: .92rem; color: #33414E; margin: .5rem 0; }
+  .tile-meta   { font-size: .8rem; color: #5A6B7B; display: flex; justify-content: space-between; }
+  .conf-dots span { letter-spacing: .1em; }
+  &.featured { grid-column: 1 / -1; background: linear-gradient(90deg, #fff 60%, #EEF5FA); }
+}
+
+// ---------- Indicator page "at a glance" box ----------
+.glance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: .75rem;
+  padding: 1rem;
+  margin: 1rem 0 1.5rem;
+  border-radius: .75rem;
+  background: #EEF5FA;
+  border-left: 6px solid var(--status-col, #8C8C8C);
+  .glance-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: #5A6B7B; }
+  .glance-value { font-weight: 700; color: $primary; }
+}
+
+// Legend under the report card
+.status-legend { font-size: .9rem; color: #33414E; }
+.status-legend span.key { display: inline-flex; align-items: center; gap: .35rem; margin-right: 1rem; }

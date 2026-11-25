@@ -1,0 +1,31 @@
+---
+title: "Methods"
+---
+
+## Approach
+
+Each indicator follows the same pipeline:
+
+1. **Download** raw open data with a script in `R/` (raw files are not committed to Git).
+2. **Clean and check** with documented, scripted quality control.
+3. **Summarise** into a small tidy file in `data/processed/`.
+4. **Assess** status, trend, and confidence, recorded in `data/lookup/indicator_status.csv`.
+5. **Render** the page with Quarto. The homepage report card updates automatically.
+
+## Assigning status, trend, and confidence
+
+<!-- Fill in the rules for each indicator so the calls are transparent and repeatable. -->
+
+| Call | How it is assigned |
+|---|---|
+| Status | Indicator-specific rule, written on each page |
+| Trend | Direction and size of change over the period, with uncertainty |
+| Confidence | High: consistent, frequent, near-complete coverage. Medium: some gaps or method changes. Low: sparse, one-off, or partial coverage |
+
+## An epidemiologist's lens
+
+Several indicators borrow ideas from population health surveillance: comparing before and after an outbreak, separating true change from changes in survey effort, and being clear about what a census can and cannot tell us about cause.
+
+## Reproducing this site
+
+See the [README on GitHub](https://github.com/emmabranch/scotland-seas-indicators#readme).

@@ -1,0 +1,15 @@
+---
+title: "About"
+---
+
+I'm Emma Branch, an epidemiologist and health data analyst (PhD candidate, Population and Public Health, UBC) with about ten years' experience working with linked population data, R, and GIS.
+
+I built this report card to learn about Scotland's marine environment and its assessment frameworks, and to show how indicator reporting, spatial analysis, and honest communication of uncertainty transfer from population health to marine biodiversity. I am new to Scottish marine ecology, so I have aimed to describe what the data show without overclaiming.
+
+## Independence
+
+This is an independent personal project. It is not affiliated with, commissioned by, or endorsed by NatureScot, the Scottish Government Marine Directorate, JNCC, RSPB, BTO, SMRU, or any other organisation whose data it uses. All interpretations and any errors are my own.
+
+## Contact
+
+- GitHub: [emmabranch](https://github.com/emmabranch)

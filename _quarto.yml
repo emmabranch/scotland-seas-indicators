@@ -1,0 +1,64 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "indicators/*.qmd"
+    - "!docs/"
+
+execute:
+  freeze: auto        # re-run code only when a page's source changes
+  echo: false
+  warning: false
+  message: false
+
+website:
+  title: "State of Scotland's Seas"
+  description: "An independent indicator report card for Scotland's seas, built from open data."
+  site-url: https://emmabranch.github.io/scotland-seas-indicators
+  repo-url: https://github.com/emmabranch/scotland-seas-indicators
+  repo-actions: [source, issue]
+  page-navigation: true
+  back-to-top-navigation: true
+  open-graph: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Report card
+      - text: Indicators
+        menu:
+          - href: indicators/seabirds.qmd
+            text: "Seabirds after avian flu (deep dive)"
+          - href: indicators/seals.qmd
+            text: "Seals"
+          - href: indicators/salmon.qmd
+            text: "Wild salmon"
+          - href: indicators/sea-temperature.qmd
+            text: "Sea temperature"
+          - href: indicators/mpas.qmd
+            text: "MPA coverage and 30x30"
+      - href: framework.qmd
+        text: Framework map
+      - href: methods.qmd
+        text: Methods
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: https://github.com/emmabranch/scotland-seas-indicators
+        aria-label: GitHub repository
+  page-footer:
+    left: "Independent personal project by Emma Branch. Not affiliated with or endorsed by any organisation whose data is used."
+    right: "Contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)."
+
+format:
+  html:
+    theme:
+      light: [flatly, styles/seas.scss]   # swap in your brand kit later
+    toc: true
+    toc-depth: 2
+    fig-align: center
+    fig-responsive: true
+    lightbox: true
+    smooth-scroll: true
+    link-external-newwindow: true

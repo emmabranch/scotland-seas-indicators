@@ -1,0 +1,45 @@
+---
+title: "Sea temperature"
+subtitle: "Long-term change at Stonehaven and Loch Ewe"
+---
+
+```{r}
+#| include: false
+source(here::here("R", "report_card.R"))
+```
+
+```{r}
+glance_box("sea-temperature")
+```
+
+::: {.callout-warning appearance="simple"}
+Work in progress. Figures on this page are not final.
+:::
+
+## What this measures
+
+<!-- One or two sentences, plain language. -->
+
+## Why it matters
+
+<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->
+
+## Trend and status
+
+<!-- One clear chart, with the key takeaway written as the chart title. -->
+
+## Map
+
+<!-- Leaflet or static sf map, where relevant. -->
+
+## Confidence
+
+<!-- Why high, medium, or low: coverage, frequency, method changes. -->
+
+## Limitations
+
+- <!-- What the data cannot tell us. -->
+
+## Data sources and licences
+
+- <!-- Dataset, publisher, year, URL, licence, attribution wording. -->
