@@ -4,8 +4,12 @@
 
 if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
 
-# Only initialise once (creates renv.lock and renv/)
-if (!file.exists("renv.lock")) renv::init(bare = TRUE)
+# Only initialise once (creates renv/ and .Rprofile). Safe to re-run.
+if (!file.exists("renv/activate.R")) {
+  renv::init(bare = TRUE, restart = FALSE)
+} else {
+  renv::load()
+}
 
 pkgs <- c(
   # core
@@ -21,7 +25,12 @@ pkgs <- c(
   "httr2"
 )
 
-renv::install(pkgs)
-renv::snapshot(prompt = FALSE)
+renv::install(pkgs, prompt = FALSE)
+
+missing <- pkgs[!vapply(pkgs, requireNamespace, logical(1), quietly = TRUE)]
+if (length(missing)) stop("These packages failed to install: ", paste(missing, collapse = ", "),
+                          "\nScroll up for the first error message.")
+
+renv::snapshot(type = "all", prompt = FALSE)
 
 message("Setup complete. Next: quarto preview")

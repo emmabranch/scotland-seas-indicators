@@ -1,0 +1,15 @@
+{
+  "hash": "07229dcede674bda417f75511b542aad",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Harbour and grey seals\"\nsubtitle: \"Population trends by Seal Management Unit\"\n---\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"glance\" style=\"--status-col:#8C8C8C\">\n       <div><div class=\"glance-label\">Status</div><div class=\"glance-value\">? Not yet assessed</div></div>\n       <div><div class=\"glance-label\">Trend</div><div class=\"glance-value\">· Trend not yet assessed</div></div>\n       <div><div class=\"glance-label\">Confidence</div><div class=\"glance-value\">●○○ Low</div></div>\n       <div><div class=\"glance-label\">Period</div><div class=\"glance-value\">To be confirmed</div></div>\n     </div>\n```\n\n:::\n:::\n\n\n::: {.callout-warning appearance=\"simple\"}\nWork in progress. Figures on this page are not final.\n:::\n\n## What this measures\n\n<!-- One or two sentences, plain language. -->\n\n## Why it matters\n\n<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->\n\n## Trend and status\n\n<!-- One clear chart, with the key takeaway written as the chart title. -->\n\n## Map\n\n<!-- Leaflet or static sf map, where relevant. -->\n\n## Confidence\n\n<!-- Why high, medium, or low: coverage, frequency, method changes. -->\n\n## Limitations\n\n- <!-- What the data cannot tell us. -->\n\n## Data sources and licences\n\n- <!-- Dataset, publisher, year, URL, licence, attribution wording. -->\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

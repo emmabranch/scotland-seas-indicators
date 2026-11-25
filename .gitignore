@@ -23,3 +23,5 @@ data/restricted/
 
 # Mac
 .DS_Store
+
+**/*.quarto_ipynb
