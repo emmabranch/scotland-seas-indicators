@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -46,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dbc1532b691a030cd1a565c1a43f35d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7403572b427f975f42c7c73d7fb89e19.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,6 +110,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 <script src="site_libs/core-js-2.5.3/shim.min.js"></script>
 <script src="site_libs/react-18.2.0/react.min.js"></script>
 <script src="site_libs/react-18.2.0/react-dom.min.js"></script>
@@ -82,6 +119,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="site_libs/reactable-0.4.5/reactable.css" rel="stylesheet">
 <script src="site_libs/reactable-binding-0.4.5/reactable.js"></script>
+<script type="ojs-define">
+{"contents":[{"name":"fw_items","value":{"item":["sbs_marine","sbs_30x30","sbs_monitor","sbs_climate","nesa","msa","salmon_regs","hr_spa","hr_sac","ospar_b1","ospar_b3","ospar_m3","ospar_m5","ospar_td","ospar_mpa","ospar_climate","ukms_d1","ukms_d4","ukms_d6","ukms_d7","gbf_t3","gbf_t4","gbf_t5","gbf_t8","gbf_t21"],"family":["Scottish Biodiversity Strategy","Scottish Biodiversity Strategy","Scottish Biodiversity Strategy","Scottish Biodiversity Strategy","Scottish law","Scottish law","Scottish law","Habitats Regulations","Habitats Regulations","OSPAR","OSPAR","OSPAR","OSPAR","OSPAR","OSPAR","OSPAR","UK Marine Strategy","UK Marine Strategy","UK Marine Strategy","UK Marine Strategy","Global Biodiversity Framework","Global Biodiversity Framework","Global Biodiversity Framework","Global Biodiversity Framework","Global Biodiversity Framework"],"label":["Marine and coastal outcomes","Delivery Plan: 30 by 30","Delivery Plan: marine monitoring","Climate resilience (context)","Natural Environment (Scotland) Act 2026","Marine (Scotland) Act 2010","Conservation of Salmon Regulations 2016","Special Protection Areas","Special Areas of Conservation","B1 Marine bird abundance","B3 Breeding success/failure","M3 Seal abundance and distribution","M5 Grey seal pup production","List of threatened/declining species","OSPAR MPA network","QSR 2023 climate assessment","D1 Biodiversity","D4 Food webs","D6 Seafloor integrity","D7 Hydrographical conditions","Target 3: 30x30","Target 4: species recovery","Target 5: sustainable use","Target 8: climate impacts","Target 21: data and knowledge"],"description":["The Scottish Biodiversity Strategy to 2045 sets outcomes for marine and coastal environments, delivered through rolling Delivery Plans.","Delivery Plan 2024-2030: ensure at least 30% of land and sea is protected and effectively managed to support nature in good health by 2030.","Delivery Plan action to develop new approaches to marine biodiversity monitoring, covering state and pressures, aligned with the UK Marine Strategy.","Sea temperature is context for how marine outcomes respond to climate change.","Part 1 creates a legally binding framework for statutory nature restoration targets covering land and sea, with monitoring and reporting duties.","Provides for Nature Conservation MPAs in Scottish territorial waters and for seal conservation, including protected haul-out sites (Part 6).","Annual grading of 173 salmon stocks; poor status means mandatory catch and release for the season.","Sites classified for birds. Many Scottish SPAs protect seabird colonies and their marine foraging areas.","Sites designated for habitats and species, including harbour seal, grey seal, and Atlantic salmon.","OSPAR common indicator: trends in breeding and non-breeding abundance of marine birds.","OSPAR common indicator: breeding success of marine birds at colonies.","OSPAR common indicator: abundance and distribution of harbour and grey seals.","OSPAR common indicator: grey seal pup production at breeding colonies.","Atlantic salmon has been on the OSPAR List of Threatened and/or Declining Species since 2008 (Agreement 2008-6).","Scotland's MPAs contribute to OSPAR's network of marine protected areas in the North-East Atlantic.","OSPAR's Quality Status Report 2023 includes a thematic assessment of climate change and ocean acidification.","Good Environmental Status descriptor for birds, mammals, fish, and habitats.","Seabirds are top predators, so their status reflects the state of marine food webs.","Protected areas contribute to seafloor integrity where activities that damage the seabed are managed.","Temperature and other physical conditions, used here as context.","At least 30% of coastal and marine areas effectively conserved and managed by 2030.","Halt extinction and promote recovery of threatened species.","Ensure harvesting and use of wild species is sustainable.","Minimise the impacts of climate change on biodiversity.","Best available data, information, and knowledge accessible to decision makers."]}},{"name":"fw_links","value":{"indicator":["Seabirds","Seabirds","Seabirds","Seabirds","Seabirds","Seabirds","Seabirds","Seabirds","Seabirds","Seabirds","Seals","Seals","Seals","Seals","Seals","Seals","Seals","Seals","Seals","Salmon","Salmon","Salmon","Salmon","Salmon","Salmon","Salmon","Salmon","Sea temperature","Sea temperature","Sea temperature","Sea temperature","MPAs and 30x30","MPAs and 30x30","MPAs and 30x30","MPAs and 30x30","MPAs and 30x30","MPAs and 30x30","MPAs and 30x30","MPAs and 30x30","MPAs and 30x30"],"item":["sbs_marine","sbs_monitor","nesa","hr_spa","ospar_b1","ospar_b3","ukms_d1","ukms_d4","gbf_t4","gbf_t21","sbs_marine","sbs_monitor","nesa","msa","hr_sac","ospar_m3","ospar_m5","ukms_d1","gbf_t4","sbs_marine","nesa","salmon_regs","hr_sac","ospar_td","ukms_d1","gbf_t4","gbf_t5","sbs_climate","ospar_climate","ukms_d7","gbf_t8","sbs_30x30","nesa","msa","hr_spa","hr_sac","ospar_mpa","ukms_d1","ukms_d6","gbf_t3"]}}]}
+</script>
 
 
 <meta property="og:title" content="Framework map – State of Scotland’s Seas">
@@ -117,6 +157,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./indicators/seabirds.html">
  <span class="dropdown-text">Seabirds after avian flu (deep dive)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./indicators/seabird-story.html">
+ <span class="dropdown-text">↳ The outbreak, colony by colony (story)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./indicators/seals.html">
@@ -172,7 +216,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#frameworks-in-brief" id="toc-frameworks-in-brief" class="nav-link active" data-scroll-target="#frameworks-in-brief">Frameworks in brief</a></li>
+  <li><a href="#the-detail" id="toc-the-detail" class="nav-link active" data-scroll-target="#the-detail">The detail</a></li>
+  <li><a href="#frameworks-in-brief" id="toc-frameworks-in-brief" class="nav-link" data-scroll-target="#frameworks-in-brief">Frameworks in brief</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/emmabranch/scotland-seas-indicators/blob/main/framework.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/emmabranch/scotland-seas-indicators/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -199,26 +244,133 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This table is the spine of the project. Each indicator is mapped to the reporting framework it would feed into. Links are my reading of the published documents and are marked as checked once I have confirmed them against the source text.</p>
+<p>Each indicator on this site could feed into several assessment and reporting requirements at once. <strong>Click an indicator</strong> to see everything it reports against, or <strong>click a framework item</strong> to see which indicators inform it. Click the same item again to reset.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="24" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 23;"><span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>famColour <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>([</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Scottish Biodiversity Strategy"</span><span class="op">,</span> <span class="st">"#0072B2"</span>]<span class="op">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Scottish law"</span><span class="op">,</span> <span class="st">"#009E73"</span>]<span class="op">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Habitats Regulations"</span><span class="op">,</span> <span class="st">"#56B4E9"</span>]<span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"OSPAR"</span><span class="op">,</span> <span class="st">"#E69F00"</span>]<span class="op">,</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"UK Marine Strategy"</span><span class="op">,</span> <span class="st">"#CC79A7"</span>]<span class="op">,</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Global Biodiversity Framework"</span><span class="op">,</span> <span class="st">"#D55E00"</span>]</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>frameworkNetwork <span class="op">=</span> {</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> items <span class="op">=</span> <span class="fu">transpose</span>(fw_items)<span class="op">;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> links <span class="op">=</span> <span class="fu">transpose</span>(fw_links)<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> inds <span class="op">=</span> [<span class="st">"Seabirds"</span><span class="op">,</span> <span class="st">"Seals"</span><span class="op">,</span> <span class="st">"Salmon"</span><span class="op">,</span> <span class="st">"Sea temperature"</span><span class="op">,</span> <span class="st">"MPAs and 30x30"</span>]<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> fams <span class="op">=</span> [<span class="op">...</span>famColour<span class="op">.</span><span class="fu">keys</span>()]<span class="op">;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> its <span class="op">=</span> items<span class="op">.</span><span class="fu">slice</span>()<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> fams<span class="op">.</span><span class="fu">indexOf</span>(a<span class="op">.</span><span class="at">family</span>) <span class="op">-</span> fams<span class="op">.</span><span class="fu">indexOf</span>(b<span class="op">.</span><span class="at">family</span>))<span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> famOf <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>(items<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> [d<span class="op">.</span><span class="at">item</span><span class="op">,</span> d<span class="op">.</span><span class="at">family</span>]))<span class="op">;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> byId <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>(items<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> [d<span class="op">.</span><span class="at">item</span><span class="op">,</span> d]))<span class="op">;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> wide <span class="op">=</span> width <span class="op">&gt;=</span> <span class="dv">900</span><span class="op">;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> W <span class="op">=</span> wide <span class="op">?</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(width <span class="op">*</span> <span class="fl">0.64</span>) <span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(width<span class="op">,</span> <span class="dv">520</span>)<span class="op">,</span> rowH <span class="op">=</span> <span class="fl">17.5</span><span class="op">,</span> top <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> H <span class="op">=</span> top <span class="op">+</span> its<span class="op">.</span><span class="at">length</span> <span class="op">*</span> rowH <span class="op">+</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xL <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">135</span><span class="op">,</span> W <span class="op">*</span> <span class="fl">0.25</span>)<span class="op">,</span> xR <span class="op">=</span> W <span class="op">*</span> <span class="fl">0.42</span><span class="op">;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> yItem <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>(its<span class="op">.</span><span class="fu">map</span>((d<span class="op">,</span> i) <span class="kw">=&gt;</span> [d<span class="op">.</span><span class="at">item</span><span class="op">,</span> top <span class="op">+</span> i <span class="op">*</span> rowH <span class="op">+</span> rowH <span class="op">/</span> <span class="dv">2</span>]))<span class="op">;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> span <span class="op">=</span> its<span class="op">.</span><span class="at">length</span> <span class="op">*</span> rowH<span class="op">;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> yInd <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>(inds<span class="op">.</span><span class="fu">map</span>((d<span class="op">,</span> i) <span class="kw">=&gt;</span> [d<span class="op">,</span> top <span class="op">+</span> span <span class="op">*</span> (i <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">/</span> inds<span class="op">.</span><span class="at">length</span>]))<span class="op">;</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">create</span>(<span class="st">"svg"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"viewBox"</span><span class="op">,</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> W<span class="op">,</span> H])<span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> W)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"role"</span><span class="op">,</span> <span class="st">"img"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"aria-label"</span><span class="op">,</span> <span class="st">"Network linking five indicators to framework items"</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">style</span>(<span class="st">"font"</span><span class="op">,</span> <span class="st">"12px system-ui, sans-serif"</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"max-width"</span><span class="op">,</span> <span class="st">"100%"</span>)<span class="op">;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> path <span class="op">=</span> d <span class="kw">=&gt;</span> {</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> y0 <span class="op">=</span> yInd<span class="op">.</span><span class="fu">get</span>(d<span class="op">.</span><span class="at">indicator</span>)<span class="op">,</span> y1 <span class="op">=</span> yItem<span class="op">.</span><span class="fu">get</span>(d<span class="op">.</span><span class="at">item</span>)<span class="op">,</span> x0 <span class="op">=</span> xL <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> x1 <span class="op">=</span> xR <span class="op">-</span> <span class="dv">8</span><span class="op">,</span> mx <span class="op">=</span> (x0 <span class="op">+</span> x1) <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`M</span><span class="sc">${</span>x0<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>y0<span class="sc">}</span><span class="vs">C</span><span class="sc">${</span>mx<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>y0<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>mx<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>y1<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>x1<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>y1<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> linkSel <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"none"</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"path"</span>)<span class="op">.</span><span class="fu">data</span>(links)<span class="op">.</span><span class="fu">join</span>(<span class="st">"path"</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"d"</span><span class="op">,</span> path)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke"</span><span class="op">,</span> d <span class="kw">=&gt;</span> famColour<span class="op">.</span><span class="fu">get</span>(famOf<span class="op">.</span><span class="fu">get</span>(d<span class="op">.</span><span class="at">item</span>)))</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-width"</span><span class="op">,</span> <span class="fl">1.8</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-opacity"</span><span class="op">,</span> <span class="fl">0.45</span>)<span class="op">;</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> indSel <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">data</span>(inds)<span class="op">.</span><span class="fu">join</span>(<span class="st">"g"</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="vs">`translate(</span><span class="sc">${</span>xL<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>yInd<span class="op">.</span><span class="fu">get</span>(d)<span class="sc">}</span><span class="vs">)`</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"pointer"</span>)<span class="op">;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  indSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"cx"</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#0B3C5D"</span>)<span class="op">;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  indSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="op">-</span><span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"0.35em"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"end"</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> <span class="dv">700</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#0B3C5D"</span>)<span class="op">;</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> itemSel <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">data</span>(its)<span class="op">.</span><span class="fu">join</span>(<span class="st">"g"</span>)</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="vs">`translate(</span><span class="sc">${</span>xR<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>yItem<span class="op">.</span><span class="fu">get</span>(d<span class="op">.</span><span class="at">item</span>)<span class="sc">}</span><span class="vs">)`</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"pointer"</span>)<span class="op">;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  itemSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> <span class="fl">4.5</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> d <span class="kw">=&gt;</span> famColour<span class="op">.</span><span class="fu">get</span>(d<span class="op">.</span><span class="at">family</span>))<span class="op">;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  itemSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">label</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">11</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"0.35em"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#22303C"</span>)<span class="op">;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> info <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div class="fw-info"&gt;&lt;strong&gt;Click any indicator or framework item.&lt;/strong&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> current <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">reset</span>() {</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    current <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    linkSel<span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-opacity"</span><span class="op">,</span> <span class="fl">0.45</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-width"</span><span class="op">,</span> <span class="fl">1.8</span>)<span class="op">;</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    indSel<span class="op">.</span><span class="fu">attr</span>(<span class="st">"opacity"</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span> itemSel<span class="op">.</span><span class="fu">attr</span>(<span class="st">"opacity"</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    info<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">"&lt;strong&gt;Click any indicator or framework item.&lt;/strong&gt;"</span><span class="op">;</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">select</span>(kind<span class="op">,</span> key) {</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (current <span class="op">===</span> kind <span class="op">+</span> key) <span class="cf">return</span> <span class="fu">reset</span>()<span class="op">;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    current <span class="op">=</span> kind <span class="op">+</span> key<span class="op">;</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> on <span class="op">=</span> links<span class="op">.</span><span class="fu">filter</span>(l <span class="kw">=&gt;</span> kind <span class="op">===</span> <span class="st">"ind"</span> <span class="op">?</span> l<span class="op">.</span><span class="at">indicator</span> <span class="op">===</span> key <span class="op">:</span> l<span class="op">.</span><span class="at">item</span> <span class="op">===</span> key)<span class="op">;</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> onInds <span class="op">=</span> <span class="kw">new</span> <span class="bu">Set</span>(on<span class="op">.</span><span class="fu">map</span>(l <span class="kw">=&gt;</span> l<span class="op">.</span><span class="at">indicator</span>))<span class="op">,</span> onItems <span class="op">=</span> <span class="kw">new</span> <span class="bu">Set</span>(on<span class="op">.</span><span class="fu">map</span>(l <span class="kw">=&gt;</span> l<span class="op">.</span><span class="at">item</span>))<span class="op">;</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    linkSel<span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-opacity"</span><span class="op">,</span> l <span class="kw">=&gt;</span> on<span class="op">.</span><span class="fu">includes</span>(l) <span class="op">?</span> <span class="fl">0.95</span> <span class="op">:</span> <span class="fl">0.06</span>)</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>           <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-width"</span><span class="op">,</span> l <span class="kw">=&gt;</span> on<span class="op">.</span><span class="fu">includes</span>(l) <span class="op">?</span> <span class="fl">2.6</span> <span class="op">:</span> <span class="fl">1.4</span>)<span class="op">;</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    indSel<span class="op">.</span><span class="fu">attr</span>(<span class="st">"opacity"</span><span class="op">,</span> d <span class="kw">=&gt;</span> onInds<span class="op">.</span><span class="fu">has</span>(d) <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="fl">0.25</span>)<span class="op">;</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    itemSel<span class="op">.</span><span class="fu">attr</span>(<span class="st">"opacity"</span><span class="op">,</span> d <span class="kw">=&gt;</span> onItems<span class="op">.</span><span class="fu">has</span>(d<span class="op">.</span><span class="at">item</span>) <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="fl">0.25</span>)</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>           <span class="op">.</span><span class="fu">select</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> d <span class="kw">=&gt;</span> onItems<span class="op">.</span><span class="fu">has</span>(d<span class="op">.</span><span class="at">item</span>) <span class="op">?</span> <span class="dv">700</span> <span class="op">:</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (kind <span class="op">===</span> <span class="st">"ind"</span>) {</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> grouped <span class="op">=</span> fams<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> [f<span class="op">,</span> its<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">family</span> <span class="op">===</span> f <span class="op">&amp;&amp;</span> onItems<span class="op">.</span><span class="fu">has</span>(d<span class="op">.</span><span class="at">item</span>))])<span class="op">.</span><span class="fu">filter</span>(g <span class="kw">=&gt;</span> g[<span class="dv">1</span>]<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>      info<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;strong&gt;</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">&lt;/strong&gt; reports against </span><span class="sc">${</span>on<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs"> framework items:`</span> <span class="op">+</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>        grouped<span class="op">.</span><span class="fu">map</span>(([f<span class="op">,</span> xs]) <span class="kw">=&gt;</span> <span class="vs">`&lt;div class="fw-row"&gt;&lt;span class="fw-dot" style="background:</span><span class="sc">${</span>famColour<span class="op">.</span><span class="fu">get</span>(f)<span class="sc">}</span><span class="vs">"&gt;&lt;/span&gt;`</span> <span class="op">+</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>          <span class="vs">`&lt;em&gt;</span><span class="sc">${</span>f<span class="sc">}</span><span class="vs">:&lt;/em&gt; </span><span class="sc">${</span>xs<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">label</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">"; "</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">""</span>)<span class="op">;</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> it <span class="op">=</span> byId<span class="op">.</span><span class="fu">get</span>(key)<span class="op">;</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>      info<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div class="fw-row"&gt;&lt;span class="fw-dot" style="background:</span><span class="sc">${</span>famColour<span class="op">.</span><span class="fu">get</span>(it<span class="op">.</span><span class="at">family</span>)<span class="sc">}</span><span class="vs">"&gt;&lt;/span&gt;`</span> <span class="op">+</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`&lt;em&gt;</span><span class="sc">${</span>it<span class="op">.</span><span class="at">family</span><span class="sc">}</span><span class="vs">&lt;/em&gt;&lt;/div&gt;&lt;strong&gt;</span><span class="sc">${</span>it<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;p&gt;</span><span class="sc">${</span>it<span class="op">.</span><span class="at">description</span><span class="sc">}</span><span class="vs">&lt;/p&gt;`</span> <span class="op">+</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`&lt;p&gt;&lt;b&gt;Informed by:&lt;/b&gt; </span><span class="sc">${</span>[<span class="op">...</span>onInds]<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>)<span class="sc">}</span><span class="vs">&lt;/p&gt;`</span><span class="op">;</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>  indSel<span class="op">.</span><span class="fu">on</span>(<span class="st">"click"</span><span class="op">,</span> (e<span class="op">,</span> d) <span class="kw">=&gt;</span> <span class="fu">select</span>(<span class="st">"ind"</span><span class="op">,</span> d))<span class="op">;</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>  itemSel<span class="op">.</span><span class="fu">on</span>(<span class="st">"click"</span><span class="op">,</span> (e<span class="op">,</span> d) <span class="kw">=&gt;</span> <span class="fu">select</span>(<span class="st">"item"</span><span class="op">,</span> d<span class="op">.</span><span class="at">item</span>))<span class="op">;</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> legend <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div class="map-key"&gt;</span><span class="sc">${</span>fams<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;span class="key"&gt;</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;span class="swatch" style="background:</span><span class="sc">${</span>famColour<span class="op">.</span><span class="fu">get</span>(f)<span class="sc">}</span><span class="vs">"&gt;&lt;/span&gt;</span><span class="sc">${</span>f<span class="sc">}</span><span class="vs">&lt;/span&gt;`</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div class="fw-network"&gt;</span><span class="sc">${</span>legend<span class="sc">}</span><span class="vs">&lt;div class="fw-body </span><span class="sc">${</span>wide <span class="op">?</span> <span class="st">"fw-wide"</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span><span class="vs">"&gt;</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="fw-chart"&gt;</span><span class="sc">${</span>svg<span class="op">.</span><span class="fu">node</span>()<span class="sc">}</span><span class="vs">&lt;/div&gt;</span><span class="sc">${</span>info<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<section id="the-detail" class="level2">
+<h2 class="anchored" data-anchor-id="the-detail">The detail</h2>
+<p>The full mapping, with the wording for each link. Links are my reading of the published documents, confirmed against the source text where marked.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="xhxfzpsdwo" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xhxfzpsdwo table {
+<div id="ussvbwyowa" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ussvbwyowa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xhxfzpsdwo thead, #xhxfzpsdwo tbody, #xhxfzpsdwo tfoot, #xhxfzpsdwo tr, #xhxfzpsdwo td, #xhxfzpsdwo th {
+#ussvbwyowa thead, #ussvbwyowa tbody, #ussvbwyowa tfoot, #ussvbwyowa tr, #ussvbwyowa td, #ussvbwyowa th {
   border-style: none;
 }
 
-#xhxfzpsdwo p {
+#ussvbwyowa p {
   margin: 0;
   padding: 0;
 }
 
-#xhxfzpsdwo .gt_table {
+#ussvbwyowa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -244,12 +396,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_caption {
+#ussvbwyowa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xhxfzpsdwo .gt_title {
+#ussvbwyowa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -261,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#xhxfzpsdwo .gt_subtitle {
+#ussvbwyowa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -273,7 +425,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#xhxfzpsdwo .gt_heading {
+#ussvbwyowa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -285,13 +437,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_bottom_border {
+#ussvbwyowa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_col_headings {
+#ussvbwyowa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -306,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_col_heading {
+#ussvbwyowa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -326,7 +478,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#xhxfzpsdwo .gt_column_spanner_outer {
+#ussvbwyowa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -338,15 +490,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#xhxfzpsdwo .gt_column_spanner_outer:first-child {
+#ussvbwyowa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xhxfzpsdwo .gt_column_spanner_outer:last-child {
+#ussvbwyowa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xhxfzpsdwo .gt_column_spanner {
+#ussvbwyowa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -358,11 +510,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#xhxfzpsdwo .gt_spanner_row {
+#ussvbwyowa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xhxfzpsdwo .gt_group_heading {
+#ussvbwyowa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -388,7 +540,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#xhxfzpsdwo .gt_empty_group_heading {
+#ussvbwyowa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -403,15 +555,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#xhxfzpsdwo .gt_from_md > :first-child {
+#ussvbwyowa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xhxfzpsdwo .gt_from_md > :last-child {
+#ussvbwyowa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xhxfzpsdwo .gt_row {
+#ussvbwyowa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -430,7 +582,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#xhxfzpsdwo .gt_stub {
+#ussvbwyowa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -443,7 +595,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xhxfzpsdwo .gt_stub_row_group {
+#ussvbwyowa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -457,15 +609,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#xhxfzpsdwo .gt_row_group_first td {
+#ussvbwyowa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xhxfzpsdwo .gt_row_group_first th {
+#ussvbwyowa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xhxfzpsdwo .gt_summary_row {
+#ussvbwyowa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -475,16 +627,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xhxfzpsdwo .gt_first_summary_row {
+#ussvbwyowa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_first_summary_row.thick {
+#ussvbwyowa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xhxfzpsdwo .gt_last_summary_row {
+#ussvbwyowa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -494,7 +646,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_grand_summary_row {
+#ussvbwyowa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -504,7 +656,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xhxfzpsdwo .gt_first_grand_summary_row {
+#ussvbwyowa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -514,7 +666,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_last_grand_summary_row_top {
+#ussvbwyowa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -524,11 +676,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_striped {
+#ussvbwyowa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xhxfzpsdwo .gt_table_body {
+#ussvbwyowa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -537,7 +689,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_footnotes {
+#ussvbwyowa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -551,7 +703,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_footnote {
+#ussvbwyowa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -560,7 +712,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xhxfzpsdwo .gt_sourcenotes {
+#ussvbwyowa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -574,7 +726,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xhxfzpsdwo .gt_sourcenote {
+#ussvbwyowa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -582,80 +734,81 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xhxfzpsdwo .gt_left {
+#ussvbwyowa .gt_left {
   text-align: left;
 }
 
-#xhxfzpsdwo .gt_center {
+#ussvbwyowa .gt_center {
   text-align: center;
 }
 
-#xhxfzpsdwo .gt_right {
+#ussvbwyowa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xhxfzpsdwo .gt_font_normal {
+#ussvbwyowa .gt_font_normal {
   font-weight: normal;
 }
 
-#xhxfzpsdwo .gt_font_bold {
+#ussvbwyowa .gt_font_bold {
   font-weight: bold;
 }
 
-#xhxfzpsdwo .gt_font_italic {
+#ussvbwyowa .gt_font_italic {
   font-style: italic;
 }
 
-#xhxfzpsdwo .gt_super {
+#ussvbwyowa .gt_super {
   font-size: 65%;
 }
 
-#xhxfzpsdwo .gt_footnote_marks {
+#ussvbwyowa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xhxfzpsdwo .gt_asterisk {
+#ussvbwyowa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xhxfzpsdwo .gt_indent_1 {
+#ussvbwyowa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xhxfzpsdwo .gt_indent_2 {
+#ussvbwyowa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xhxfzpsdwo .gt_indent_3 {
+#ussvbwyowa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xhxfzpsdwo .gt_indent_4 {
+#ussvbwyowa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xhxfzpsdwo .gt_indent_5 {
+#ussvbwyowa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xhxfzpsdwo .katex-display {
+#ussvbwyowa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xhxfzpsdwo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ussvbwyowa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-<div id="xhxfzpsdwo" class="reactable html-widget" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="xhxfzpsdwo">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"indicator":["Seabirds after avian flu","Harbour and grey seals","Wild Atlantic salmon","Sea temperature","MPA coverage and 30x30"],"scottish_biodiversity_strategy":["Marine and coastal outcomes; Delivery Plan 2024-2030 action on marine biodiversity monitoring aligned with the UK Marine Strategy","Marine and coastal outcomes; species recovery","Freshwater and marine outcomes; species recovery","Context for climate resilience across marine outcomes","Delivery Plan 2024-2030: at least 30% of land and sea protected and effectively managed by 2030 (30 by 30)"],"habitats_regs_or_scottish_law":["Seabird SPAs under the Habitats Regulations; statutory nature restoration targets framework, Natural Environment (Scotland) Act 2026 (Part 1)","Seal SACs (Annex II species); seal conservation and haul-out site protection, Marine (Scotland) Act 2010 Part 6","Salmon SACs (Annex II species); Conservation of Salmon (Scotland) Regulations 2016","Context indicator, not a biodiversity status measure","Nature Conservation MPAs, Marine (Scotland) Act 2010 and Marine and Coastal Access Act 2009; SACs and SPAs under the Habitats Regulations"],"ospar":["B1 Marine bird abundance; B3 Marine bird breeding success/failure","M3 Seal abundance and distribution; M5 Grey seal pup production","On the OSPAR List of Threatened and/or Declining Species (Agreement 2008-6); not an OSPAR common indicator","Context for OSPAR QSR 2023 climate assessment","OSPAR network of MPAs"],"uk_marine_strategy":["D1 Biodiversity (birds); D4 Food webs","D1 Biodiversity (marine mammals)","D1 Biodiversity (fish)","D7 Hydrographical conditions (context)","D1 Biodiversity; D6 Seafloor integrity (via protection)"],"gbf_targets":["Target 4 (species recovery); Target 21 (data and knowledge)","Target 4 (species recovery)","Target 4 (species recovery); Target 5 (sustainable use)","Target 8 (climate change impacts on biodiversity)","Target 3 (30x30)"],"verified":["✓","✓","✓","✓","✓"]},"columns":[{"id":"indicator","name":"Indicator","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":105,"align":"left"},{"id":"scottish_biodiversity_strategy","name":"Scottish Biodiversity Strategy","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"habitats_regs_or_scottish_law","name":"Habitats Regulations and Scottish law","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"ospar","name":"OSPAR","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"uk_marine_strategy","name":"UK Marine Strategy descriptor","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"gbf_targets","name":"Global Biodiversity Framework","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"verified","name":"Status","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":58,"align":"left"}],"searchable":true,"defaultPageSize":10,"showPageSizeOptions":false,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"compact":true,"width":"100%","height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"font-family":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif","fontSize":"80%"},"tableStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3"},"headerStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"groupHeaderStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"cellStyle":{"fontWeight":"normal"}},"elementId":"xhxfzpsdwo","dataKey":"403ef1a3809530fcb060be2944750195"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style"],"jsHooks":[]}</script>
+<div id="ussvbwyowa" class="reactable html-widget" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="ussvbwyowa">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"indicator":["Seabirds after avian flu","Harbour and grey seals","Wild Atlantic salmon","Sea temperature","MPA coverage and 30x30"],"scottish_biodiversity_strategy":["Marine and coastal outcomes; Delivery Plan 2024-2030 action on marine biodiversity monitoring aligned with the UK Marine Strategy","Marine and coastal outcomes; species recovery","Freshwater and marine outcomes; species recovery","Context for climate resilience across marine outcomes","Delivery Plan 2024-2030: at least 30% of land and sea protected and effectively managed by 2030 (30 by 30)"],"habitats_regs_or_scottish_law":["Seabird SPAs under the Habitats Regulations; statutory nature restoration targets framework, Natural Environment (Scotland) Act 2026 (Part 1)","Seal SACs (Annex II species); seal conservation and haul-out site protection, Marine (Scotland) Act 2010 Part 6","Salmon SACs (Annex II species); Conservation of Salmon (Scotland) Regulations 2016","Context indicator, not a biodiversity status measure","Nature Conservation MPAs, Marine (Scotland) Act 2010 and Marine and Coastal Access Act 2009; SACs and SPAs under the Habitats Regulations"],"ospar":["B1 Marine bird abundance; B3 Marine bird breeding success/failure","M3 Seal abundance and distribution; M5 Grey seal pup production","On the OSPAR List of Threatened and/or Declining Species (Agreement 2008-6); not an OSPAR common indicator","Context for OSPAR QSR 2023 climate assessment","OSPAR network of MPAs"],"uk_marine_strategy":["D1 Biodiversity (birds); D4 Food webs","D1 Biodiversity (marine mammals)","D1 Biodiversity (fish)","D7 Hydrographical conditions (context)","D1 Biodiversity; D6 Seafloor integrity (via protection)"],"gbf_targets":["Target 4 (species recovery); Target 21 (data and knowledge)","Target 4 (species recovery)","Target 4 (species recovery); Target 5 (sustainable use)","Target 8 (climate change impacts on biodiversity)","Target 3 (30x30)"],"verified":["✓","✓","✓","✓","✓"]},"columns":[{"id":"indicator","name":"Indicator","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":105,"align":"left"},{"id":"scottish_biodiversity_strategy","name":"Scottish Biodiversity Strategy","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"habitats_regs_or_scottish_law","name":"Habitats Regulations and Scottish law","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"ospar","name":"OSPAR","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"uk_marine_strategy","name":"UK Marine Strategy descriptor","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"gbf_targets","name":"Global Biodiversity Framework","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"verified","name":"Status","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":58,"align":"left"}],"searchable":true,"defaultPageSize":10,"showPageSizeOptions":false,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"compact":true,"width":"100%","height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"font-family":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif","fontSize":"80%"},"tableStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3"},"headerStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"groupHeaderStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"cellStyle":{"fontWeight":"normal"}},"elementId":"ussvbwyowa","dataKey":"403ef1a3809530fcb060be2944750195"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
+</section>
 <section id="frameworks-in-brief" class="level2">
 <h2 class="anchored" data-anchor-id="frameworks-in-brief">Frameworks in brief</h2>
 <ul>
@@ -673,6 +826,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZhbUNvbG91ciA9IG5ldyBNYXAoW1xuICBbXCJTY290dGlzaCBCaW9kaXZlcnNpdHkgU3RyYXRlZ3lcIiwgXCIjMDA3MkIyXCJdLFxuICBbXCJTY290dGlzaCBsYXdcIiwgXCIjMDA5RTczXCJdLFxuICBbXCJIYWJpdGF0cyBSZWd1bGF0aW9uc1wiLCBcIiM1NkI0RTlcIl0sXG4gIFtcIk9TUEFSXCIsIFwiI0U2OUYwMFwiXSxcbiAgW1wiVUsgTWFyaW5lIFN0cmF0ZWd5XCIsIFwiI0NDNzlBN1wiXSxcbiAgW1wiR2xvYmFsIEJpb2RpdmVyc2l0eSBGcmFtZXdvcmtcIiwgXCIjRDU1RTAwXCJdXG5dKVxuXG5mcmFtZXdvcmtOZXR3b3JrID0ge1xuICBjb25zdCBpdGVtcyA9IHRyYW5zcG9zZShmd19pdGVtcyk7XG4gIGNvbnN0IGxpbmtzID0gdHJhbnNwb3NlKGZ3X2xpbmtzKTtcbiAgY29uc3QgaW5kcyA9IFtcIlNlYWJpcmRzXCIsIFwiU2VhbHNcIiwgXCJTYWxtb25cIiwgXCJTZWEgdGVtcGVyYXR1cmVcIiwgXCJNUEFzIGFuZCAzMHgzMFwiXTtcbiAgY29uc3QgZmFtcyA9IFsuLi5mYW1Db2xvdXIua2V5cygpXTtcbiAgY29uc3QgaXRzID0gaXRlbXMuc2xpY2UoKS5zb3J0KChhLCBiKSA9PiBmYW1zLmluZGV4T2YoYS5mYW1pbHkpIC0gZmFtcy5pbmRleE9mKGIuZmFtaWx5KSk7XG4gIGNvbnN0IGZhbU9mID0gbmV3IE1hcChpdGVtcy5tYXAoZCA9PiBbZC5pdGVtLCBkLmZhbWlseV0pKTtcbiAgY29uc3QgYnlJZCA9IG5ldyBNYXAoaXRlbXMubWFwKGQgPT4gW2QuaXRlbSwgZF0pKTtcblxuICBjb25zdCB3aWRlID0gd2lkdGggPj0gOTAwO1xuICBjb25zdCBXID0gd2lkZSA/IE1hdGgucm91bmQod2lkdGggKiAwLjY0KSA6IE1hdGgubWF4KHdpZHRoLCA1MjApLCByb3dIID0gMTcuNSwgdG9wID0gMTA7XG4gIGNvbnN0IEggPSB0b3AgKyBpdHMubGVuZ3RoICogcm93SCArIDEwO1xuICBjb25zdCB4TCA9IE1hdGgubWluKDEzNSwgVyAqIDAuMjUpLCB4UiA9IFcgKiAwLjQyO1xuICBjb25zdCB5SXRlbSA9IG5ldyBNYXAoaXRzLm1hcCgoZCwgaSkgPT4gW2QuaXRlbSwgdG9wICsgaSAqIHJvd0ggKyByb3dIIC8gMl0pKTtcbiAgY29uc3Qgc3BhbiA9IGl0cy5sZW5ndGggKiByb3dIO1xuICBjb25zdCB5SW5kID0gbmV3IE1hcChpbmRzLm1hcCgoZCwgaSkgPT4gW2QsIHRvcCArIHNwYW4gKiAoaSArIDAuNSkgLyBpbmRzLmxlbmd0aF0pKTtcblxuICBjb25zdCBzdmcgPSBkMy5jcmVhdGUoXCJzdmdcIikuYXR0cihcInZpZXdCb3hcIiwgWzAsIDAsIFcsIEhdKS5hdHRyKFwid2lkdGhcIiwgVylcbiAgICAuYXR0cihcInJvbGVcIiwgXCJpbWdcIikuYXR0cihcImFyaWEtbGFiZWxcIiwgXCJOZXR3b3JrIGxpbmtpbmcgZml2ZSBpbmRpY2F0b3JzIHRvIGZyYW1ld29yayBpdGVtc1wiKVxuICAgIC5zdHlsZShcImZvbnRcIiwgXCIxMnB4IHN5c3RlbS11aSwgc2Fucy1zZXJpZlwiKS5zdHlsZShcIm1heC13aWR0aFwiLCBcIjEwMCVcIik7XG5cbiAgY29uc3QgcGF0aCA9IGQgPT4ge1xuICAgIGNvbnN0IHkwID0geUluZC5nZXQoZC5pbmRpY2F0b3IpLCB5MSA9IHlJdGVtLmdldChkLml0ZW0pLCB4MCA9IHhMICsgMTAsIHgxID0geFIgLSA4LCBteCA9ICh4MCArIHgxKSAvIDI7XG4gICAgcmV0dXJuIGBNJHt4MH0sJHt5MH1DJHtteH0sJHt5MH0gJHtteH0sJHt5MX0gJHt4MX0sJHt5MX1gO1xuICB9O1xuICBjb25zdCBsaW5rU2VsID0gc3ZnLmFwcGVuZChcImdcIikuYXR0cihcImZpbGxcIiwgXCJub25lXCIpLnNlbGVjdEFsbChcInBhdGhcIikuZGF0YShsaW5rcykuam9pbihcInBhdGhcIilcbiAgICAuYXR0cihcImRcIiwgcGF0aCkuYXR0cihcInN0cm9rZVwiLCBkID0+IGZhbUNvbG91ci5nZXQoZmFtT2YuZ2V0KGQuaXRlbSkpKVxuICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDEuOCkuYXR0cihcInN0cm9rZS1vcGFjaXR5XCIsIDAuNDUpO1xuXG4gIGNvbnN0IGluZFNlbCA9IHN2Zy5hcHBlbmQoXCJnXCIpLnNlbGVjdEFsbChcImdcIikuZGF0YShpbmRzKS5qb2luKFwiZ1wiKVxuICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIGQgPT4gYHRyYW5zbGF0ZSgke3hMfSwke3lJbmQuZ2V0KGQpfSlgKS5zdHlsZShcImN1cnNvclwiLCBcInBvaW50ZXJcIik7XG4gIGluZFNlbC5hcHBlbmQoXCJjaXJjbGVcIikuYXR0cihcInJcIiwgNikuYXR0cihcImN4XCIsIDYpLmF0dHIoXCJmaWxsXCIsIFwiIzBCM0M1RFwiKTtcbiAgaW5kU2VsLmFwcGVuZChcInRleHRcIikudGV4dChkID0+IGQpLmF0dHIoXCJ4XCIsIC02KS5hdHRyKFwiZHlcIiwgXCIwLjM1ZW1cIikuYXR0cihcInRleHQtYW5jaG9yXCIsIFwiZW5kXCIpXG4gICAgLmF0dHIoXCJmb250LXdlaWdodFwiLCA3MDApLmF0dHIoXCJmaWxsXCIsIFwiIzBCM0M1RFwiKTtcblxuICBjb25zdCBpdGVtU2VsID0gc3ZnLmFwcGVuZChcImdcIikuc2VsZWN0QWxsKFwiZ1wiKS5kYXRhKGl0cykuam9pbihcImdcIilcbiAgICAuYXR0cihcInRyYW5zZm9ybVwiLCBkID0+IGB0cmFuc2xhdGUoJHt4Un0sJHt5SXRlbS5nZXQoZC5pdGVtKX0pYCkuc3R5bGUoXCJjdXJzb3JcIiwgXCJwb2ludGVyXCIpO1xuICBpdGVtU2VsLmFwcGVuZChcImNpcmNsZVwiKS5hdHRyKFwiclwiLCA0LjUpLmF0dHIoXCJmaWxsXCIsIGQgPT4gZmFtQ29sb3VyLmdldChkLmZhbWlseSkpO1xuICBpdGVtU2VsLmFwcGVuZChcInRleHRcIikudGV4dChkID0+IGQubGFiZWwpLmF0dHIoXCJ4XCIsIDExKS5hdHRyKFwiZHlcIiwgXCIwLjM1ZW1cIikuYXR0cihcImZpbGxcIiwgXCIjMjIzMDNDXCIpO1xuXG4gIGNvbnN0IGluZm8gPSBodG1sYDxkaXYgY2xhc3M9XCJmdy1pbmZvXCI+PHN0cm9uZz5DbGljayBhbnkgaW5kaWNhdG9yIG9yIGZyYW1ld29yayBpdGVtLjwvc3Ryb25nPjwvZGl2PmA7XG4gIGxldCBjdXJyZW50ID0gbnVsbDtcblxuICBmdW5jdGlvbiByZXNldCgpIHtcbiAgICBjdXJyZW50ID0gbnVsbDtcbiAgICBsaW5rU2VsLmF0dHIoXCJzdHJva2Utb3BhY2l0eVwiLCAwLjQ1KS5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDEuOCk7XG4gICAgaW5kU2VsLmF0dHIoXCJvcGFjaXR5XCIsIDEpOyBpdGVtU2VsLmF0dHIoXCJvcGFjaXR5XCIsIDEpLnNlbGVjdChcInRleHRcIikuYXR0cihcImZvbnQtd2VpZ2h0XCIsIDQwMCk7XG4gICAgaW5mby5pbm5lckhUTUwgPSBcIjxzdHJvbmc+Q2xpY2sgYW55IGluZGljYXRvciBvciBmcmFtZXdvcmsgaXRlbS48L3N0cm9uZz5cIjtcbiAgfVxuICBmdW5jdGlvbiBzZWxlY3Qoa2luZCwga2V5KSB7XG4gICAgaWYgKGN1cnJlbnQgPT09IGtpbmQgKyBrZXkpIHJldHVybiByZXNldCgpO1xuICAgIGN1cnJlbnQgPSBraW5kICsga2V5O1xuICAgIGNvbnN0IG9uID0gbGlua3MuZmlsdGVyKGwgPT4ga2luZCA9PT0gXCJpbmRcIiA/IGwuaW5kaWNhdG9yID09PSBrZXkgOiBsLml0ZW0gPT09IGtleSk7XG4gICAgY29uc3Qgb25JbmRzID0gbmV3IFNldChvbi5tYXAobCA9PiBsLmluZGljYXRvcikpLCBvbkl0ZW1zID0gbmV3IFNldChvbi5tYXAobCA9PiBsLml0ZW0pKTtcbiAgICBsaW5rU2VsLmF0dHIoXCJzdHJva2Utb3BhY2l0eVwiLCBsID0+IG9uLmluY2x1ZGVzKGwpID8gMC45NSA6IDAuMDYpXG4gICAgICAgICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIGwgPT4gb24uaW5jbHVkZXMobCkgPyAyLjYgOiAxLjQpO1xuICAgIGluZFNlbC5hdHRyKFwib3BhY2l0eVwiLCBkID0+IG9uSW5kcy5oYXMoZCkgPyAxIDogMC4yNSk7XG4gICAgaXRlbVNlbC5hdHRyKFwib3BhY2l0eVwiLCBkID0+IG9uSXRlbXMuaGFzKGQuaXRlbSkgPyAxIDogMC4yNSlcbiAgICAgICAgICAgLnNlbGVjdChcInRleHRcIikuYXR0cihcImZvbnQtd2VpZ2h0XCIsIGQgPT4gb25JdGVtcy5oYXMoZC5pdGVtKSA/IDcwMCA6IDQwMCk7XG4gICAgaWYgKGtpbmQgPT09IFwiaW5kXCIpIHtcbiAgICAgIGNvbnN0IGdyb3VwZWQgPSBmYW1zLm1hcChmID0+IFtmLCBpdHMuZmlsdGVyKGQgPT4gZC5mYW1pbHkgPT09IGYgJiYgb25JdGVtcy5oYXMoZC5pdGVtKSldKS5maWx0ZXIoZyA9PiBnWzFdLmxlbmd0aCk7XG4gICAgICBpbmZvLmlubmVySFRNTCA9IGA8c3Ryb25nPiR7a2V5fTwvc3Ryb25nPiByZXBvcnRzIGFnYWluc3QgJHtvbi5sZW5ndGh9IGZyYW1ld29yayBpdGVtczpgICtcbiAgICAgICAgZ3JvdXBlZC5tYXAoKFtmLCB4c10pID0+IGA8ZGl2IGNsYXNzPVwiZnctcm93XCI+PHNwYW4gY2xhc3M9XCJmdy1kb3RcIiBzdHlsZT1cImJhY2tncm91bmQ6JHtmYW1Db2xvdXIuZ2V0KGYpfVwiPjwvc3Bhbj5gICtcbiAgICAgICAgICBgPGVtPiR7Zn06PC9lbT4gJHt4cy5tYXAoeCA9PiB4LmxhYmVsKS5qb2luKFwiOyBcIil9PC9kaXY+YCkuam9pbihcIlwiKTtcbiAgICB9IGVsc2Uge1xuICAgICAgY29uc3QgaXQgPSBieUlkLmdldChrZXkpO1xuICAgICAgaW5mby5pbm5lckhUTUwgPSBgPGRpdiBjbGFzcz1cImZ3LXJvd1wiPjxzcGFuIGNsYXNzPVwiZnctZG90XCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiR7ZmFtQ29sb3VyLmdldChpdC5mYW1pbHkpfVwiPjwvc3Bhbj5gICtcbiAgICAgICAgYDxlbT4ke2l0LmZhbWlseX08L2VtPjwvZGl2PjxzdHJvbmc+JHtpdC5sYWJlbH08L3N0cm9uZz48cD4ke2l0LmRlc2NyaXB0aW9ufTwvcD5gICtcbiAgICAgICAgYDxwPjxiPkluZm9ybWVkIGJ5OjwvYj4gJHtbLi4ub25JbmRzXS5qb2luKFwiLCBcIil9PC9wPmA7XG4gICAgfVxuICB9XG4gIGluZFNlbC5vbihcImNsaWNrXCIsIChlLCBkKSA9PiBzZWxlY3QoXCJpbmRcIiwgZCkpO1xuICBpdGVtU2VsLm9uKFwiY2xpY2tcIiwgKGUsIGQpID0+IHNlbGVjdChcIml0ZW1cIiwgZC5pdGVtKSk7XG5cbiAgY29uc3QgbGVnZW5kID0gaHRtbGA8ZGl2IGNsYXNzPVwibWFwLWtleVwiPiR7ZmFtcy5tYXAoZiA9PiBodG1sYDxzcGFuIGNsYXNzPVwia2V5XCI+XG4gICAgPHNwYW4gY2xhc3M9XCJzd2F0Y2hcIiBzdHlsZT1cImJhY2tncm91bmQ6JHtmYW1Db2xvdXIuZ2V0KGYpfVwiPjwvc3Bhbj4ke2Z9PC9zcGFuPmApfTwvZGl2PmA7XG4gIHJldHVybiBodG1sYDxkaXYgY2xhc3M9XCJmdy1uZXR3b3JrXCI+JHtsZWdlbmR9PGRpdiBjbGFzcz1cImZ3LWJvZHkgJHt3aWRlID8gXCJmdy13aWRlXCIgOiBcIlwifVwiPlxuICAgIDxkaXYgY2xhc3M9XCJmdy1jaGFydFwiPiR7c3ZnLm5vZGUoKX08L2Rpdj4ke2luZm99PC9kaXY+PC9kaXY+YDtcbn1cbiJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

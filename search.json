@@ -126,181 +126,6 @@
     "text": "Data sources and licences\n\nTremlett, C.J., Morley, N. and Wilson, L.J. (2024). UK seabird colony counts in 2023 following the 2021-22 outbreak of Highly Pathogenic Avian Influenza. RSPB Research Report 76. RSPB Centre for Conservation Science. Figures transcribed from Tables 6, 9, 18, 22, 25, 28, and 37 and Section 5, and used here with full citation for non-commercial analysis.\nSpecial Protection Area boundaries: NatureScot. Open Government Licence v3.0.\nBackground: Seabirds Count (2015 to 2021), JNCC. Open Government Licence v3.0."
   },
   {
-    "objectID": "indicators/salmon.html",
-    "href": "indicators/salmon.html",
-    "title": "Wild Atlantic salmon",
-    "section": "",
-    "text": "Status✕ Clear concern\n       Trend↘ Declining\n       Confidence●●○ Medium\n       Period2021-2026"
-  },
-  {
-    "objectID": "indicators/salmon.html#what-this-measures",
-    "href": "indicators/salmon.html#what-this-measures",
-    "title": "Wild Atlantic salmon",
-    "section": "What this measures",
-    "text": "What this measures\nEach year the Scottish Government assesses the conservation status of 173 wild Atlantic salmon stocks: single rivers, or groups of rivers where catches cannot be separated. A stock’s status is the probability that it will meet its conservation limit (the number of spawning adults needed for a healthy population) over five years:\n\nGood: at least an 80% probability. No extra management needed.\nModerate: a 60 to 80% probability. Catch-and-release strongly encouraged.\nPoor: under a 60% probability. Mandatory catch-and-release for the season.\n\nThe grading for each season is based on the previous assessment, so the “2026” grading reflects the most recent data."
-  },
-  {
-    "objectID": "indicators/salmon.html#why-it-matters",
-    "href": "indicators/salmon.html#why-it-matters",
-    "title": "Wild Atlantic salmon",
-    "section": "Why it matters",
-    "text": "Why it matters\nAtlantic salmon is a protected species under the Habitats Regulations, with 17 Special Areas of Conservation designated for it in Scotland. It moves between rivers and the open ocean, so its status reflects conditions in both freshwater and the sea. This indicator reports status only. It does not try to attribute change to any one pressure."
-  },
-  {
-    "objectID": "indicators/salmon.html#trend-and-status",
-    "href": "indicators/salmon.html#trend-and-status",
-    "title": "Wild Atlantic salmon",
-    "section": "Trend and status",
-    "text": "Trend and status\n115 of 173 stocks (66%) were in poor conservation status for the 2026 season, up from 102 (59%) in 2021.\n\n\n\n\n\n\n\n\n\n\nWhere did stocks move?"
-  },
-  {
-    "objectID": "indicators/salmon.html#map",
-    "href": "indicators/salmon.html#map",
-    "title": "Wild Atlantic salmon",
-    "section": "Map",
-    "text": "Map\nEach point is a river mouth (the official outflow point), coloured by its 2026 status. Click a point to see its grading history. Use the layer control to show one status at a time.\n\n\n\n\n\n2026 status:\n\n\nGood\n\n\n\nModerate\n\n\n\nPoor"
-  },
-  {
-    "objectID": "indicators/salmon.html#confidence",
-    "href": "indicators/salmon.html#confidence",
-    "title": "Wild Atlantic salmon",
-    "section": "Confidence",
-    "text": "Confidence\nHigh that the gradings are reported accurately, since they are the official assessments. Medium for reading a trend from them:\n\nSix seasons is a short window.\nEach grading already averages over five years, so successive seasons are not independent.\nStocks near a threshold can change category with small changes in the underlying probability."
-  },
-  {
-    "objectID": "indicators/salmon.html#limitations",
-    "href": "indicators/salmon.html#limitations",
-    "title": "Wild Atlantic salmon",
-    "section": "Limitations",
-    "text": "Limitations\n\nStatus is categorical. It hides how close a stock is to a boundary.\nAssessments rely mainly on rod catch data (plus counters where available), which is affected by fishing effort and river conditions, not only by fish numbers.\n8 fishery districts have no individual river data and are graded poor by default.\nSome rivers take the lower grade of an overlapping SAC, so their grading may not reflect their own assessment.\nStock boundaries are not openly available, so the map shows river mouths rather than catchments.\nNational counts are the official published figures. River-level data, the transitions grid, and the map are my reconstruction from the published tables. That reconstruction gives 173 stocks and matches the official Good, Moderate, and Poor counts exactly for every season from 2021 to 2026. The check caught two quirks in the source tables: one stock (North Harris SAC) spans two fishery districts, and one row used a different dash in a grouped river name."
-  },
-  {
-    "objectID": "indicators/salmon.html#data-sources-and-licences",
-    "href": "indicators/salmon.html#data-sources-and-licences",
-    "title": "Wild Atlantic salmon",
-    "section": "Data sources and licences",
-    "text": "Data sources and licences\n\nScottish Government. Salmon fishing: proposed river gradings for 2026 season (consultation, 2025), including gradings for 2021 to 2025.\nScottish Government. Salmon fishing: final river gradings for the 2026 season.\nScottish Government. Conservation of wild salmon (policy page): conservation status definitions.\nContains public sector information licensed under the Open Government Licence v3.0."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Report card",
-    "section": "",
-    "text": "An independent, reproducible indicator report card built from open data. Five indicators, one featured deep dive on seabirds after avian influenza, and a framework map linking each indicator to the targets and conventions it reports against."
-  },
-  {
-    "objectID": "index.html#at-a-glance",
-    "href": "index.html#at-a-glance",
-    "title": "Report card",
-    "section": "At a glance",
-    "text": "At a glance\n\n\n\n\n       Featured deep dive\n       Seabirds after avian flu\n       ✕Clear concern\n       ↘ Declining\n       After the 2021-22 HPAI outbreak, Great Skua territories at nine Scottish SPAs fell by 77% and Gannet nests at six SPAs by 22%.\n       2014-2023\n         Confidence ●●○\n     \n\n       Marine mammals\n       Harbour and grey seals\n       ✕Clear concern\n       ↘ Declining\n       19,978 harbour seals counted in 2021-25: the lowest since the first census and 26% below 2016-19. Counts fell in all seven units.\n       1996-2025\n         Confidence ●●●\n     \n\n       Fish\n       Wild Atlantic salmon\n       ✕Clear concern\n       ↘ Declining\n       115 of 173 assessed stocks (66%) are in poor conservation status for 2026, up from 102 in 2021.\n       2021-2026\n         Confidence ●●○\n     \n\n       Climate and ocean\n       Sea temperature\n       iContext indicator\n       → No clear change\n       No clear trend at Stonehaven or Loch Ewe over about 20 years, against a background of longer-term warming in Scottish waters.\n       1997-2020\n         Confidence ●●○\n     \n\n       Protected areas\n       MPA coverage and 30x30\n       ✓Generally positive\n       ↗ Improving\n       36.9% of Scottish seas is designated, above the 30% area threshold. Whether sites are effectively managed is the open question.\n       2018-2025\n         Confidence ●●○\n     \n\n\n\n\n\n\n✓Generally positive\n◐Mixed or some concern\n✕Clear concern\niContext indicator\n?Not yet assessed\n\n\n\nConfidence (●●● high, ●●○ medium, ●○○ low) reflects how far the data can support the status call: coverage, survey frequency, and known gaps. Each tile links to the full indicator page, with methods and limitations."
-  },
-  {
-    "objectID": "index.html#how-to-read-this-report-card",
-    "href": "index.html#how-to-read-this-report-card",
-    "title": "Report card",
-    "section": "How to read this report card",
-    "text": "How to read this report card\n\nStatus summarises recent condition in plain language. It is my independent judgement from the published data, not an official assessment.\nTrend describes direction of change over the period shown. Sea temperature is a context indicator, so it has no “good” or “bad” direction.\nConfidence is reported separately so a clear trend in patchy data is not mistaken for a certain one.\n\n\n\n\n\n\n\nThis is an independent personal project. It is not affiliated with or endorsed by NatureScot, the Scottish Government Marine Directorate, JNCC, RSPB, BTO, or SMRU. For official assessments see Scotland’s Marine Assessment 2020."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I’m Emma Branch, an epidemiologist and health data analyst (PhD candidate, Population and Public Health, UBC) with about ten years’ experience working with linked population data, R, and GIS.\nI built this report card to learn about Scotland’s marine environment and its assessment frameworks, and to show how indicator reporting, spatial analysis, and honest communication of uncertainty transfer from population health to marine biodiversity. I am new to Scottish marine ecology, so I have aimed to describe what the data show without overclaiming."
-  },
-  {
-    "objectID": "about.html#independence",
-    "href": "about.html#independence",
-    "title": "About",
-    "section": "Independence",
-    "text": "Independence\nThis is an independent personal project. It is not affiliated with, commissioned by, or endorsed by NatureScot, the Scottish Government Marine Directorate, JNCC, RSPB, BTO, SMRU, or any other organisation whose data it uses. All interpretations and any errors are my own."
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About",
-    "section": "Contact",
-    "text": "Contact\n\nGitHub: emmabranch"
-  },
-  {
-    "objectID": "framework.html",
-    "href": "framework.html",
-    "title": "Framework map",
-    "section": "",
-    "text": "This table is the spine of the project. Each indicator is mapped to the reporting framework it would feed into. Links are my reading of the published documents and are marked as checked once I have confirmed them against the source text."
-  },
-  {
-    "objectID": "framework.html#frameworks-in-brief",
-    "href": "framework.html#frameworks-in-brief",
-    "title": "Framework map",
-    "section": "Frameworks in brief",
-    "text": "Frameworks in brief\n\nScottish Biodiversity Strategy to 2045: Scotland’s overarching biodiversity strategy (final version November 2024), with the first Delivery Plan covering 2024 to 2030. The Delivery Plan includes the “30 by 30” commitment and an action to develop marine biodiversity monitoring aligned with the UK Marine Strategy.\nNatural Environment (Scotland) Act 2026: Part 1 creates a legally binding framework for statutory nature restoration targets, with monitoring and reporting duties. Royal Assent 12 March 2026.\nMarine (Scotland) Act 2010: marine planning, Nature Conservation MPAs, and seal conservation in Scottish territorial waters.\nHabitats Regulations: protection of SACs and SPAs (the UK site network, formerly part of Natura 2000).\nUK Marine Strategy: Good Environmental Status assessed against 11 descriptors.\nOSPAR: the North-East Atlantic regional convention. Common indicators include B1 (marine bird abundance), B3 (breeding success), M3 (seal abundance and distribution), and M5 (grey seal pup production). Latest assessment: Quality Status Report 2023.\nKunming-Montreal Global Biodiversity Framework: 23 targets for 2030, including Target 3 (30x30).\n\nAll rows were confirmed against the source documents (November 2026)."
-  },
-  {
-    "objectID": "indicators/mpas.html",
-    "href": "indicators/mpas.html",
-    "title": "MPA coverage and 30x30",
-    "section": "",
-    "text": "Status✓ Generally positive\n       Trend↗ Improving\n       Confidence●●○ Medium\n       Period2018-2025"
-  },
-  {
-    "objectID": "indicators/mpas.html#what-this-measures",
-    "href": "indicators/mpas.html#what-this-measures",
-    "title": "MPA coverage and 30x30",
-    "section": "What this measures",
-    "text": "What this measures\nThe share of Scotland’s seas that lies inside at least one designated Marine Protected Area (MPA). This includes Nature Conservation MPAs, Special Areas of Conservation (SACs), and Special Protection Areas (SPAs), inshore and offshore. Where sites overlap, the area is counted once."
-  },
-  {
-    "objectID": "indicators/mpas.html#why-it-matters",
-    "href": "indicators/mpas.html#why-it-matters",
-    "title": "MPA coverage and 30x30",
-    "section": "Why it matters",
-    "text": "Why it matters\nTarget 3 of the Kunming-Montreal Global Biodiversity Framework asks countries to make sure that at least 30% of coastal and marine areas are effectively conserved and managed by 2030 (“30x30”). The word effectively matters. Designation is the first step. The target is about protection that works in practice, through management measures, monitoring, and enforcement."
-  },
-  {
-    "objectID": "indicators/mpas.html#trend-and-status",
-    "href": "indicators/mpas.html#trend-and-status",
-    "title": "MPA coverage and 30x30",
-    "section": "Trend and status",
-    "text": "Trend and status\n36.9% of Scottish seas (229,228 km² of 621,789 km²) is inside a designated MPA by my calculation. The published figure is about 37%. Either way, this is above the 30% area threshold.\n\n\n\n\n\n\n\n\n\nThe national figure hides a lot of variation between regions, so read the chart alongside the map.\nChange over time. Scotland’s Marine Assessment 2020 reports that the network covered about 22% of Scotland’s seas in 2018, rising to 37% after new designations in 2020. I have not rebuilt that time series from boundaries, so the trend arrow rests on the published figures.\nChecks. My figure (229,228 km², 36.9%) is within 0.5% of the published 228,121 km² (36.9%). Counting all SACs and SPAs, rather than only those flagged as part of the MPA network, changed the total by less than 50 km², so the result is not sensitive to that choice.\n\nBy designation type\n\n\n\n\n\n\n\n\nDesignation\nSites\nArea (km²)\n% of Scottish seas\n\n\n\n\nOffshore MPA (JNCC, all types)\n35\n195,965\n31.5%\n\n\nNature Conservation MPA\n36\n175,663\n28.3%\n\n\nSpecial Area of Conservation\n58\n48,535\n7.8%\n\n\nSpecial Protection Area\n58\n18,322\n2.9%\n\n\n\nTypes overlap, so these rows add up to more than the combined total."
-  },
-  {
-    "objectID": "indicators/mpas.html#map",
-    "href": "indicators/mpas.html#map",
-    "title": "MPA coverage and 30x30",
-    "section": "Map",
-    "text": "Map\n\n\n\n\n\nDesignation:\n\n\nOffshore MPA (JNCC)\n\n\n\nNature Conservation MPA\n\n\n\nSAC\n\n\n\nSPA\n\n\nSAC: Special Area of Conservation. SPA: Special Protection Area. Use the layers icon (top right) to switch designations on and off. Dashed lines are the marine regions."
-  },
-  {
-    "objectID": "indicators/mpas.html#designated-is-not-the-same-as-effectively-managed",
-    "href": "indicators/mpas.html#designated-is-not-the-same-as-effectively-managed",
-    "title": "MPA coverage and 30x30",
-    "section": "Designated is not the same as effectively managed",
-    "text": "Designated is not the same as effectively managed\n\nDesignation sets out what a site protects and why.\nManagement measures (for example, fisheries restrictions) decide whether activities that could damage protected features are actually controlled. Measures for some inshore MPAs and Priority Marine Features have been the subject of recent Scottish Government consultation.\nCondition monitoring shows whether protected features are improving, stable, or declining.\n\nSo this indicator answers “how much is designated?” but not “how much is protected well enough to make a difference?”. An honest GBF Target 3 assessment needs all three layers."
-  },
-  {
-    "objectID": "indicators/mpas.html#confidence",
-    "href": "indicators/mpas.html#confidence",
-    "title": "MPA coverage and 30x30",
-    "section": "Confidence",
-    "text": "Confidence\nMedium overall. High for the area calculation. The boundaries are official, and my figure can be checked against the published total. Low for what it says about protection in practice, for the reasons above."
-  },
-  {
-    "objectID": "indicators/mpas.html#limitations",
-    "href": "indicators/mpas.html#limitations",
-    "title": "MPA coverage and 30x30",
-    "section": "Limitations",
-    "text": "Limitations\n\nArea only: says nothing about how well sites represent habitats, how they connect, or what condition they are in.\nMy total depends on which site types and which sea boundary are included, so it may differ slightly from official figures.\nHistoric MPAs, the Demonstration and Research MPA, and other area-based measures (OECMs) are not included.\nBoundaries are simplified for the web map. Areas are calculated on the full-resolution boundaries."
-  },
-  {
-    "objectID": "indicators/mpas.html#data-sources-and-licences",
-    "href": "indicators/mpas.html#data-sources-and-licences",
-    "title": "MPA coverage and 30x30",
-    "section": "Data sources and licences",
-    "text": "Data sources and licences\n\nNature Conservation MPAs, Special Areas of Conservation, Special Protection Areas: NatureScot, via spatialdata.gov.scot. Open Government Licence v3.0.\nUK Offshore Marine Protected Areas (version 20251203): JNCC. Open Government Licence v3.0. Contains Joint Nature Conservation Committee data © copyright and database right. Contains NatureScot data © copyright and database right.\nScottish Assessment areas (Scottish Marine Regions and Offshore Marine Regions): Scottish Government Marine Directorate. Contains information from the Scottish Government (Marine Scotland) licensed under the Open Government Licence v3.0.\nComparison figure: Scottish Government (2024), Marine Protected Area network: 2024 report to the Scottish Parliament."
-  },
-  {
     "objectID": "indicators/sea-temperature.html",
     "href": "indicators/sea-temperature.html",
     "title": "Sea temperature",
@@ -369,6 +194,202 @@
     "title": "Sea temperature",
     "section": "Data sources and licences",
     "text": "Data sources and licences\n\nMarine Scotland Science (2018). Scottish Coastal Observatory: Stonehaven site data. doi:10.7489/610-1. Environmental data CSV, 1997 to 2020.\nMarine Scotland Science (2018). Scottish Coastal Observatory: Loch Ewe site data. doi:10.7489/948-1. Environmental data CSV, 1999 to 2020.\nData filtered to near-surface temperature, excluding QF 3, 4, and 9.\nContains public sector information licensed under the Open Government Licence v3.0.\nContext: Scotland’s Marine Assessment 2020, Sea temperature (Marine Directorate).\nBackground: Hindson et al. (2021). The Scottish Coastal Observatory Dataset: 1997 to 2020. Scottish Marine and Freshwater Science Vol 12 No 14."
+  },
+  {
+    "objectID": "indicators/mpas.html",
+    "href": "indicators/mpas.html",
+    "title": "MPA coverage and 30x30",
+    "section": "",
+    "text": "Status✓ Generally positive\n       Trend↗ Improving\n       Confidence●●○ Medium\n       Period2018-2025"
+  },
+  {
+    "objectID": "indicators/mpas.html#what-this-measures",
+    "href": "indicators/mpas.html#what-this-measures",
+    "title": "MPA coverage and 30x30",
+    "section": "What this measures",
+    "text": "What this measures\nThe share of Scotland’s seas that lies inside at least one designated Marine Protected Area (MPA). This includes Nature Conservation MPAs, Special Areas of Conservation (SACs), and Special Protection Areas (SPAs), inshore and offshore. Where sites overlap, the area is counted once."
+  },
+  {
+    "objectID": "indicators/mpas.html#why-it-matters",
+    "href": "indicators/mpas.html#why-it-matters",
+    "title": "MPA coverage and 30x30",
+    "section": "Why it matters",
+    "text": "Why it matters\nTarget 3 of the Kunming-Montreal Global Biodiversity Framework asks countries to make sure that at least 30% of coastal and marine areas are effectively conserved and managed by 2030 (“30x30”). The word effectively matters. Designation is the first step. The target is about protection that works in practice, through management measures, monitoring, and enforcement."
+  },
+  {
+    "objectID": "indicators/mpas.html#trend-and-status",
+    "href": "indicators/mpas.html#trend-and-status",
+    "title": "MPA coverage and 30x30",
+    "section": "Trend and status",
+    "text": "Trend and status\n36.9% of Scottish seas (229,228 km² of 621,789 km²) is inside a designated MPA by my calculation. The published figure is about 37%. Either way, this is above the 30% area threshold.\n\n\n\n\n\n\n\n\n\nThe national figure hides a lot of variation between regions, so read the chart alongside the map.\nChange over time. Scotland’s Marine Assessment 2020 reports that the network covered about 22% of Scotland’s seas in 2018, rising to 37% after new designations in 2020. I have not rebuilt that time series from boundaries, so the trend arrow rests on the published figures.\nChecks. My figure (229,228 km², 36.9%) is within 0.5% of the published 228,121 km² (36.9%). Counting all SACs and SPAs, rather than only those flagged as part of the MPA network, changed the total by less than 50 km², so the result is not sensitive to that choice.\n\nBy designation type\n\n\n\n\n\n\n\n\nDesignation\nSites\nArea (km²)\n% of Scottish seas\n\n\n\n\nOffshore MPA (JNCC, all types)\n35\n195,965\n31.5%\n\n\nNature Conservation MPA\n36\n175,663\n28.3%\n\n\nSpecial Area of Conservation\n58\n48,535\n7.8%\n\n\nSpecial Protection Area\n58\n18,322\n2.9%\n\n\n\nTypes overlap, so these rows add up to more than the combined total.\n\n\n\n\n\n\n\n\n\n\nWhat if? Build your own 30x30 total\nDesignations overlap a lot: many SPAs and SACs sit inside Nature Conservation MPAs. Tick and untick each type to see how much each one actually adds once overlaps are removed.\n\nmpaTypes = [\"Nature Conservation MPA\", \"Offshore MPA (JNCC, all types)\",\n            \"Special Area of Conservation\", \"Special Protection Area\"]\nviewof chosen = Inputs.checkbox(mpaTypes, {value: mpaTypes, label: \"Count these designations:\"})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nwhatIf = {\n  const rows = transpose(combos);\n  const byKey = new Map(rows.map(d =&gt; [d.types, d]));\n  const keyOf = arr =&gt; arr.slice().sort().join(\"|\");\n  const pctOf = arr =&gt; arr.length ? byKey.get(keyOf(arr)).pct : 0;\n  const total = pctOf(chosen);\n  const unique = chosen.map(t =&gt; ({type: t, add: total - pctOf(chosen.filter(x =&gt; x !== t))}))\n                       .sort((a, b) =&gt; b.add - a.add);\n  const meets = total &gt;= 30;\n  return html`&lt;div class=\"whatif\"&gt;\n    &lt;div class=\"whatif-head\"&gt;\n      &lt;span class=\"whatif-number\"&gt;${total.toFixed(1)}%&lt;/span&gt;\n      &lt;span class=\"whatif-label\"&gt;of Scottish seas inside at least one selected designation\n        ${meets ? html`&lt;strong class=\"whatif-ok\"&gt;✓ above 30%&lt;/strong&gt;`\n                : html`&lt;strong class=\"whatif-no\"&gt;below 30%&lt;/strong&gt;`}&lt;/span&gt;\n    &lt;/div&gt;\n    &lt;div class=\"whatif-bar\" role=\"img\" aria-label=\"${total.toFixed(1)} percent of Scottish seas, against a 30 percent line\"&gt;\n      &lt;div class=\"whatif-fill\" style=\"width:${Math.min(total, 100) * 2}%\"&gt;&lt;/div&gt;\n      &lt;div class=\"whatif-line\" style=\"left:60%\"&gt;&lt;span&gt;30%&lt;/span&gt;&lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class=\"whatif-scale\"&gt;&lt;span&gt;0%&lt;/span&gt;&lt;span&gt;50%&lt;/span&gt;&lt;/div&gt;\n    ${chosen.length ? html`&lt;p class=\"whatif-sub\"&gt;What each selected type adds that no other selected type already covers:&lt;/p&gt;\n    &lt;ul class=\"whatif-list\"&gt;${unique.map(u =&gt; html`&lt;li&gt;&lt;span&gt;${u.type}&lt;/span&gt;&lt;b&gt;+${u.add.toFixed(1)} points&lt;/b&gt;&lt;/li&gt;`)}&lt;/ul&gt;`\n    : html`&lt;p class=\"whatif-sub\"&gt;Tick at least one designation.&lt;/p&gt;`}\n  &lt;/div&gt;`;\n}"
+  },
+  {
+    "objectID": "indicators/mpas.html#map",
+    "href": "indicators/mpas.html#map",
+    "title": "MPA coverage and 30x30",
+    "section": "Map",
+    "text": "Map\n\n\n\n\n\nDesignation:\n\n\nOffshore MPA (JNCC)\n\n\n\nNature Conservation MPA\n\n\n\nSAC\n\n\n\nSPA\n\n\nSAC: Special Area of Conservation. SPA: Special Protection Area. Use the layers icon (top right) to switch designations on and off. Dashed lines are the marine regions."
+  },
+  {
+    "objectID": "indicators/mpas.html#designated-is-not-the-same-as-effectively-managed",
+    "href": "indicators/mpas.html#designated-is-not-the-same-as-effectively-managed",
+    "title": "MPA coverage and 30x30",
+    "section": "Designated is not the same as effectively managed",
+    "text": "Designated is not the same as effectively managed\n\nDesignation sets out what a site protects and why.\nManagement measures (for example, fisheries restrictions) decide whether activities that could damage protected features are actually controlled. Measures for some inshore MPAs and Priority Marine Features have been the subject of recent Scottish Government consultation.\nCondition monitoring shows whether protected features are improving, stable, or declining.\n\nSo this indicator answers “how much is designated?” but not “how much is protected well enough to make a difference?”. An honest GBF Target 3 assessment needs all three layers."
+  },
+  {
+    "objectID": "indicators/mpas.html#confidence",
+    "href": "indicators/mpas.html#confidence",
+    "title": "MPA coverage and 30x30",
+    "section": "Confidence",
+    "text": "Confidence\nMedium overall. High for the area calculation. The boundaries are official, and my figure can be checked against the published total. Low for what it says about protection in practice, for the reasons above."
+  },
+  {
+    "objectID": "indicators/mpas.html#limitations",
+    "href": "indicators/mpas.html#limitations",
+    "title": "MPA coverage and 30x30",
+    "section": "Limitations",
+    "text": "Limitations\n\nArea only: says nothing about how well sites represent habitats, how they connect, or what condition they are in.\nMy total depends on which site types and which sea boundary are included, so it may differ slightly from official figures.\nHistoric MPAs, the Demonstration and Research MPA, and other area-based measures (OECMs) are not included.\nBoundaries are simplified for the web map. Areas are calculated on the full-resolution boundaries."
+  },
+  {
+    "objectID": "indicators/mpas.html#data-sources-and-licences",
+    "href": "indicators/mpas.html#data-sources-and-licences",
+    "title": "MPA coverage and 30x30",
+    "section": "Data sources and licences",
+    "text": "Data sources and licences\n\nNature Conservation MPAs, Special Areas of Conservation, Special Protection Areas: NatureScot, via spatialdata.gov.scot. Open Government Licence v3.0.\nUK Offshore Marine Protected Areas (version 20251203): JNCC. Open Government Licence v3.0. Contains Joint Nature Conservation Committee data © copyright and database right. Contains NatureScot data © copyright and database right.\nScottish Assessment areas (Scottish Marine Regions and Offshore Marine Regions): Scottish Government Marine Directorate. Contains information from the Scottish Government (Marine Scotland) licensed under the Open Government Licence v3.0.\nComparison figure: Scottish Government (2024), Marine Protected Area network: 2024 report to the Scottish Parliament."
+  },
+  {
+    "objectID": "framework.html",
+    "href": "framework.html",
+    "title": "Framework map",
+    "section": "",
+    "text": "Each indicator on this site could feed into several assessment and reporting requirements at once. Click an indicator to see everything it reports against, or click a framework item to see which indicators inform it. Click the same item again to reset.\nfamColour = new Map([\n  [\"Scottish Biodiversity Strategy\", \"#0072B2\"],\n  [\"Scottish law\", \"#009E73\"],\n  [\"Habitats Regulations\", \"#56B4E9\"],\n  [\"OSPAR\", \"#E69F00\"],\n  [\"UK Marine Strategy\", \"#CC79A7\"],\n  [\"Global Biodiversity Framework\", \"#D55E00\"]\n])\n\nframeworkNetwork = {\n  const items = transpose(fw_items);\n  const links = transpose(fw_links);\n  const inds = [\"Seabirds\", \"Seals\", \"Salmon\", \"Sea temperature\", \"MPAs and 30x30\"];\n  const fams = [...famColour.keys()];\n  const its = items.slice().sort((a, b) =&gt; fams.indexOf(a.family) - fams.indexOf(b.family));\n  const famOf = new Map(items.map(d =&gt; [d.item, d.family]));\n  const byId = new Map(items.map(d =&gt; [d.item, d]));\n\n  const wide = width &gt;= 900;\n  const W = wide ? Math.round(width * 0.64) : Math.max(width, 520), rowH = 17.5, top = 10;\n  const H = top + its.length * rowH + 10;\n  const xL = Math.min(135, W * 0.25), xR = W * 0.42;\n  const yItem = new Map(its.map((d, i) =&gt; [d.item, top + i * rowH + rowH / 2]));\n  const span = its.length * rowH;\n  const yInd = new Map(inds.map((d, i) =&gt; [d, top + span * (i + 0.5) / inds.length]));\n\n  const svg = d3.create(\"svg\").attr(\"viewBox\", [0, 0, W, H]).attr(\"width\", W)\n    .attr(\"role\", \"img\").attr(\"aria-label\", \"Network linking five indicators to framework items\")\n    .style(\"font\", \"12px system-ui, sans-serif\").style(\"max-width\", \"100%\");\n\n  const path = d =&gt; {\n    const y0 = yInd.get(d.indicator), y1 = yItem.get(d.item), x0 = xL + 10, x1 = xR - 8, mx = (x0 + x1) / 2;\n    return `M${x0},${y0}C${mx},${y0} ${mx},${y1} ${x1},${y1}`;\n  };\n  const linkSel = svg.append(\"g\").attr(\"fill\", \"none\").selectAll(\"path\").data(links).join(\"path\")\n    .attr(\"d\", path).attr(\"stroke\", d =&gt; famColour.get(famOf.get(d.item)))\n    .attr(\"stroke-width\", 1.8).attr(\"stroke-opacity\", 0.45);\n\n  const indSel = svg.append(\"g\").selectAll(\"g\").data(inds).join(\"g\")\n    .attr(\"transform\", d =&gt; `translate(${xL},${yInd.get(d)})`).style(\"cursor\", \"pointer\");\n  indSel.append(\"circle\").attr(\"r\", 6).attr(\"cx\", 6).attr(\"fill\", \"#0B3C5D\");\n  indSel.append(\"text\").text(d =&gt; d).attr(\"x\", -6).attr(\"dy\", \"0.35em\").attr(\"text-anchor\", \"end\")\n    .attr(\"font-weight\", 700).attr(\"fill\", \"#0B3C5D\");\n\n  const itemSel = svg.append(\"g\").selectAll(\"g\").data(its).join(\"g\")\n    .attr(\"transform\", d =&gt; `translate(${xR},${yItem.get(d.item)})`).style(\"cursor\", \"pointer\");\n  itemSel.append(\"circle\").attr(\"r\", 4.5).attr(\"fill\", d =&gt; famColour.get(d.family));\n  itemSel.append(\"text\").text(d =&gt; d.label).attr(\"x\", 11).attr(\"dy\", \"0.35em\").attr(\"fill\", \"#22303C\");\n\n  const info = html`&lt;div class=\"fw-info\"&gt;&lt;strong&gt;Click any indicator or framework item.&lt;/strong&gt;&lt;/div&gt;`;\n  let current = null;\n\n  function reset() {\n    current = null;\n    linkSel.attr(\"stroke-opacity\", 0.45).attr(\"stroke-width\", 1.8);\n    indSel.attr(\"opacity\", 1); itemSel.attr(\"opacity\", 1).select(\"text\").attr(\"font-weight\", 400);\n    info.innerHTML = \"&lt;strong&gt;Click any indicator or framework item.&lt;/strong&gt;\";\n  }\n  function select(kind, key) {\n    if (current === kind + key) return reset();\n    current = kind + key;\n    const on = links.filter(l =&gt; kind === \"ind\" ? l.indicator === key : l.item === key);\n    const onInds = new Set(on.map(l =&gt; l.indicator)), onItems = new Set(on.map(l =&gt; l.item));\n    linkSel.attr(\"stroke-opacity\", l =&gt; on.includes(l) ? 0.95 : 0.06)\n           .attr(\"stroke-width\", l =&gt; on.includes(l) ? 2.6 : 1.4);\n    indSel.attr(\"opacity\", d =&gt; onInds.has(d) ? 1 : 0.25);\n    itemSel.attr(\"opacity\", d =&gt; onItems.has(d.item) ? 1 : 0.25)\n           .select(\"text\").attr(\"font-weight\", d =&gt; onItems.has(d.item) ? 700 : 400);\n    if (kind === \"ind\") {\n      const grouped = fams.map(f =&gt; [f, its.filter(d =&gt; d.family === f && onItems.has(d.item))]).filter(g =&gt; g[1].length);\n      info.innerHTML = `&lt;strong&gt;${key}&lt;/strong&gt; reports against ${on.length} framework items:` +\n        grouped.map(([f, xs]) =&gt; `&lt;div class=\"fw-row\"&gt;&lt;span class=\"fw-dot\" style=\"background:${famColour.get(f)}\"&gt;&lt;/span&gt;` +\n          `&lt;em&gt;${f}:&lt;/em&gt; ${xs.map(x =&gt; x.label).join(\"; \")}&lt;/div&gt;`).join(\"\");\n    } else {\n      const it = byId.get(key);\n      info.innerHTML = `&lt;div class=\"fw-row\"&gt;&lt;span class=\"fw-dot\" style=\"background:${famColour.get(it.family)}\"&gt;&lt;/span&gt;` +\n        `&lt;em&gt;${it.family}&lt;/em&gt;&lt;/div&gt;&lt;strong&gt;${it.label}&lt;/strong&gt;&lt;p&gt;${it.description}&lt;/p&gt;` +\n        `&lt;p&gt;&lt;b&gt;Informed by:&lt;/b&gt; ${[...onInds].join(\", \")}&lt;/p&gt;`;\n    }\n  }\n  indSel.on(\"click\", (e, d) =&gt; select(\"ind\", d));\n  itemSel.on(\"click\", (e, d) =&gt; select(\"item\", d.item));\n\n  const legend = html`&lt;div class=\"map-key\"&gt;${fams.map(f =&gt; html`&lt;span class=\"key\"&gt;\n    &lt;span class=\"swatch\" style=\"background:${famColour.get(f)}\"&gt;&lt;/span&gt;${f}&lt;/span&gt;`)}&lt;/div&gt;`;\n  return html`&lt;div class=\"fw-network\"&gt;${legend}&lt;div class=\"fw-body ${wide ? \"fw-wide\" : \"\"}\"&gt;\n    &lt;div class=\"fw-chart\"&gt;${svg.node()}&lt;/div&gt;${info}&lt;/div&gt;&lt;/div&gt;`;\n}"
+  },
+  {
+    "objectID": "framework.html#the-detail",
+    "href": "framework.html#the-detail",
+    "title": "Framework map",
+    "section": "The detail",
+    "text": "The detail\nThe full mapping, with the wording for each link. Links are my reading of the published documents, confirmed against the source text where marked."
+  },
+  {
+    "objectID": "framework.html#frameworks-in-brief",
+    "href": "framework.html#frameworks-in-brief",
+    "title": "Framework map",
+    "section": "Frameworks in brief",
+    "text": "Frameworks in brief\n\nScottish Biodiversity Strategy to 2045: Scotland’s overarching biodiversity strategy (final version November 2024), with the first Delivery Plan covering 2024 to 2030. The Delivery Plan includes the “30 by 30” commitment and an action to develop marine biodiversity monitoring aligned with the UK Marine Strategy.\nNatural Environment (Scotland) Act 2026: Part 1 creates a legally binding framework for statutory nature restoration targets, with monitoring and reporting duties. Royal Assent 12 March 2026.\nMarine (Scotland) Act 2010: marine planning, Nature Conservation MPAs, and seal conservation in Scottish territorial waters.\nHabitats Regulations: protection of SACs and SPAs (the UK site network, formerly part of Natura 2000).\nUK Marine Strategy: Good Environmental Status assessed against 11 descriptors.\nOSPAR: the North-East Atlantic regional convention. Common indicators include B1 (marine bird abundance), B3 (breeding success), M3 (seal abundance and distribution), and M5 (grey seal pup production). Latest assessment: Quality Status Report 2023.\nKunming-Montreal Global Biodiversity Framework: 23 targets for 2030, including Target 3 (30x30).\n\nAll rows were confirmed against the source documents (November 2026)."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m Emma Branch, an epidemiologist and health data analyst (PhD candidate, Population and Public Health, UBC) with about ten years’ experience working with linked population data, R, and GIS.\nI built this report card to learn about Scotland’s marine environment and its assessment frameworks, and to show how indicator reporting, spatial analysis, and honest communication of uncertainty transfer from population health to marine biodiversity. I am new to Scottish marine ecology, so I have aimed to describe what the data show without overclaiming."
+  },
+  {
+    "objectID": "about.html#independence",
+    "href": "about.html#independence",
+    "title": "About",
+    "section": "Independence",
+    "text": "Independence\nThis is an independent personal project. It is not affiliated with, commissioned by, or endorsed by NatureScot, the Scottish Government Marine Directorate, JNCC, RSPB, BTO, SMRU, or any other organisation whose data it uses. All interpretations and any errors are my own."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About",
+    "section": "Contact",
+    "text": "Contact\n\nGitHub: emmabranch"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Report card",
+    "section": "",
+    "text": "An independent, reproducible indicator report card built from open data. Five indicators, one featured deep dive on seabirds after avian influenza, and a framework map linking each indicator to the targets and conventions it reports against."
+  },
+  {
+    "objectID": "index.html#at-a-glance",
+    "href": "index.html#at-a-glance",
+    "title": "Report card",
+    "section": "At a glance",
+    "text": "At a glance\n\n\n\n\n       Featured deep dive\n       Seabirds after avian flu\n       ✕Clear concern\n       ↘ Declining\n       After the 2021-22 HPAI outbreak, Great Skua territories at nine Scottish SPAs fell by 77% and Gannet nests at six SPAs by 22%.\n       2014-2023\n         Confidence ●●○\n     \n\n       Marine mammals\n       Harbour and grey seals\n       ✕Clear concern\n       ↘ Declining\n       19,978 harbour seals counted in 2021-25: the lowest since the first census and 26% below 2016-19. Counts fell in all seven units.\n       1996-2025\n         Confidence ●●●\n     \n\n       Fish\n       Wild Atlantic salmon\n       ✕Clear concern\n       ↘ Declining\n       115 of 173 assessed stocks (66%) are in poor conservation status for 2026, up from 102 in 2021.\n       2021-2026\n         Confidence ●●○\n     \n\n       Climate and ocean\n       Sea temperature\n       iContext indicator\n       → No clear change\n       No clear trend at Stonehaven or Loch Ewe over about 20 years, against a background of longer-term warming in Scottish waters.\n       1997-2020\n         Confidence ●●○\n     \n\n       Protected areas\n       MPA coverage and 30x30\n       ✓Generally positive\n       ↗ Improving\n       36.9% of Scottish seas is designated, above the 30% area threshold. Whether sites are effectively managed is the open question.\n       2018-2025\n         Confidence ●●○\n     \n\n\n\n\n\n\n✓Generally positive\n◐Mixed or some concern\n✕Clear concern\niContext indicator\n?Not yet assessed\n\n\n\nConfidence (●●● high, ●●○ medium, ●○○ low) reflects how far the data can support the status call: coverage, survey frequency, and known gaps. Each tile links to the full indicator page, with methods and limitations."
+  },
+  {
+    "objectID": "index.html#how-to-read-this-report-card",
+    "href": "index.html#how-to-read-this-report-card",
+    "title": "Report card",
+    "section": "How to read this report card",
+    "text": "How to read this report card\n\nStatus summarises recent condition in plain language. It is my independent judgement from the published data, not an official assessment.\nTrend describes direction of change over the period shown. Sea temperature is a context indicator, so it has no “good” or “bad” direction.\nConfidence is reported separately so a clear trend in patchy data is not mistaken for a certain one.\n\n\n\n\n\n\n\nThis is an independent personal project. It is not affiliated with or endorsed by NatureScot, the Scottish Government Marine Directorate, JNCC, RSPB, BTO, or SMRU. For official assessments see Scotland’s Marine Assessment 2020."
+  },
+  {
+    "objectID": "indicators/salmon.html",
+    "href": "indicators/salmon.html",
+    "title": "Wild Atlantic salmon",
+    "section": "",
+    "text": "Status✕ Clear concern\n       Trend↘ Declining\n       Confidence●●○ Medium\n       Period2021-2026"
+  },
+  {
+    "objectID": "indicators/salmon.html#what-this-measures",
+    "href": "indicators/salmon.html#what-this-measures",
+    "title": "Wild Atlantic salmon",
+    "section": "What this measures",
+    "text": "What this measures\nEach year the Scottish Government assesses the conservation status of 173 wild Atlantic salmon stocks: single rivers, or groups of rivers where catches cannot be separated. A stock’s status is the probability that it will meet its conservation limit (the number of spawning adults needed for a healthy population) over five years:\n\nGood: at least an 80% probability. No extra management needed.\nModerate: a 60 to 80% probability. Catch-and-release strongly encouraged.\nPoor: under a 60% probability. Mandatory catch-and-release for the season.\n\nThe grading for each season is based on the previous assessment, so the “2026” grading reflects the most recent data."
+  },
+  {
+    "objectID": "indicators/salmon.html#why-it-matters",
+    "href": "indicators/salmon.html#why-it-matters",
+    "title": "Wild Atlantic salmon",
+    "section": "Why it matters",
+    "text": "Why it matters\nAtlantic salmon is a protected species under the Habitats Regulations, with 17 Special Areas of Conservation designated for it in Scotland. It moves between rivers and the open ocean, so its status reflects conditions in both freshwater and the sea. This indicator reports status only. It does not try to attribute change to any one pressure."
+  },
+  {
+    "objectID": "indicators/salmon.html#trend-and-status",
+    "href": "indicators/salmon.html#trend-and-status",
+    "title": "Wild Atlantic salmon",
+    "section": "Trend and status",
+    "text": "Trend and status\n115 of 173 stocks (66%) were in poor conservation status for the 2026 season, up from 102 (59%) in 2021.\n\n\n\n\n\n\n\n\n\n\nWhere did stocks move?"
+  },
+  {
+    "objectID": "indicators/salmon.html#map",
+    "href": "indicators/salmon.html#map",
+    "title": "Wild Atlantic salmon",
+    "section": "Map",
+    "text": "Map\nEach point is a river mouth (the official outflow point), coloured by its 2026 status. Click a point to see its grading history. Use the layer control to show one status at a time.\n\n\n\n\n\n2026 status:\n\n\nGood\n\n\n\nModerate\n\n\n\nPoor"
+  },
+  {
+    "objectID": "indicators/salmon.html#confidence",
+    "href": "indicators/salmon.html#confidence",
+    "title": "Wild Atlantic salmon",
+    "section": "Confidence",
+    "text": "Confidence\nHigh that the gradings are reported accurately, since they are the official assessments. Medium for reading a trend from them:\n\nSix seasons is a short window.\nEach grading already averages over five years, so successive seasons are not independent.\nStocks near a threshold can change category with small changes in the underlying probability."
+  },
+  {
+    "objectID": "indicators/salmon.html#limitations",
+    "href": "indicators/salmon.html#limitations",
+    "title": "Wild Atlantic salmon",
+    "section": "Limitations",
+    "text": "Limitations\n\nStatus is categorical. It hides how close a stock is to a boundary.\nAssessments rely mainly on rod catch data (plus counters where available), which is affected by fishing effort and river conditions, not only by fish numbers.\n8 fishery districts have no individual river data and are graded poor by default.\nSome rivers take the lower grade of an overlapping SAC, so their grading may not reflect their own assessment.\nStock boundaries are not openly available, so the map shows river mouths rather than catchments.\nNational counts are the official published figures. River-level data, the transitions grid, and the map are my reconstruction from the published tables. That reconstruction gives 173 stocks and matches the official Good, Moderate, and Poor counts exactly for every season from 2021 to 2026. The check caught two quirks in the source tables: one stock (North Harris SAC) spans two fishery districts, and one row used a different dash in a grouped river name."
+  },
+  {
+    "objectID": "indicators/salmon.html#data-sources-and-licences",
+    "href": "indicators/salmon.html#data-sources-and-licences",
+    "title": "Wild Atlantic salmon",
+    "section": "Data sources and licences",
+    "text": "Data sources and licences\n\nScottish Government. Salmon fishing: proposed river gradings for 2026 season (consultation, 2025), including gradings for 2021 to 2025.\nScottish Government. Salmon fishing: final river gradings for the 2026 season.\nScottish Government. Conservation of wild salmon (policy page): conservation status definitions.\nContains public sector information licensed under the Open Government Licence v3.0."
+  },
+  {
+    "objectID": "indicators/seabird-story.html",
+    "href": "indicators/seabird-story.html",
+    "title": "The outbreak, colony by colony",
+    "section": "",
+    "text": "Scotland holds some of the most important seabird colonies in the North Atlantic, many of them protected as Special Protection Areas (SPAs). These are the colonies whose 2023 counts appear in this story.\n\n\n\n\nIn the summer of 2021, highly pathogenic avian influenza (H5N1) was first recorded in Great Skuas in the UK. Scotland’s northern islands hold most of the UK’s Great Skuas.\n\n\n\n\nBy the 2023 breeding season, every surveyed Great Skua colony had fewer territories. Across all nine SPAs the count fell from 6,570 to 1,524.\n\n\n\n\nShetland holds the largest colonies. Zooming in, the falls range from 40% at Ronas Hill to 86% on Noss.\n\n\n\n\nIn 2022 the virus hit Northern Gannets. RSPB reported at least 11,000 Gannet deaths across Scotland that season. Scotland’s Gannet colonies include Hermaness, Noss, Fair Isle, Sula Sgeir, Ailsa Craig, and the Forth Islands, home to the Bass Rock.\n\n\n\n\nGannet colonies had been growing before the outbreak, so a simple before-and-after comparison understates the loss. Against each colony’s projected 2021 size, the fall is closer to -28%.\n\n\n\n\nNot every species fell everywhere. Guillemot counts rose at some SPAs and fell at others, and across 18 SPAs the total barely changed. Colony-level swings are a reminder not to read a single colony as the whole population.\n\n\n\n\nSo what do the counts tell us? They show a large drop in breeding numbers that coincides with the outbreak. On their own they cannot show how much HPAI caused, whether missing birds died or skipped breeding, or whether colonies have started to recover since."
+  },
+  {
+    "objectID": "indicators/seabird-story.html#where-to-go-next",
+    "href": "indicators/seabird-story.html#where-to-go-next",
+    "title": "The outbreak, colony by colony",
+    "section": "Where to go next",
+    "text": "Where to go next\n\nThe full seabird deep dive has the forest plot with confidence intervals, the baseline sensitivity analysis, and every SPA result.\nThe Methods page explains how the figures were checked.\n\nSources: colony counts from Tremlett, Morley & Wilson (2024), RSPB Research Report 76. Timing of the outbreak and Gannet mortality as reported by RSPB. Land: Natural Earth (public domain). Independent analysis by Emma Branch, not affiliated with or endorsed by RSPB, NatureScot, or JNCC."
   },
   {
     "objectID": "indicators/seals.html",
