@@ -29,6 +29,8 @@ website:
         menu:
           - href: indicators/seabirds.qmd
             text: "Seabirds after avian flu (deep dive)"
+          - href: indicators/seabird-story.qmd
+            text: "↳ The outbreak, colony by colony (story)"
           - href: indicators/seals.qmd
             text: "Seals"
           - href: indicators/salmon.qmd

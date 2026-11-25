@@ -219,10 +219,25 @@ if (abs(pct - 36.9) > 3) {
           "before interpreting.", call. = FALSE)
 }
 
+# 6b. Every combination of designation types (for the 30x30 what-if explorer)
+# Union areas, so overlaps between types are only counted once.
+message("\nCombinations of designation types for the what-if explorer ...")
+types  <- type_geoms$type
+combos <- unlist(lapply(seq_along(types), \(k) combn(seq_along(types), k, simplify = FALSE)),
+                 recursive = FALSE)
+combo_tbl <- purrr::map_dfr(combos, \(ix) {
+  g <- st_union(st_geometry(type_geoms)[ix])
+  tibble(types = paste(sort(types[ix]), collapse = "|"), n_types = length(ix),
+         km2 = sum(as.numeric(st_area(g))) / 1e6)
+}) |>
+  mutate(pct = 100 * km2 / sea_km2)
+print(combo_tbl |> mutate(pct = round(pct, 1)) |> select(types, pct), n = Inf)
+
 # 7. Save -------------------------------------------------------------------------
 readr::write_csv(summary_tbl, file.path(proc_dir, "mpas_summary.csv"))
 readr::write_csv(by_type,     file.path(proc_dir, "mpas_by_type.csv"))
 readr::write_csv(by_region,   file.path(proc_dir, "mpas_by_region.csv"))
+readr::write_csv(combo_tbl,   file.path(proc_dir, "mpas_combos.csv"))
 
 map_file <- file.path(proc_dir, "mpas_map.gpkg")
 if (file.exists(map_file)) invisible(file.remove(map_file))

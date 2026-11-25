@@ -34,6 +34,10 @@ if (!have_data) cat("::: {.callout-warning}\nRun `R/05_seabirds.R` to build this
 if (have_data && !all_verified) cat("::: {.callout-warning}\nDraft: figures transcribed from RSPB Research Report 76 are still being checked against the original tables.\n:::\n")
 ```
 
+::: {.callout-tip appearance="simple"}
+**Prefer a story?** [Scroll through the outbreak, colony by colony](seabird-story.qmd).
+:::
+
 ## The short version
 
 ```{r}

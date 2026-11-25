@@ -1,0 +1,41 @@
+indicator,item
+Seabirds,sbs_marine
+Seabirds,sbs_monitor
+Seabirds,nesa
+Seabirds,hr_spa
+Seabirds,ospar_b1
+Seabirds,ospar_b3
+Seabirds,ukms_d1
+Seabirds,ukms_d4
+Seabirds,gbf_t4
+Seabirds,gbf_t21
+Seals,sbs_marine
+Seals,sbs_monitor
+Seals,nesa
+Seals,msa
+Seals,hr_sac
+Seals,ospar_m3
+Seals,ospar_m5
+Seals,ukms_d1
+Seals,gbf_t4
+Salmon,sbs_marine
+Salmon,nesa
+Salmon,salmon_regs
+Salmon,hr_sac
+Salmon,ospar_td
+Salmon,ukms_d1
+Salmon,gbf_t4
+Salmon,gbf_t5
+Sea temperature,sbs_climate
+Sea temperature,ospar_climate
+Sea temperature,ukms_d7
+Sea temperature,gbf_t8
+MPAs and 30x30,sbs_30x30
+MPAs and 30x30,nesa
+MPAs and 30x30,msa
+MPAs and 30x30,hr_spa
+MPAs and 30x30,hr_sac
+MPAs and 30x30,ospar_mpa
+MPAs and 30x30,ukms_d1
+MPAs and 30x30,ukms_d6
+MPAs and 30x30,gbf_t3

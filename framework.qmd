@@ -9,7 +9,111 @@ fw <- readr::read_csv(here::here("data", "lookup", "framework_mapping.csv"),
                       show_col_types = FALSE)
 ```
 
-This table is the spine of the project. Each indicator is mapped to the reporting framework it would feed into. Links are my reading of the published documents and are marked as checked once I have confirmed them against the source text.
+Each indicator on this site could feed into several assessment and reporting requirements at once. **Click an indicator** to see everything it reports against, or **click a framework item** to see which indicators inform it. Click the same item again to reset.
+
+```{r}
+#| include: false
+ojs_define(
+  fw_items = readr::read_csv(here::here("data", "lookup", "framework_items.csv"), show_col_types = FALSE),
+  fw_links = readr::read_csv(here::here("data", "lookup", "framework_links.csv"), show_col_types = FALSE)
+)
+```
+
+```{ojs}
+//| echo: false
+famColour = new Map([
+  ["Scottish Biodiversity Strategy", "#0072B2"],
+  ["Scottish law", "#009E73"],
+  ["Habitats Regulations", "#56B4E9"],
+  ["OSPAR", "#E69F00"],
+  ["UK Marine Strategy", "#CC79A7"],
+  ["Global Biodiversity Framework", "#D55E00"]
+])
+
+frameworkNetwork = {
+  const items = transpose(fw_items);
+  const links = transpose(fw_links);
+  const inds = ["Seabirds", "Seals", "Salmon", "Sea temperature", "MPAs and 30x30"];
+  const fams = [...famColour.keys()];
+  const its = items.slice().sort((a, b) => fams.indexOf(a.family) - fams.indexOf(b.family));
+  const famOf = new Map(items.map(d => [d.item, d.family]));
+  const byId = new Map(items.map(d => [d.item, d]));
+
+  const wide = width >= 900;
+  const W = wide ? Math.round(width * 0.64) : Math.max(width, 520), rowH = 17.5, top = 10;
+  const H = top + its.length * rowH + 10;
+  const xL = Math.min(135, W * 0.25), xR = W * 0.42;
+  const yItem = new Map(its.map((d, i) => [d.item, top + i * rowH + rowH / 2]));
+  const span = its.length * rowH;
+  const yInd = new Map(inds.map((d, i) => [d, top + span * (i + 0.5) / inds.length]));
+
+  const svg = d3.create("svg").attr("viewBox", [0, 0, W, H]).attr("width", W)
+    .attr("role", "img").attr("aria-label", "Network linking five indicators to framework items")
+    .style("font", "12px system-ui, sans-serif").style("max-width", "100%");
+
+  const path = d => {
+    const y0 = yInd.get(d.indicator), y1 = yItem.get(d.item), x0 = xL + 10, x1 = xR - 8, mx = (x0 + x1) / 2;
+    return `M${x0},${y0}C${mx},${y0} ${mx},${y1} ${x1},${y1}`;
+  };
+  const linkSel = svg.append("g").attr("fill", "none").selectAll("path").data(links).join("path")
+    .attr("d", path).attr("stroke", d => famColour.get(famOf.get(d.item)))
+    .attr("stroke-width", 1.8).attr("stroke-opacity", 0.45);
+
+  const indSel = svg.append("g").selectAll("g").data(inds).join("g")
+    .attr("transform", d => `translate(${xL},${yInd.get(d)})`).style("cursor", "pointer");
+  indSel.append("circle").attr("r", 6).attr("cx", 6).attr("fill", "#0B3C5D");
+  indSel.append("text").text(d => d).attr("x", -6).attr("dy", "0.35em").attr("text-anchor", "end")
+    .attr("font-weight", 700).attr("fill", "#0B3C5D");
+
+  const itemSel = svg.append("g").selectAll("g").data(its).join("g")
+    .attr("transform", d => `translate(${xR},${yItem.get(d.item)})`).style("cursor", "pointer");
+  itemSel.append("circle").attr("r", 4.5).attr("fill", d => famColour.get(d.family));
+  itemSel.append("text").text(d => d.label).attr("x", 11).attr("dy", "0.35em").attr("fill", "#22303C");
+
+  const info = html`<div class="fw-info"><strong>Click any indicator or framework item.</strong></div>`;
+  let current = null;
+
+  function reset() {
+    current = null;
+    linkSel.attr("stroke-opacity", 0.45).attr("stroke-width", 1.8);
+    indSel.attr("opacity", 1); itemSel.attr("opacity", 1).select("text").attr("font-weight", 400);
+    info.innerHTML = "<strong>Click any indicator or framework item.</strong>";
+  }
+  function select(kind, key) {
+    if (current === kind + key) return reset();
+    current = kind + key;
+    const on = links.filter(l => kind === "ind" ? l.indicator === key : l.item === key);
+    const onInds = new Set(on.map(l => l.indicator)), onItems = new Set(on.map(l => l.item));
+    linkSel.attr("stroke-opacity", l => on.includes(l) ? 0.95 : 0.06)
+           .attr("stroke-width", l => on.includes(l) ? 2.6 : 1.4);
+    indSel.attr("opacity", d => onInds.has(d) ? 1 : 0.25);
+    itemSel.attr("opacity", d => onItems.has(d.item) ? 1 : 0.25)
+           .select("text").attr("font-weight", d => onItems.has(d.item) ? 700 : 400);
+    if (kind === "ind") {
+      const grouped = fams.map(f => [f, its.filter(d => d.family === f && onItems.has(d.item))]).filter(g => g[1].length);
+      info.innerHTML = `<strong>${key}</strong> reports against ${on.length} framework items:` +
+        grouped.map(([f, xs]) => `<div class="fw-row"><span class="fw-dot" style="background:${famColour.get(f)}"></span>` +
+          `<em>${f}:</em> ${xs.map(x => x.label).join("; ")}</div>`).join("");
+    } else {
+      const it = byId.get(key);
+      info.innerHTML = `<div class="fw-row"><span class="fw-dot" style="background:${famColour.get(it.family)}"></span>` +
+        `<em>${it.family}</em></div><strong>${it.label}</strong><p>${it.description}</p>` +
+        `<p><b>Informed by:</b> ${[...onInds].join(", ")}</p>`;
+    }
+  }
+  indSel.on("click", (e, d) => select("ind", d));
+  itemSel.on("click", (e, d) => select("item", d.item));
+
+  const legend = html`<div class="map-key">${fams.map(f => html`<span class="key">
+    <span class="swatch" style="background:${famColour.get(f)}"></span>${f}</span>`)}</div>`;
+  return html`<div class="fw-network">${legend}<div class="fw-body ${wide ? "fw-wide" : ""}">
+    <div class="fw-chart">${svg.node()}</div>${info}</div></div>`;
+}
+```
+
+## The detail
+
+The full mapping, with the wording for each link. Links are my reading of the published documents, confirmed against the source text where marked.
 
 ```{r}
 fw |>

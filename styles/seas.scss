@@ -97,3 +97,45 @@ $headings-font-weight: 700;
   .swatch { width: .85rem; height: .85rem; border-radius: 3px; display: inline-block;
             border: 1px solid rgba(0,0,0,.15); }
 }
+
+// 30x30 what-if explorer
+.whatif {
+  margin: .5rem 0 2rem; padding: 1.1rem 1.25rem; border-radius: .9rem;
+  background: #fff; border: 1px solid #DDE6EE;
+  .whatif-head { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+  .whatif-number { font-size: 2.6rem; font-weight: 800; color: $primary; line-height: 1; }
+  .whatif-label { color: #33414E; }
+  .whatif-ok { color: #007A5E; margin-left: .3rem; }
+  .whatif-no { color: #B34700; margin-left: .3rem; }
+  .whatif-bar { position: relative; height: 22px; margin: 1.3rem 0 .2rem; border-radius: 11px;
+                background: #EEF5FA; overflow: visible; }
+  .whatif-fill { height: 100%; border-radius: 11px; background: linear-gradient(90deg, #328CC1, #0B3C5D);
+                 transition: width .5s ease; }
+  .whatif-line { position: absolute; top: -5px; bottom: -5px; border-left: 2px dashed #D55E00;
+    span { position: absolute; top: 1.85rem; left: -1.05rem; font-size: .75rem; color: #B34700; font-weight: 700; } }
+  .whatif-scale { display: flex; justify-content: space-between; font-size: .75rem; color: #5A6B7B; }
+  .whatif-sub { margin: .9rem 0 .3rem; font-size: .9rem; color: #33414E; }
+  .whatif-list { list-style: none; padding: 0; margin: 0; font-size: .9rem;
+    li { display: flex; justify-content: space-between; padding: .25rem 0; border-bottom: 1px solid #EEF2F6; } }
+}
+@media (prefers-reduced-motion: reduce) { .whatif .whatif-fill { transition: none; } }
+
+// Framework network
+.fw-network { margin: 1rem 0 2rem; }
+.fw-info {
+  margin-top: .5rem; padding: .9rem 1.1rem; border-radius: .75rem; background: #EEF5FA;
+  border-left: 6px solid #0B3C5D; font-size: .92rem; color: #22303C; min-height: 3.2rem;
+  p { margin: .35rem 0 0; }
+  .fw-row { margin-top: .3rem; display: flex; gap: .45rem; align-items: baseline; }
+  .fw-dot { width: .7rem; height: .7rem; border-radius: 50%; display: inline-block; flex: none; transform: translateY(1px); }
+}
+
+// Framework network layout: info panel beside the chart on wide screens
+.fw-body.fw-wide { display: flex; gap: 1.2rem; align-items: flex-start;
+  .fw-chart { flex: 0 0 64%; }
+  .fw-info { flex: 1; margin-top: 0; position: sticky; top: 5rem; }
+}
+.fw-network .map-key { margin-bottom: .4rem; }
+
+// Space between the scrollytelling section and what follows
+.story-after { margin-top: 5rem; padding-top: 1rem; }

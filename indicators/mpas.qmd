@@ -91,6 +91,54 @@ if (have_data) {
 }
 ```
 
+### What if? Build your own 30x30 total
+
+Designations overlap a lot: many SPAs and SACs sit inside Nature Conservation MPAs. Tick and untick each type to see how much each one actually adds once overlaps are removed.
+
+```{r}
+#| include: false
+f_combo <- here::here("data", "processed", "mpas_combos.csv")
+have_combos <- file.exists(f_combo)
+if (have_combos) ojs_define(combos = readr::read_csv(f_combo, show_col_types = FALSE))
+```
+
+```{ojs}
+//| echo: false
+mpaTypes = ["Nature Conservation MPA", "Offshore MPA (JNCC, all types)",
+            "Special Area of Conservation", "Special Protection Area"]
+viewof chosen = Inputs.checkbox(mpaTypes, {value: mpaTypes, label: "Count these designations:"})
+```
+
+```{ojs}
+//| echo: false
+whatIf = {
+  const rows = transpose(combos);
+  const byKey = new Map(rows.map(d => [d.types, d]));
+  const keyOf = arr => arr.slice().sort().join("|");
+  const pctOf = arr => arr.length ? byKey.get(keyOf(arr)).pct : 0;
+  const total = pctOf(chosen);
+  const unique = chosen.map(t => ({type: t, add: total - pctOf(chosen.filter(x => x !== t))}))
+                       .sort((a, b) => b.add - a.add);
+  const meets = total >= 30;
+  return html`<div class="whatif">
+    <div class="whatif-head">
+      <span class="whatif-number">${total.toFixed(1)}%</span>
+      <span class="whatif-label">of Scottish seas inside at least one selected designation
+        ${meets ? html`<strong class="whatif-ok">✓ above 30%</strong>`
+                : html`<strong class="whatif-no">below 30%</strong>`}</span>
+    </div>
+    <div class="whatif-bar" role="img" aria-label="${total.toFixed(1)} percent of Scottish seas, against a 30 percent line">
+      <div class="whatif-fill" style="width:${Math.min(total, 100) * 2}%"></div>
+      <div class="whatif-line" style="left:60%"><span>30%</span></div>
+    </div>
+    <div class="whatif-scale"><span>0%</span><span>50%</span></div>
+    ${chosen.length ? html`<p class="whatif-sub">What each selected type adds that no other selected type already covers:</p>
+    <ul class="whatif-list">${unique.map(u => html`<li><span>${u.type}</span><b>+${u.add.toFixed(1)} points</b></li>`)}</ul>`
+    : html`<p class="whatif-sub">Tick at least one designation.</p>`}
+  </div>`;
+}
+```
+
 ## Map
 
 ```{r}
