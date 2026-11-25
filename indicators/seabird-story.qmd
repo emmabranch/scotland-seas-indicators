@@ -3,11 +3,14 @@ title: "The outbreak, colony by colony"
 subtitle: "How avian influenza moved through Scotland's seabirds, and what the 2023 counts found"
 format:
   closeread-html:
-    theme: [flatly, ../styles/seas.scss]
+    theme: [flatly, brand, ../brand.scss, ../styles/seas.scss]
+    include-after-body: ../footer.html
     cr-style:
-      narrative-background-color-sidebar: "#0B3C5D"
-      narrative-text-color-sidebar: "#ffffff"
-      section-background-color: "#F4F8FB"
+      section-background-color: "#F3EEE3"
+      narrative-background-color-sidebar: "#F3EEE3"
+      narrative-text-color-sidebar: "#111111"
+      narrative-background-color-overlay: "rgba(17, 17, 17, 0.92)"
+      narrative-text-color-overlay: "#ffffff"
 toc: false
 ---
 
@@ -138,7 +141,7 @@ Gannet colonies had been growing before the outbreak, so a simple before-and-aft
 :::{#cr-baseline}
 ```{r}
 #| fig-width: 7
-#| fig-height: 5
+#| fig-height: 7.5
 tibble(baseline = factor(c("Counted baseline\n(2014 to 2021)", "Projected to 2021\n(pre-outbreak trend)"),
                          levels = c("Counted baseline\n(2014 to 2021)", "Projected to 2021\n(pre-outbreak trend)")),
        pct = c(gtot$pct_observed_baseline, gtot$pct_trend_adjusted)) |>

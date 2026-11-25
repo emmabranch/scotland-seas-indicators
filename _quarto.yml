@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - images/motif.svg
   render:
     - "*.qmd"
     - "indicators/*.qmd"
@@ -19,9 +21,11 @@ website:
   repo-url: https://github.com/emmabranch/scotland-seas-indicators
   repo-actions: [source, issue]
   page-navigation: true
-  back-to-top-navigation: true
   open-graph: true
+  favicon: images/favicon.png
   navbar:
+    logo: images/motif.svg
+    logo-alt: ""
     left:
       - href: index.qmd
         text: Report card
@@ -55,8 +59,8 @@ website:
 
 format:
   html:
-    theme:
-      light: [flatly, styles/seas.scss]   # swap in your brand kit later
+    theme: [flatly, brand, brand.scss, styles/seas.scss]   # shared brand kit, then this site's colours
+    include-after-body: footer.html
     toc: true
     toc-depth: 2
     fig-align: center

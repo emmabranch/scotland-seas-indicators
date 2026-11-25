@@ -1,5 +1,5 @@
 ---
-title: "Report card"
+pagetitle: "Report card"
 page-layout: full
 toc: false
 title-block-banner: false
@@ -8,13 +8,67 @@ title-block-banner: false
 ```{r}
 #| include: false
 source(here::here("R", "report_card.R"))
+
+# Numbers for the stat boxes, from the same status file as the tiles
+status_now <- read_status()
+n_ind      <- nrow(status_now)
+n_poor     <- sum(status_now$status == "poor")
+n_good     <- sum(status_now$status == "good")
+
+# Hero background: one stripe per year of sea temperature at Stonehaven,
+# brighter in warmer years (annual anomalies from the Sea temperature page)
+temp <- readr::read_csv(here::here("data", "processed", "sea_temp_annual.csv"),
+                        show_col_types = FALSE)
+st   <- temp[temp$site == "Stonehaven", ]
+st   <- st[order(st$year), ]
+stripe_col <- scales::col_numeric(c("#1d1f14", "#5f6b1e", "#a7b544", "#dbe58a"),
+                                  domain = range(st$anom))(st$anom)
+rects <- sprintf('<rect x="%d" y="0" width="1.02" height="1" fill="%s"></rect>',
+                 seq_along(stripe_col) - 1, stripe_col)
+stripes_html <- sprintf(
+  '<div class="hero-bg" aria-hidden="true"><svg viewBox="0 0 %d 1" preserveAspectRatio="none">%s</svg></div>',
+  length(stripe_col), paste(rects, collapse = ""))
+stripe_years <- paste(min(st$year), "to", max(st$year))
 ```
 
-::: {.seas-hero}
-# State of Scotland's Seas
+::::: {.hero-full .column-screen}
+
+```{r}
+#| output: asis
+cat(stripes_html)
+```
+
+```{=html}
+<img class="hero-motif" src="images/motif.svg" alt="">
+```
+
+:::: {.hero-inner}
+
+[Independent portfolio project · R · Quarto · open data]{.eyebrow}
+
+# State of Scotland's Seas. [Seabirds, seals, salmon, sea temperature, and protected areas.]{.accent}
 
 An independent, reproducible indicator report card built from open data. Five indicators, one featured deep dive on seabirds after avian influenza, and a framework map linking each indicator to the targets and conventions it reports against.
-:::
+
+[See the report card](#at-a-glance){.btn .btn-accent} [Seabirds deep dive](indicators/seabirds.qmd){.btn .btn-ghost} [Code on GitHub](https://github.com/emmabranch/scotland-seas-indicators){.btn .btn-ghost}
+
+```{r}
+#| output: asis
+cat(sprintf('<p class="hero-note">Background: one stripe per year of sea temperature at Stonehaven, %s, brighter in warmer years.</p>', stripe_years))
+```
+
+::::
+
+:::::
+
+```{r}
+#| output: asis
+cat(sprintf('<div class="stat-row lift">
+<div class="stat-box"><span class="num">%d</span><span class="lab">indicators, each with a status, trend, and confidence</span></div>
+<div class="stat-box"><span class="num">%d of %d</span><span class="lab">show a clear concern</span></div>
+<div class="stat-box"><span class="num">%d of %d</span><span class="lab">generally positive</span></div>
+</div>', n_ind, n_poor, n_ind, n_good, n_ind))
+```
 
 ## At a glance
 
