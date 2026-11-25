@@ -1,45 +1,295 @@
 ---
 title: "Seabirds after avian flu"
-subtitle: "Featured deep dive: what Scottish colony counts tell us before and after the 2021-22 HPAI outbreak"
+subtitle: "Featured deep dive: what Scottish colony counts tell us before and after the 2021-22 HPAI outbreak, read through an epidemiologist's lens"
 ---
 
 ```{r}
 #| include: false
 source(here::here("R", "report_card.R"))
+library(dplyr)
+library(ggplot2)
+
+p <- \(f) here::here("data", "processed", f)
+have_data <- file.exists(p("seabirds_spa_change.csv"))
+if (have_data) {
+  spa   <- readr::read_csv(p("seabirds_spa_change.csv"),        show_col_types = FALSE)
+  tot   <- readr::read_csv(p("seabirds_species_totals.csv"),    show_col_types = FALSE)
+  gan   <- readr::read_csv(p("seabirds_gannet_sensitivity.csv"), show_col_types = FALSE)
+  gtot  <- readr::read_csv(p("seabirds_gannet_totals.csv"),     show_col_types = FALSE)
+  uk    <- readr::read_csv(p("seabirds_uk_summary.csv"),        show_col_types = FALSE)
+  t_of  <- \(sp, col) tot[[col]][tot$species == sp]
+  all_verified <- all(spa$verified) && all(uk$verified)
+}
+fmt  <- \(x) format(round(x), big.mark = ",")
+pc   <- \(x) sprintf("%+d%%", round(x))
 ```
 
 ```{r}
 glance_box("seabirds")
 ```
 
-::: {.callout-warning appearance="simple"}
-Work in progress. Figures on this page are not final.
-:::
+```{r}
+#| results: asis
+if (!have_data) cat("::: {.callout-warning}\nRun `R/05_seabirds.R` to build this page's data.\n:::\n")
+if (have_data && !all_verified) cat("::: {.callout-warning}\nDraft: figures transcribed from RSPB Research Report 76 are still being checked against the original tables.\n:::\n")
+```
+
+## The short version
+
+```{r}
+#| results: asis
+if (have_data) cat(sprintf(
+"- At the nine Scottish SPAs surveyed for **Great Skua**, breeding territories fell from %s to %s (**%s**).
+- At six Scottish **Northern Gannet** SPAs, nest counts fell from %s to %s (**%s**). Against a baseline projected forward for pre-outbreak growth, the fall is **%s**.
+- Not every species declined everywhere. Guillemot counts, for example, rose at some SPAs and fell at others.
+- These are before-and-after counts at surveyed sites. They show a large drop that coincides with the outbreak, but on their own they cannot prove how much of it HPAI caused.\n",
+  fmt(t_of("Great Skua", "baseline")), fmt(t_of("Great Skua", "count_2023")), pc(t_of("Great Skua", "pct")),
+  fmt(gtot$baseline), fmt(gtot$count_2023), pc(gtot$pct_observed_baseline), pc(gtot$pct_trend_adjusted)))
+```
 
 ## What this measures
 
-<!-- One or two sentences, plain language. -->
+The change in the number of breeding seabirds at Scottish Special Protection Areas (SPAs) between a **pre-outbreak baseline** (mostly from the Seabirds Count census, 2015 to 2021) and a **coordinated survey in 2023**, after highly pathogenic avian influenza (HPAI H5N1) caused mass seabird deaths in 2021 and 2022. Counts are of breeding units: apparently occupied nests, sites, or territories, or individual birds for Guillemot.
 
 ## Why it matters
 
-<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->
+Scotland holds internationally important seabird populations, many protected by SPAs under the Habitats Regulations. HPAI arrived on top of existing declines: the Seabirds Count census found that most seabird species in Scotland had already declined since the previous census. Seabird abundance and breeding success are OSPAR and UK Marine Strategy indicators of marine bird status.
+
+## Reading this like an outbreak investigation
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+**What the data can tell us**
+
+- **Magnitude:** how much smaller breeding numbers were in 2023 at the sites surveyed.
+- **Distribution:** which species and which colonies changed most.
+- **Timing:** the drop coincides with the outbreak, and for some species it is far outside their recent trend.
+:::
+::: {.g-col-12 .g-col-md-6}
+**What it cannot tell us on its own**
+
+- **Cause:** there is no unexposed comparison group, so this is a before-after design. Other pressures were operating at the same time.
+- **Mechanism:** fewer breeding birds could mean deaths, or survivors skipping a breeding season.
+- **The full picture:** only surveyed sites are included, and mortality after early 2023 is not captured.
+:::
+:::
+
+The epidemiological questions behind each chart:
+
+1. **Is the change real or noise?** The forest plot shows each colony's change with a confidence interval.
+2. **What would have happened anyway?** For Gannet, the report projects each colony's pre-outbreak trend forward to 2021. Comparing against that projection is like adjusting for a secular trend.
+3. **Who was counted?** Coverage (the share of the population surveyed) works like a response rate, and it varies a lot between species.
 
 ## Trend and status
 
-<!-- One clear chart, with the key takeaway written as the chart title. -->
+### UK picture: 13 species
+
+```{r}
+#| fig-height: 5.2
+#| fig-alt: "Dot chart of percentage change in UK breeding counts between the pre-outbreak baseline and 2023 for 13 seabird species. Point size shows the percentage of the UK population counted. Great Skua shows the largest decline at minus 76 percent."
+if (have_data) {
+  uk |>
+    mutate(species = reorder(species, pct_change),
+           dir = ifelse(pct_change < 0, "Decline", "Increase")) |>
+    ggplot(aes(pct_change, species)) +
+    geom_vline(xintercept = 0, colour = "#5A6B7B") +
+    geom_segment(aes(x = 0, xend = pct_change, yend = species, colour = dir), linewidth = 1) +
+    geom_point(aes(size = pct_uk_pop_counted, colour = dir)) +
+    geom_text(aes(label = pc(pct_change), hjust = ifelse(pct_change < 0, 1.6, -0.6)), size = 3.3) +
+    scale_colour_manual(values = c(Decline = seas_cols[["red"]], Increase = seas_cols[["blue"]]), guide = "none") +
+    scale_size_area(max_size = 7, name = "% of UK population counted", breaks = c(25, 50, 75, 100)) +
+    scale_x_continuous(labels = \(x) paste0(x, "%"), limits = c(-95, 30)) +
+    labs(title = "Nine of 13 species fell by more than 10% at the sites surveyed",
+         subtitle = "Change in UK breeding count, pre-outbreak baseline to 2023",
+         x = NULL, y = NULL,
+         caption = paste0("Source: RSPB Research Report 76 (Tremlett, Morley & Wilson 2024), Section 5.\n",
+                          "Independent analysis by Emma Branch.")) +
+    theme_seas() +
+    theme(legend.position = "bottom")
+}
+```
+
+### Colony by colony: Great Skua and Gannet
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6.5
+#| fig-alt: "Forest plot of percentage change in breeding counts at Scottish Special Protection Areas for Great Skua and Northern Gannet, with 95 percent confidence intervals. All Great Skua colonies fell by 40 to 86 percent. Gannet colonies fell by 3 to 37 percent."
+if (have_data) {
+  d <- spa |>
+    filter(species %in% c("Great Skua", "Northern Gannet")) |>
+    mutate(label = paste0(spa, ifelse(low_conf, " *", "")),
+           label = reorder(paste(species, label, sep = "___"), pct))
+  totd <- tot |> filter(species %in% c("Great Skua", "Northern Gannet"))
+  ggplot(d, aes(pct, label)) +
+    geom_vline(xintercept = 0, colour = "#5A6B7B") +
+    geom_vline(data = totd, aes(xintercept = pct), linetype = "dashed", colour = seas_cols[["deep"]]) +
+    geom_errorbarh(aes(xmin = lo, xmax = hi), height = 0.35, linewidth = 0.8, colour = seas_cols[["red"]]) +
+    geom_point(shape = 21, size = 2.6, stroke = 0.8, fill = seas_cols[["red"]], colour = "white") +
+    facet_grid(species ~ ., scales = "free_y", space = "free_y") +
+    scale_y_discrete(labels = \(x) sub("^.*___", "", x)) +
+    scale_x_continuous(labels = \(x) paste0(x, "%"), limits = c(-100, 10)) +
+    labs(title = "Every surveyed Great Skua colony fell by at least 40%",
+         subtitle = "Change in breeding count at each Scottish SPA, baseline to 2023, with 95% CI.\nDashed line: all SPAs combined. * Low-confidence or preliminary 2023 count.",
+         x = NULL, y = NULL,
+         caption = paste0("Source: RSPB Research Report 76, Tables 6 and 9. CIs: my calculation (Poisson, counting noise only).\n",
+                          "Independent analysis by Emma Branch.")) +
+    theme_seas() +
+    theme(strip.text.y = element_text(angle = 0, face = "bold", hjust = 0),
+          panel.grid.major.y = element_blank())
+}
+```
+
+The confidence intervals are narrow because these are large counts. That makes them a **minimum** estimate of uncertainty: they reflect counting noise only, not observer error, survey timing, or differences between baseline years. Even so, the Great Skua declines are far too large and too consistent to be explained by noise.
+
+### Gannet: how much depends on the baseline?
+
+```{r}
+#| fig-width: 10
+#| fig-height: 4.6
+#| fig-alt: "Dumbbell chart for six Gannet SPAs comparing percentage change from the observed baseline with percentage change from a trend-adjusted 2021 baseline. The adjusted decline is larger at colonies whose baseline was counted several years before the outbreak."
+if (have_data) {
+  gan |>
+    mutate(spa = reorder(paste0(spa, " (baseline ", baseline_year, ")"), pct_trend_adjusted)) |>
+    tidyr::pivot_longer(c(pct_observed_baseline, pct_trend_adjusted), names_to = "type", values_to = "pct") |>
+    mutate(type = factor(recode(type, pct_observed_baseline = "Against the counted baseline",
+                                      pct_trend_adjusted    = "Against a 2021 baseline projected from the pre-outbreak trend"),
+                         levels = c("Against the counted baseline",
+                                    "Against a 2021 baseline projected from the pre-outbreak trend"))) |>
+    arrange(type) |>
+    ggplot(aes(pct, spa)) +
+    geom_vline(xintercept = 0, colour = "#5A6B7B") +
+    geom_line(aes(group = spa), colour = "#B8C4CF", linewidth = 1.2) +
+    geom_point(aes(colour = type, size = type)) +
+    scale_size_manual(values = c(5, 2.6), guide = "none") +
+    scale_colour_manual(values = c(seas_cols[["deep"]], seas_cols[["sky"]]), name = NULL) +
+    scale_x_continuous(labels = \(x) paste0(x, "%"), limits = c(-45, 5)) +
+    labs(title = "Allowing for pre-outbreak growth makes the Gannet decline larger",
+         subtitle = "Change in Gannet nest counts to 2023, by choice of baseline.\nWhere the baseline was counted in 2021 (Fair Isle, Hermaness), no adjustment is needed and the dots overlap.",
+         x = NULL, y = NULL,
+         caption = paste0("Source: RSPB Research Report 76, Table 6.\nIndependent analysis by Emma Branch.")) +
+    theme_seas() +
+    theme(legend.position = "bottom", legend.direction = "vertical")
+}
+```
+
+```{r}
+#| results: asis
+if (have_data) cat(sprintf(
+"Gannet colonies were growing before the outbreak, and some baselines date from 2014. Comparing 2023 with the counted baseline gives **%s**. Comparing it with each colony's projected 2021 size gives **%s**. This is the same logic as adjusting for a secular trend: if a population was rising, a simple before-after comparison understates the impact.\n",
+  pc(gtot$pct_observed_baseline), pc(gtot$pct_trend_adjusted)))
+```
 
 ## Map
 
-<!-- Leaflet or static sf map, where relevant. -->
+```{r}
+#| fig-height: 7
+if (have_data) {
+  library(leaflet)
+  m_d <- spa |> filter(!is.na(lon), species %in% c("Great Skua", "Northern Gannet"))
+  bins <- c(-100, -60, -40, -20, 0, 100)
+  pal  <- colorBin(c("#67001F", "#B2182B", "#D6604D", "#F4A582", "#92C5DE"), domain = bins, bins = bins)
+  m <- leaflet(options = leafletOptions(zoomSnap = 0.25)) |>
+    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    fitBounds(min(m_d$lon) - 0.5, min(m_d$lat) - 0.3, max(m_d$lon) + 0.5, max(m_d$lat) + 0.3)
+  for (sp in c("Northern Gannet", "Great Skua")) {
+    d <- m_d |> filter(species == sp)
+    m <- m |> addCircleMarkers(
+      data = d, lng = ~lon, lat = ~lat, group = sp,
+      radius = ~pmax(5, sqrt(baseline) / 6), weight = 1.5, color = "#fff",
+      fillColor = ~pal(pct), fillOpacity = 0.9,
+      label = ~sprintf("%s, %s: %s", species, spa, pc(pct)),
+      popup = ~sprintf("<b>%s</b><br>%s<br>Baseline: %s %s<br>2023: %s<br>Change: %s (95%% CI %s to %s)%s",
+                       spa, species, fmt(baseline), unit, fmt(count_2023), pc(pct), pc(lo), pc(hi),
+                       ifelse(is.na(note), "", paste0("<br><i>", note, "</i>"))))
+  }
+  m <- m |> addLayersControl(overlayGroups = c("Great Skua", "Northern Gannet"),
+                             options = layersControlOptions(collapsed = TRUE)) |>
+    hideGroup("Northern Gannet")
+  htmltools::tagList(m, map_key(
+    c("Below −60", "−60 to −40", "−40 to −20", "−20 to 0", "Increase"),
+    pal(c(-80, -50, -30, -10, 50)), "Change, baseline to 2023 (%):"),
+    htmltools::p(class = "small text-muted",
+      "Circle size shows the baseline count. Great Skua is shown first; switch to Gannet with the layers icon (top right). Both species share some SPAs, such as Noss and Hermaness."))
+}
+```
+
+## All Scottish SPA results
+
+```{r}
+if (have_data) {
+  rt <- spa |>
+    mutate(SPA = ifelse(is.na(note), spa, paste0(spa, " *"))) |>
+    transmute(Species = species, SPA, Unit = unit,
+              Baseline = baseline, `2023` = count_2023,
+              Change = pc(pct), `95% CI` = paste0(pc(lo), " to ", pc(hi)),
+              `% counted` = pct_coverage)
+  sp_order <- c("Great Skua", "Northern Gannet", "Sandwich Tern", "Common Tern",
+                "Arctic Tern", "Arctic Skua", "Common Guillemot")
+  rt <- rt |>
+    mutate(Species = factor(Species, sp_order)) |>
+    arrange(Species, SPA) |>
+    mutate(first  = !duplicated(Species),
+           Species = as.character(Species),
+           shown  = ifelse(first, Species, ""))
+  first_rows <- which(rt$first)
+  num <- reactable::colFormat(separators = TRUE)
+  reactable::reactable(
+    rt |> select(shown, SPA, Unit, Baseline, `2023`, Change, `95% CI`, `% counted`, Species),
+    searchable = TRUE, sortable = FALSE, compact = TRUE, highlight = TRUE,
+    defaultPageSize = 50, fullWidth = TRUE,
+    style = list(fontSize = "0.82rem"),
+    rowStyle = function(index) if (index %in% first_rows && index > 1)
+      list(borderTop = "2px solid #0B3C5D"),
+    defaultColDef = reactable::colDef(headerStyle = list(whiteSpace = "normal")),
+    columns = list(
+      shown       = reactable::colDef(name = "Species", minWidth = 130,
+                                      style = list(fontWeight = 700, color = "#0B3C5D")),
+      Species     = reactable::colDef(show = FALSE),   # kept so search finds every row
+      SPA         = reactable::colDef(minWidth = 170),
+      Unit        = reactable::colDef(minWidth = 45, maxWidth = 55),
+      Baseline    = reactable::colDef(minWidth = 65, format = num),
+      `2023`      = reactable::colDef(minWidth = 60, format = num),
+      Change      = reactable::colDef(minWidth = 60, align = "right"),
+      `95% CI`    = reactable::colDef(minWidth = 105, align = "right",
+                                      style = list(whiteSpace = "nowrap")),
+      `% counted` = reactable::colDef(minWidth = 65, align = "right", name = "% counted")))
+}
+```
+
+```{r}
+#| results: asis
+if (have_data) {
+  notes <- spa |> filter(!is.na(note)) |> distinct(species, spa, note)
+  cat("**Notes on starred rows (from the report):**\n\n")
+  cat(paste0("- ", notes$spa, " (", notes$species, "): ", notes$note, ".", collapse = "\n"), "\n\n")
+  cat("95% CI reflects counting noise only. % counted: share of the SPA population surveyed in 2023 (blank where not reported). Units: AON/AOS/AOT = apparently occupied nests/sites/territories; IND = individual birds.\n")
+}
+```
+
+Species with small colonies (for example Arctic Skua, with single-figure counts at some SPAs) are included for completeness but say little on their own.
 
 ## Confidence
 
-<!-- Why high, medium, or low: coverage, frequency, method changes. -->
+**Medium.** The 2023 survey was large and coordinated, and for Great Skua, Gannet, and the terns it covered most of the population. But:
+
+- Baseline years vary (2014 to 2021), so some of each change happened before the outbreak.
+- A few 2023 counts are flagged by the report authors as preliminary or low confidence.
+- Coverage is low for some species, so totals may not represent the whole population.
 
 ## Limitations
 
-- <!-- What the data cannot tell us. -->
+- **Attribution:** the report's authors consider HPAI the main driver for Great Skua, Gannet, and Roseate Tern, and likely for Sandwich and Common Tern. For species already in long-term decline, separating HPAI from other pressures is harder. This page reports change; it does not estimate a causal effect.
+- **Breeding numbers only:** the data do not include breeding success or adult survival.
+- **Incomplete timing:** further HPAI deaths in 2023 happened after these counts.
+- **Transcription:** SPA figures were transcribed from the report's PDF tables (table and page recorded for each row) and checked against printed totals where available.
+
+## Optional next step
+
+With approved access to the Seabird Monitoring Programme database (BTO/JNCC), annual counts at monitored colonies would show whether populations have started to recover since 2023, and allow a proper interrupted time-series analysis. Any such analysis would follow the SMP data use policy.
 
 ## Data sources and licences
 
-- <!-- Dataset, publisher, year, URL, licence, attribution wording. -->
+- Tremlett, C.J., Morley, N. and Wilson, L.J. (2024). *UK seabird colony counts in 2023 following the 2021-22 outbreak of Highly Pathogenic Avian Influenza.* RSPB Research Report 76. RSPB Centre for Conservation Science. Figures transcribed from Tables 6, 9, 18, 22, 25, 28, and 37 and Section 5, and used here with full citation for non-commercial analysis.
+- Special Protection Area boundaries: NatureScot. Open Government Licence v3.0.
+- Background: Seabirds Count (2015 to 2021), JNCC. Open Government Licence v3.0.

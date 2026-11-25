@@ -1,0 +1,46 @@
+species,spa,baseline,count_2023,unit,baseline_year,predicted_2021,n_sites,pct_sites,pct_coverage,note,source_table,source_page,verified
+Northern Gannet,Forth Islands,75259,55000,AOS,2014,81000,,,,"2023 figure is a preliminary estimate (approx. 55,000)",Table 6,30,FALSE
+Northern Gannet,Fair Isle,4971,4827,AON,2021,4971,,,,,Table 6,30,FALSE
+Northern Gannet,Noss,13765,12335,AON,2019,14600,,,,,Table 6,30,FALSE
+Northern Gannet,"Hermaness, Saxa Vord and Valla Field",29562,18739,AON,2021,29562,,,,,Table 6,30,FALSE
+Northern Gannet,North Rona and Sula Sgeir,12271,9495,AOS,2017,13400,,,,"Low confidence in 2023 count (high observer variation)",Table 6,30,FALSE
+Northern Gannet,Ailsa Craig,33226,30965,AOS,2014,38300,,,,"Low confidence in 2023 count (high observer variation)",Table 6,30,FALSE
+Great Skua,Handa,283,84,AOT,,,1,100,100,,Table 9,36,FALSE
+Great Skua,Hoy,1404,257,AOT,,,102,99,100,,Table 9,36,FALSE
+Great Skua,Fair Isle,430,153,AOT,,,1,100,100,,Table 9,36,FALSE
+Great Skua,Fetlar,810,253,AOT,,,33,92,95,,Table 9,36,FALSE
+Great Skua,Foula,1846,308,AOT,,,1,100,100,,Table 9,36,FALSE
+Great Skua,"Hermaness, Saxa Vord and Valla Field",975,224,AOT,,,2,67,95,,Table 9,36,FALSE
+Great Skua,Noss,476,69,AOT,,,1,100,100,,Table 9,36,FALSE
+Great Skua,Ronas Hill - North Roe and Tingon,163,97,AOT,,,31,91,96,,Table 9,36,FALSE
+Great Skua,St Kilda,183,79,AOT,,,1,33,87,,Table 9,36,FALSE
+Sandwich Tern,"Ythan Estuary, Sands of Forvie and Meikle Loch",1075,903,AON,,,1,100,100,,Table 18,,FALSE
+Common Tern,Forth Islands,78,49,AON,,,1,33,70,,Table 22,,FALSE
+Common Tern,"Imperial Dock Lock, Leith",514,350,AON,,,1,100,100,,Table 22,,FALSE
+Common Tern,"Ythan Estuary, Sands of Forvie and Meikle Loch",103,130,AON,,,1,100,100,,Table 22,,FALSE
+Arctic Tern,Fair Isle,190,295,AON,,,1,100,100,,Table 25,,FALSE
+Arctic Tern,Mousa,56,68,AON,,,1,100,100,,Table 25,,FALSE
+Arctic Tern,Papa Westray (North Hill and Holm),237,47,AON,,,1,50,93,,Table 25,,FALSE
+Arctic Skua,Fair Isle,27,22,AOT,,,1,100,100,,Table 37,,FALSE
+Arctic Skua,Fetlar,9,2,AOT,,,6,100,100,,Table 37,,FALSE
+Arctic Skua,Hoy,2,2,AOT,,,2,33,29,,Table 37,,FALSE
+Arctic Skua,Papa Westray (North Hill and Holm),18,18,AOT,,,1,100,100,,Table 37,,FALSE
+Arctic Skua,Rousay,11,7,AOT,,,1,33,61,,Table 37,,FALSE
+Common Guillemot,Buchan Ness to Collieston Coast,29433,30420,IND,,,1,100,100,,Table 28,,FALSE
+Common Guillemot,Cape Wrath,10084,16555,IND,,,6,67,26,,Table 28,,FALSE
+Common Guillemot,Copinsay,18472,8177,IND,,,2,67,100,,Table 28,,FALSE
+Common Guillemot,Forth Islands,7691,5244,IND,,,4,80,29,,Table 28,,FALSE
+Common Guillemot,Fowlsheugh,61416,81054,IND,,,1,25,88,,Table 28,,FALSE
+Common Guillemot,Handa,68524,57596,IND,,,1,100,100,,Table 28,,FALSE
+Common Guillemot,"Hermaness, Saxa Vord and Valla Field",2623,2890,IND,,,1,,,,Table 28,,FALSE
+Common Guillemot,Marwick Head,11985,9552,IND,,,1,100,100,,Table 28,,FALSE
+Common Guillemot,Mingulay and Berneray,19487,16542,IND,,,1,33,51,,Table 28,,FALSE
+Common Guillemot,North Caithness Cliffs,36286,48290,IND,,,13,87,93,,Table 28,,FALSE
+Common Guillemot,North Colonsay and Western Cliffs,13709,20189,IND,,,5,36,73,,Table 28,,FALSE
+Common Guillemot,Noss,23733,19645,IND,,,1,100,100,,Table 28,,FALSE
+Common Guillemot,Rum,1798,1384,IND,,,1,100,100,,Table 28,,FALSE
+Common Guillemot,Shiant Isles,1233,117,IND,,,,,,,Table 28,,FALSE
+Common Guillemot,St Abb's Head to Fast Castle,44814,29472,IND,,,3,75,98,,Table 28,,FALSE
+Common Guillemot,St Kilda,10303,15148,IND,,,4,100,100,,Table 28,,FALSE
+Common Guillemot,"Troup, Pennan and Lion's Heads",24000,30663,IND,,,1,20,79,,Table 28,,FALSE
+Common Guillemot,West Westray,22930,24586,IND,,,1,25,80,,Table 28,,FALSE
