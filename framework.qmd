@@ -41,4 +41,4 @@ fw |>
 - **OSPAR:** the North-East Atlantic regional convention. Common indicators include B1 (marine bird abundance), B3 (breeding success), M3 (seal abundance and distribution), and M5 (grey seal pup production). Latest assessment: Quality Status Report 2023.
 - **Kunming-Montreal Global Biodiversity Framework:** 23 targets for 2030, including Target 3 (30x30).
 
-Rows marked ✓ were confirmed against the source documents (November 2026). The salmon row has one OSPAR link still to confirm.
+All rows were confirmed against the source documents (November 2026).
