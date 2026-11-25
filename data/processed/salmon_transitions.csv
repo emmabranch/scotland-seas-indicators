@@ -1,0 +1,10 @@
+from,to,n_stocks
+Good,Good,26
+Good,Moderate,8
+Good,Poor,2
+Moderate,Good,5
+Moderate,Moderate,15
+Moderate,Poor,15
+Poor,Good,1
+Poor,Moderate,3
+Poor,Poor,98

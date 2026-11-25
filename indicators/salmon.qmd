@@ -1,45 +1,159 @@
 ---
 title: "Wild Atlantic salmon"
-subtitle: "Annual conservation status of Scotland's salmon stocks"
+subtitle: "Annual conservation status of Scotland's assessed salmon stocks, 2021 to 2026"
 ---
 
 ```{r}
 #| include: false
 source(here::here("R", "report_card.R"))
+library(dplyr)
+library(ggplot2)
+
+p <- \(f) here::here("data", "processed", f)
+have_data <- file.exists(p("salmon_national.csv"))
+status_cols <- c(Good = seas_cols[["green"]], Moderate = seas_cols[["orange"]], Poor = seas_cols[["red"]])
+if (have_data) {
+  national <- readr::read_csv(p("salmon_national.csv"), show_col_types = FALSE) |>
+    mutate(status = factor(status, c("Good", "Moderate", "Poor")))
+  trans    <- readr::read_csv(p("salmon_transitions.csv"), show_col_types = FALSE)
+  rivers   <- readr::read_csv(p("salmon_rivers_long.csv"), show_col_types = FALSE)
+  n_tot  <- national |> filter(season == 2021) |> pull(n_stocks) |> sum()
+  poor21 <- national |> filter(season == 2021, status == "Poor") |> pull(n_stocks)
+  poor26 <- national |> filter(season == 2026, status == "Poor") |> pull(n_stocks)
+}
 ```
 
 ```{r}
 glance_box("salmon")
 ```
 
-::: {.callout-warning appearance="simple"}
-Work in progress. Figures on this page are not final.
-:::
+```{r}
+#| results: asis
+if (!have_data) cat("::: {.callout-warning}\nRun `R/03_salmon.R` to build this page's data.\n:::\n")
+```
 
 ## What this measures
 
-<!-- One or two sentences, plain language. -->
+Each year the Scottish Government assesses the conservation status of **173 wild Atlantic salmon stocks**: single rivers, or groups of rivers where catches cannot be separated. A stock's status is the probability that it will meet its **conservation limit** (the number of spawning adults needed for a healthy population) over five years:
+
+- **Good:** at least an 80% probability. No extra management needed.
+- **Moderate:** a 60 to 80% probability. Catch-and-release strongly encouraged.
+- **Poor:** under a 60% probability. Mandatory catch-and-release for the season.
+
+The grading for each season is based on the previous assessment, so the "2026" grading reflects the most recent data.
 
 ## Why it matters
 
-<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->
+Atlantic salmon is a protected species under the Habitats Regulations, with 17 Special Areas of Conservation designated for it in Scotland. It moves between rivers and the open ocean, so its status reflects conditions in both freshwater and the sea. This indicator reports status only. It does not try to attribute change to any one pressure.
 
 ## Trend and status
 
-<!-- One clear chart, with the key takeaway written as the chart title. -->
+```{r}
+#| results: asis
+if (have_data) cat(sprintf(
+  "**%d of %d stocks (%d%%) were in poor conservation status for the 2026 season**, up from %d (%d%%) in 2021.\n",
+  poor26, n_tot, round(100 * poor26 / n_tot), poor21, round(100 * poor21 / n_tot)))
+```
+
+```{r}
+#| fig-height: 4.6
+#| fig-alt: "Stacked bar chart of the number of Scottish salmon stocks in good, moderate, and poor conservation status for each season from 2021 to 2026. Poor is the largest group every year and rises from 102 to 115."
+if (have_data) {
+  national |>
+    mutate(season_lab = ifelse(season == 2026, "2026*", as.character(season))) |>
+    ggplot(aes(season_lab, n_stocks, fill = factor(status, c("Poor", "Moderate", "Good")))) +
+    geom_col(width = 0.72, colour = "white", linewidth = 0.4) +
+    geom_text(aes(label = n_stocks), position = position_stack(vjust = 0.5),
+              colour = "white", fontface = "bold", size = 3.6) +
+    scale_fill_manual(values = status_cols, breaks = c("Good", "Moderate", "Poor"), name = NULL) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.03))) +
+    labs(title = "Around two in three assessed salmon stocks are in poor conservation status",
+         subtitle = "Number of stocks by conservation status, by fishing season",
+         x = NULL, y = "Stocks",
+         caption = paste("* 2026 counts as proposed in the consultation; final gradings may differ slightly.",
+                         seas_caption("Scottish Government, salmon river gradings"), sep = "\n")) +
+    theme_seas()
+}
+```
+
+### Where did stocks move?
+
+```{r}
+#| fig-height: 3.6
+#| fig-alt: "Grid showing how many stocks moved between good, moderate, and poor status from 2021 to 2026. The diagonal shows stocks that kept the same status."
+if (have_data) {
+  lv <- c("Good", "Moderate", "Poor")
+  trans |>
+    filter(!is.na(from), !is.na(to)) |>
+    mutate(from = factor(from, lv), to = factor(to, lv),
+           kind = case_when(as.integer(to) < as.integer(from) ~ "Improved",
+                            as.integer(to) > as.integer(from) ~ "Worsened",
+                            TRUE ~ "No change")) |>
+    ggplot(aes(to, factor(from, rev(lv)))) +
+    geom_tile(aes(fill = kind), colour = "white", linewidth = 1.5, alpha = 0.85) +
+    geom_text(aes(label = n_stocks), size = 5, fontface = "bold") +
+    scale_fill_manual(values = c(Improved = seas_cols[["sky"]], `No change` = "#E5E9EE",
+                                 Worsened = seas_cols[["orange"]]), name = NULL) +
+    labs(title = "Status in 2021 (rows) against status in 2026 (columns)",
+         x = "2026", y = "2021",
+         caption = "Counts of stocks, from my reconstruction of the river-level tables (validated against official totals).") +
+    theme_seas() +
+    theme(panel.grid = element_blank())
+}
+```
 
 ## Map
 
-<!-- Leaflet or static sf map, where relevant. -->
+Each point is a river mouth (the official outflow point), coloured by its 2026 status. Click a point to see its grading history. Use the layer control to show one status at a time.
+
+```{r}
+if (have_data) {
+  library(leaflet)
+  hist <- rivers |>
+    arrange(season) |>
+    group_by(district, river, lon, lat) |>
+    summarise(s2026 = status[season == 2026][1],
+              history = paste0(season, ": ", coalesce(status, "no data"), collapse = "<br>"),
+              .groups = "drop") |>
+    filter(!is.na(lon), !is.na(s2026))
+  m <- leaflet(hist) |>
+    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    setView(-4.2, 57.2, 6)
+  for (s in c("Poor", "Moderate", "Good")) {
+    d <- hist[hist$s2026 == s, ]
+    m <- m |> addCircleMarkers(data = d, ~lon, ~lat, radius = 5, weight = 1, color = "#fff",
+                               fillColor = status_cols[[s]], fillOpacity = 0.95, group = s,
+                               label = ~paste0(river, " (", s, ")"),
+                               popup = ~paste0("<b>", river, "</b><br>", district, " district<br><br>", history))
+  }
+  m |>
+    addLayersControl(overlayGroups = c("Good", "Moderate", "Poor"),
+                     options = layersControlOptions(collapsed = FALSE)) |>
+    addLegend(colors = unname(status_cols), labels = names(status_cols),
+              title = "2026 status", opacity = 1)
+}
+```
 
 ## Confidence
 
-<!-- Why high, medium, or low: coverage, frequency, method changes. -->
+**High** that the gradings are reported accurately, since they are the official assessments. **Medium** for reading a trend from them:
+
+- Six seasons is a short window.
+- Each grading already averages over five years, so successive seasons are not independent.
+- Stocks near a threshold can change category with small changes in the underlying probability.
 
 ## Limitations
 
-- <!-- What the data cannot tell us. -->
+- Status is categorical. It hides how close a stock is to a boundary.
+- Assessments rely mainly on rod catch data (plus counters where available), which is affected by fishing effort and river conditions, not only by fish numbers.
+- 8 fishery districts have no individual river data and are graded poor by default.
+- Some rivers take the lower grade of an overlapping SAC, so their grading may not reflect their own assessment.
+- Stock boundaries are not openly available, so the map shows river mouths rather than catchments.
+- National counts are the official published figures. River-level data, the transitions grid, and the map are my reconstruction from the published tables. That reconstruction gives 173 stocks and matches the official Good, Moderate, and Poor counts exactly for every season from 2021 to 2026. The check caught two quirks in the source tables: one stock (North Harris SAC) spans two fishery districts, and one row used a different dash in a grouped river name.
 
 ## Data sources and licences
 
-- <!-- Dataset, publisher, year, URL, licence, attribution wording. -->
+- Scottish Government. *Salmon fishing: proposed river gradings for 2026 season* (consultation, 2025), including gradings for 2021 to 2025.
+- Scottish Government. *Salmon fishing: final river gradings for the 2026 season.*
+- Scottish Government. *Conservation of wild salmon* (policy page): conservation status definitions.
+- Contains public sector information licensed under the Open Government Licence v3.0.
