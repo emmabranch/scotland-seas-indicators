@@ -87,3 +87,13 @@ $headings-font-weight: 700;
 // Legend under the report card
 .status-legend { font-size: .9rem; color: #33414E; }
 .status-legend span.key { display: inline-flex; align-items: center; gap: .35rem; margin-right: 1rem; }
+
+// Key below maps
+.map-key {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .8rem;
+  margin: .5rem 0 1.5rem; font-size: .82rem; color: #33414E;
+  strong { margin-right: .25rem; }
+  .key { display: inline-flex; align-items: center; gap: .3rem; white-space: nowrap; }
+  .swatch { width: .85rem; height: .85rem; border-radius: 3px; display: inline-block;
+            border: 1px solid rgba(0,0,0,.15); }
+}

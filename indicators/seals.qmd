@@ -1,45 +1,187 @@
 ---
 title: "Harbour and grey seals"
-subtitle: "Population trends by Seal Management Unit"
+subtitle: "August counts by Seal Management Unit across six national censuses, 1996-97 to 2021-25"
 ---
 
 ```{r}
 #| include: false
 source(here::here("R", "report_card.R"))
+library(dplyr)
+library(ggplot2)
+
+p <- \(f) here::here("data", "processed", f)
+have_data <- file.exists(p("seals_counts.csv"))
+if (have_data) {
+  counts <- readr::read_csv(p("seals_counts.csv"), show_col_types = FALSE)
+  change <- readr::read_csv(p("seals_change.csv"), show_col_types = FALSE)
+  est    <- readr::read_csv(p("seals_estimates.csv"), show_col_types = FALSE)
+  trend  <- readr::read_csv(p("seals_trend_table.csv"), show_col_types = FALSE)
+  tot <- \(sp, per) counts$count[counts$species == sp & counts$level == "Scotland" & counts$period == per]
+  smu_order <- counts |> filter(level == "SMU") |> distinct(smu_no, unit) |>
+    arrange(as.integer(smu_no)) |> pull(unit)
+}
+fmt <- \(x) format(round(x), big.mark = ",")
 ```
 
 ```{r}
 glance_box("seals")
 ```
 
-::: {.callout-warning appearance="simple"}
-Work in progress. Figures on this page are not final.
-:::
+```{r}
+#| results: asis
+if (!have_data) cat("::: {.callout-warning}\nRun `R/04_seals.R` to build this page's data.\n:::\n")
+```
 
 ## What this measures
 
-<!-- One or two sentences, plain language. -->
+The number of **harbour seals** and **grey seals** counted hauled out on land during the harbour seal moult in August, from helicopter surveys by the Sea Mammal Research Unit (SMRU). The whole Scottish coastline is surveyed roughly every five years. Counts are reported for Scotland's seven Seal Management Units (SMUs).
+
+A count is **not** a population estimate. Many seals are at sea during any survey. Comparing counts across years works because surveys follow a consistent method at the same time of year.
 
 ## Why it matters
 
-<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->
+Both species are protected under the Marine (Scotland) Act 2010 and are features of Special Areas of Conservation. Harbour seals in particular have declined sharply in parts of Scotland since the early 2000s, and the causes are not fully understood. Seal counts feed into OSPAR and UK Marine Strategy assessments of marine mammals.
 
 ## Trend and status
 
-<!-- One clear chart, with the key takeaway written as the chart title. -->
+```{r}
+#| results: asis
+if (have_data) cat(sprintf(
+  "The 2021 to 2025 census counted **%s harbour seals**, the lowest Scottish total since the first full census in 1996-97 and %d%% below 2016-19. It counted **%s grey seals** in August, %d%% below 2016-19.\n",
+  fmt(tot("Harbour seal", "2021-2025")),
+  round(100 * (1 - tot("Harbour seal", "2021-2025") / tot("Harbour seal", "2016-2019"))),
+  fmt(tot("Grey seal", "2021-2025")),
+  round(100 * (1 - tot("Grey seal", "2021-2025") / tot("Grey seal", "2016-2019")))))
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 7
+#| fig-alt: "Small multiple line charts of harbour seal August counts in each of Scotland's seven Seal Management Units across six census periods from 1996-97 to 2021-25. Each panel has its own scale."
+if (have_data) {
+  lab <- change |> filter(species == "Harbour seal", level == "SMU") |>
+    transmute(unit, panel = sprintf("%s\n%+d%% since 2016-19", smu_name, round(pct_vs_prev)))
+  d <- counts |>
+    filter(species == "Harbour seal", level == "SMU") |>
+    left_join(lab, by = "unit") |>
+    mutate(panel = factor(panel, lab$panel[match(smu_order, lab$unit)]))
+  ggplot(d, aes(mid, count)) +
+    geom_area(fill = seas_cols[["sky"]], alpha = 0.25) +
+    geom_line(colour = seas_cols[["blue"]], linewidth = 1) +
+    geom_point(colour = seas_cols[["blue"]], size = 2) +
+    facet_wrap(~panel, scales = "free_y", ncol = 4) +
+    scale_y_continuous(labels = scales::label_comma(), limits = c(0, NA),
+                       expand = expansion(mult = c(0, 0.08))) +
+    scale_x_continuous(breaks = c(2000, 2010, 2020)) +
+    labs(title = "Harbour seal counts have fallen in every Seal Management Unit since 2016-19",
+         subtitle = "August haul-out counts at each national census, plotted at the survey period midpoint.\nEach panel has its own scale.",
+         x = NULL, y = NULL,
+         caption = seas_caption("NatureScot Research Report 1421 (SMRU)")) +
+    theme_seas() +
+    theme(strip.text = element_text(face = "bold", hjust = 0, lineheight = 1.1),
+          panel.spacing = grid::unit(1.2, "lines"))
+}
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 4.5
+#| fig-alt: "Line chart of total August counts of harbour and grey seals in Scotland at each census, 1996-97 to 2021-25."
+if (have_data) {
+  counts |>
+    filter(level == "Scotland") |>
+    ggplot(aes(mid, count, colour = species)) +
+    geom_line(linewidth = 1.1) +
+    geom_point(size = 2.4) +
+    scale_colour_manual(values = c(`Harbour seal` = seas_cols[["blue"]], `Grey seal` = seas_cols[["orange"]]),
+                        name = NULL) +
+    scale_y_continuous(labels = scales::label_comma(), limits = c(0, NA)) +
+    labs(title = "Scotland-wide August counts of both species are at their lowest",
+         subtitle = "Total counted at each national census",
+         x = NULL, y = NULL,
+         caption = seas_caption("NatureScot Research Report 1421 (SMRU)")) +
+    theme_seas()
+}
+```
+
+**Grey seals need extra care.** August counts capture grey seals hauled out in summer, which is not the main way their population is monitored (that is through pup production in autumn). The report notes that the low 2021-25 grey seal total is driven mainly by a very low 2025 count in Orkney, so one survey has a big influence.
 
 ## Map
 
-<!-- Leaflet or static sf map, where relevant. -->
+```{r}
+#| fig-height: 6.5
+if (have_data && file.exists(p("seals_map.gpkg"))) {
+  library(leaflet)
+  sma <- sf::st_read(p("seals_map.gpkg"), quiet = TRUE) |>
+    mutate(smu_no = as.character(smu_no)) |>
+    left_join(change |> filter(species == "Harbour seal", level == "SMU") |>
+                mutate(smu_no = as.character(smu_no)) |>
+                select(smu_no, unit, prev_count, latest_count, pct_vs_prev, pct_vs_first),
+              by = "smu_no")
+  # Every unit declined, so use a compact sequential scale of 10-point bands
+  lo  <- min(-50, floor(min(sma$pct_vs_prev, na.rm = TRUE) / 10) * 10)
+  pal <- colorBin(c("#67001F", "#B2182B", "#D6604D", "#F4A582", "#FDDBC7"),
+                  domain = c(lo, 0), bins = seq(lo, 0, 10), reverse = FALSE)
+  bb  <- sf::st_bbox(sma)
+  m <- leaflet(sma, options = leafletOptions(zoomSnap = 0.25)) |>
+    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    fitBounds(bb[["xmin"]], bb[["ymin"]], bb[["xmax"]], bb[["ymax"]]) |>
+    addPolygons(fillColor = ~pal(pct_vs_prev), fillOpacity = 0.75, color = "#33414E", weight = 1,
+                label = ~sprintf("%s: %+d%%", unit, round(pct_vs_prev)),
+                popup = ~sprintf("<b>%s</b><br>Harbour seals counted<br>2016-19: %s<br>2021-25: %s<br>Change: %+d%%<br>Since 1996-97: %+d%%",
+                                 unit, fmt(prev_count), fmt(latest_count), round(pct_vs_prev), round(pct_vs_first)))
+  brks <- seq(lo, 0, 10)
+  htmltools::tagList(m, map_key(
+    labels  = sprintf("\u2212%d to \u2212%d", -head(brks, -1), -tail(brks, -1)) |>
+                sub(pattern = "\u22120$", replacement = "0"),
+    colours = pal(head(brks, -1) + 5),
+    title   = "Change since 2016-19 (%):"))
+} else if (have_data) {
+  cat("Map not available: Seal Management Area boundaries could not be downloaded.")
+}
+```
+
+## Statistical trends (as published)
+
+The report fits trends to the full count series for each unit. I reproduce its harbour seal trend table here rather than refitting, because the authors account for survey design in ways a reanalysis of summary counts cannot.
+
+```{r}
+if (have_data && nrow(trend)) {
+  tt <- trend
+  names(tt)[1:7] <- c("unit", "area", "year", "count", "n", "chg1", "chghh")
+  tt |>
+    mutate(unit = stringr::str_replace_all(unit, "\u2013", "-") |> stringr::str_squish(),
+           area = stringr::str_replace(area, "entire SMU subdivision", "Whole subdivision") |>
+                  stringr::str_replace("entire SMU", "Whole unit")) |>
+    gt::gt(groupname_col = "unit") |>
+    gt::cols_label(area = "Area", year = "Last survey", count = "Last count", n = "N",
+                   chg1 = gt::html("Annual change, %<br>(95% CI)"),
+                   chghh = gt::html("Change since highest count, %<br>(95% CI; year of high)")) |>
+    gt::cols_align("right", columns = c(year, count, n)) |>
+    gt::tab_style(gt::cell_text(whitespace = "nowrap"), gt::cells_body(columns = c(year, count, chg1, chghh))) |>
+    gt::tab_style(gt::cell_text(weight = "bold"), gt::cells_row_groups()) |>
+    gt::tab_options(table.font.size = gt::pct(88), row_group.padding = gt::px(6),
+                    data_row.padding = gt::px(4), table.width = gt::pct(100)) |>
+    gt::tab_source_note("Source: NatureScot Research Report 1421, Table 3. Column names shortened. '-' means not reported.")
+}
+```
 
 ## Confidence
 
-<!-- Why high, medium, or low: coverage, frequency, method changes. -->
+**High.** These are systematic, repeated national surveys by a specialist team using consistent methods, and the declines are large relative to survey uncertainty in most units. Confidence is lower for:
+
+- Grey seals in August, as above.
+- Single-year counts in any one area, which can be affected by weather and disturbance on the survey day.
 
 ## Limitations
 
-- <!-- What the data cannot tell us. -->
+- Counts are a minimum, not a population size. The report scales the latest counts to population estimates with wide confidence intervals.
+- Census periods span several years, so the "midpoint" on the charts is a simplification.
+- Survey methods changed over time (for example, the move to thermal imaging), which the report describes.
+- The data describe change, not its causes. SCOS and SMRU continue to investigate potential drivers of harbour seal decline.
 
 ## Data sources and licences
 
-- <!-- Dataset, publisher, year, URL, licence, attribution wording. -->
+- Morris, C.D., Duck, C.D., Riddoch, N.G., Thompson, D. and Russell, D.J.F. (2026). *Aerial surveys of seals in Scotland during the harbour seal moult, 2021-2025.* NatureScot Research Report 1421. Tables 2, 3, and 6.
+- Seal Management Areas: Scottish Government Marine Directorate, provided by the Sea Mammal Research Unit. Contains Scottish Government information licensed under the Open Government Licence v3.0. © Sea Mammal Research Unit.
+- Background: SCOS (2025). *Scientific advice on matters related to the management of seal populations: 2025.* NERC Special Committee on Seals.

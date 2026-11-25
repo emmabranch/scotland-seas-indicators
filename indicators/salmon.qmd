@@ -107,6 +107,7 @@ if (have_data) {
 Each point is a river mouth (the official outflow point), coloured by its 2026 status. Click a point to see its grading history. Use the layer control to show one status at a time.
 
 ```{r}
+#| fig-height: 7
 if (have_data) {
   library(leaflet)
   hist <- rivers |>
@@ -116,9 +117,9 @@ if (have_data) {
               history = paste0(season, ": ", coalesce(status, "no data"), collapse = "<br>"),
               .groups = "drop") |>
     filter(!is.na(lon), !is.na(s2026))
-  m <- leaflet(hist) |>
+  m <- leaflet(hist, options = leafletOptions(zoomSnap = 0.25)) |>
     addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
-    setView(-4.2, 57.2, 6)
+    fitBounds(min(hist$lon), min(hist$lat), max(hist$lon), max(hist$lat))
   for (s in c("Poor", "Moderate", "Good")) {
     d <- hist[hist$s2026 == s, ]
     m <- m |> addCircleMarkers(data = d, ~lon, ~lat, radius = 5, weight = 1, color = "#fff",
@@ -126,11 +127,10 @@ if (have_data) {
                                label = ~paste0(river, " (", s, ")"),
                                popup = ~paste0("<b>", river, "</b><br>", district, " district<br><br>", history))
   }
-  m |>
+  m <- m |>
     addLayersControl(overlayGroups = c("Good", "Moderate", "Poor"),
-                     options = layersControlOptions(collapsed = FALSE)) |>
-    addLegend(colors = unname(status_cols), labels = names(status_cols),
-              title = "2026 status", opacity = 1)
+                     options = layersControlOptions(collapsed = TRUE))
+  htmltools::tagList(m, map_key(names(status_cols), unname(status_cols), "2026 status:"))
 }
 ```
 

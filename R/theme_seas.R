@@ -66,5 +66,5 @@ theme_seas <- function(base_size = 13) {
 
 # Caption helper so every chart credits its source the same way
 seas_caption <- function(source, licence = "Open Government Licence v3.0") {
-  paste0("Source: ", source, ". ", licence, ". Independent analysis by Emma Branch.")
+  paste0("Source: ", source, ". ", licence, ".\nIndependent analysis by Emma Branch.")
 }

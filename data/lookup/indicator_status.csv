@@ -1,6 +1,6 @@
 id,order,featured,theme,title,status,trend,confidence,period,headline
 seabirds,1,TRUE,Featured deep dive,Seabirds after avian flu,unknown,unknown,low,2015-2023,"How much did the 2021-22 HPAI outbreak change Scottish seabird colony counts? Analysis in progress."
-seals,2,FALSE,Marine mammals,Harbour and grey seals,unknown,unknown,low,To be confirmed,"August count trends by Seal Management Unit. Analysis in progress."
+seals,2,FALSE,Marine mammals,Harbour and grey seals,poor,declining,high,1996-2025,"19,978 harbour seals counted in 2021-25: the lowest since the first census and 26% below 2016-19. Counts fell in all seven units."
 salmon,3,FALSE,Fish,Wild Atlantic salmon,poor,declining,medium,2021-2026,"115 of 173 assessed stocks (66%) are in poor conservation status for 2026, up from 102 in 2021."
 sea-temperature,4,FALSE,Climate and ocean,Sea temperature,context,stable,medium,1997-2020,"No clear trend at Stonehaven or Loch Ewe over about 20 years, against a background of longer-term warming in Scottish waters."
 mpas,5,FALSE,Protected areas,MPA coverage and 30x30,good,improving,medium,2018-2025,"36.9% of Scottish seas is designated, above the 30% area threshold. Whether sites are effectively managed is the open question."

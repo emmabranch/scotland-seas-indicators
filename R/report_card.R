@@ -59,3 +59,14 @@ glance_box <- function(indicator_id) {
     r$col, r$icon, r$label, r$arrow, r$trend_label,
     conf_dots(r$confidence), tools::toTitleCase(r$confidence), r$period))
 }
+
+# Map key shown below a leaflet map, so it never covers the data
+map_key <- function(labels, colours, title = NULL) {
+  items <- lapply(seq_along(labels), \(i) htmltools::tags$span(
+    class = "key",
+    htmltools::tags$span(class = "swatch", style = paste0("background:", colours[i])),
+    labels[i]))
+  htmltools::div(class = "map-key",
+                 if (!is.null(title)) htmltools::tags$strong(title),
+                 items)
+}

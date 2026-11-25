@@ -94,6 +94,7 @@ if (have_data) {
 ## Map
 
 ```{r}
+#| fig-height: 6.5
 if (have_data) {
   library(leaflet)
   mf  <- here::here("data", "processed", "mpas_map.gpkg")
@@ -104,7 +105,9 @@ if (have_data) {
   # Fixed stacking order: largest areas at the bottom, smallest on top.
   # Each layer gets its own pane, so toggling never changes the order.
   des <- des[order(-typ$km2[match(des$type, typ$type)]), ]   # sizes from the type table
-  m <- leaflet(options = leafletOptions(minZoom = 4)) |>
+  bb <- sf::st_bbox(rgn)
+  m <- leaflet(options = leafletOptions(minZoom = 4, zoomSnap = 0.25)) |>
+    fitBounds(bb[["xmin"]], bb[["ymin"]], bb[["xmax"]], bb[["ymax"]]) |>
     addProviderTiles(providers$Esri.OceanBasemap, group = "Ocean basemap",
                      options = providerTileOptions(maxNativeZoom = 10)) |>
     addTiles(group = "Street map")
@@ -122,11 +125,17 @@ if (have_data) {
     addPolygons(data = rgn, fill = FALSE, color = "#33414E", weight = 1,
                 dashArray = "4", label = ~region, group = "Marine regions",
                 options = pathOptions(pane = "regions"))
-  m |>
+  m <- m |>
     addLayersControl(baseGroups = c("Ocean basemap", "Street map"),
                      overlayGroups = c(des$type, "Marine regions"),
-                     options = layersControlOptions(collapsed = FALSE)) |>
-    addLegend(pal = pal, values = des$type, title = "Designation", opacity = 0.8)
+                     options = layersControlOptions(collapsed = TRUE))
+  short <- c("Offshore MPA (JNCC, all types)" = "Offshore MPA (JNCC)",
+             "Nature Conservation MPA" = "Nature Conservation MPA",
+             "Special Area of Conservation" = "SAC",
+             "Special Protection Area" = "SPA")
+  htmltools::tagList(m, map_key(unname(short[des$type]), pal(des$type), "Designation:"),
+    htmltools::p(class = "small text-muted",
+                 "SAC: Special Area of Conservation. SPA: Special Protection Area. Use the layers icon (top right) to switch designations on and off. Dashed lines are the marine regions."))
 }
 ```
 

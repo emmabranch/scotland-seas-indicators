@@ -1,0 +1,17 @@
+species,unit,smu_no,smu_name,level,first_count,prev_count,latest_count,pct_vs_prev,pct_vs_first
+Grey seal,1 Southwest Scotland,1,Southwest Scotland,SMU,75,517,760,47.00193423597678,913.3333333333333
+Grey seal,2 West Scotland,2,West Scotland,SMU,3435,4174,4508,8.00191662673695,31.237263464337705
+Grey seal,3 Western Isles,3,Western Isles,SMU,4062,5773,3532,-38.81863848952018,-13.047759724273755
+Grey seal,4 N Coast & Orkney,4,N Coast & Orkney,SMU,9427,8599,3273,-61.937434585416916,-65.28057706587462
+Grey seal,5 Shetland,5,Shetland,SMU,1724,1009,720,-28.642220019821607,-58.23665893271461
+Grey seal,6 Moray Firth,6,Moray Firth,SMU,551,1657,839,-49.36632468316235,52.26860254083485
+Grey seal,7 East Scotland,7,East Scotland,SMU,2328,3683,2410,-34.56421395601412,3.52233676975946
+Grey seal,Scotland total,NA,Scotland total,Scotland,21602,25412,16042,-36.87234377459468,-25.738357559485237
+Harbour seal,1 Southwest Scotland,1,Southwest Scotland,SMU,929,1709,1563,-8.5430076067876,68.2454251883746
+Harbour seal,2 West Scotland,2,West Scotland,SMU,8811,15600,11754,-24.65384615384615,33.40143003064351
+Harbour seal,3 Western Isles,3,Western Isles,SMU,2820,3532,3080,-12.79728199320498,9.219858156028371
+Harbour seal,4 N Coast & Orkney,4,N Coast & Orkney,SMU,8787,1405,880,-37.36654804270463,-89.98520541709343
+Harbour seal,5 Shetland,5,Shetland,SMU,5994,3180,1744,-45.15723270440252,-70.90423757090424
+Harbour seal,6 Moray Firth,6,Moray Firth,SMU,1409,1077,765,-28.96935933147632,-45.706174591909154
+Harbour seal,7 East Scotland,7,East Scotland,SMU,764,343,192,-44.02332361516035,-74.86910994764398
+Harbour seal,Scotland total,NA,Scotland total,Scotland,29514,26846,19978,-25.582954630112496,-32.31009012671953
