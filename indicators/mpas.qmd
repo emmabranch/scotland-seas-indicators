@@ -139,6 +139,8 @@ whatIf = {
 }
 ```
 
+**Why do offshore MPAs add almost nothing?** With every type ticked, the JNCC offshore layer adds less than 0.1 percentage points of its own. That is not because offshore sites are small. It is because the same sites also appear in the other layers. For example, Scotland's large offshore Nature Conservation MPAs are in the NatureScot MPA layer too. Untick Nature Conservation MPAs and the offshore layer's contribution jumps. This is exactly why the total has to be calculated from merged boundaries rather than by adding up each designation's area.
+
 ## Map
 
 ```{r}
