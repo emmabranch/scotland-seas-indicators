@@ -46,7 +46,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-83af075ef87e82be695936d5cdf263b5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dbc1532b691a030cd1a565c1a43f35d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,11 +78,27 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="../site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="../site_libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="../site_libs/leaflet-binding-2.2.3/leaflet.js"></script>
+<script src="../site_libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+<script src="../site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
 
 
 <meta property="og:title" content="Sea temperature – State of Scotland’s Seas">
-<meta property="og:description" content="Long-term change at Stonehaven and Loch Ewe">
+<meta property="og:description" content="Long-term change at Stonehaven and Loch Ewe, Scotland’s two coastal ecosystem monitoring sites">
+<meta property="og:image" content="https://emmabranch.github.io/scotland-seas-indicators/indicators/sea-temperature_files/figure-html/unnamed-chunk-4-1.png">
 <meta property="og:site_name" content="State of Scotland’s Seas">
+<meta property="og:image:alt" content="Warming stripes for Stonehaven and Loch Ewe: one coloured stripe per year from blue (cooler than average) to red (warmer than average).">
+<meta property="og:image:height" content="499">
+<meta property="og:image:width" content="1344">
 </head>
 
 <body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -168,7 +187,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-this-measures" id="toc-what-this-measures" class="nav-link active" data-scroll-target="#what-this-measures">What this measures</a></li>
   <li><a href="#why-it-matters" id="toc-why-it-matters" class="nav-link" data-scroll-target="#why-it-matters">Why it matters</a></li>
   <li><a href="#trend-and-status" id="toc-trend-and-status" class="nav-link" data-scroll-target="#trend-and-status">Trend and status</a></li>
+  <li><a href="#the-seasonal-cycle" id="toc-the-seasonal-cycle" class="nav-link" data-scroll-target="#the-seasonal-cycle">The seasonal cycle</a></li>
   <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">Map</a></li>
+  <li><a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">Quality control</a></li>
   <li><a href="#confidence" id="toc-confidence" class="nav-link" data-scroll-target="#confidence">Confidence</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   <li><a href="#data-sources-and-licences" id="toc-data-sources-and-licences" class="nav-link" data-scroll-target="#data-sources-and-licences">Data sources and licences</a></li>
@@ -181,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Sea temperature</h1>
-<p class="subtitle lead">Long-term change at Stonehaven and Loch Ewe</p>
+<p class="subtitle lead">Long-term change at Stonehaven and Loch Ewe, Scotland’s two coastal ecosystem monitoring sites</p>
 </div>
 
 
@@ -200,54 +221,1122 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="cell">
 <div class="cell-output-display">
-<div class="glance" style="--status-col:#8C8C8C">
-       <div><div class="glance-label">Status</div><div class="glance-value">? Not yet assessed</div></div>
-       <div><div class="glance-label">Trend</div><div class="glance-value">↔ Context indicator (no good/bad direction)</div></div>
-       <div><div class="glance-label">Confidence</div><div class="glance-value">●○○ Low</div></div>
-       <div><div class="glance-label">Period</div><div class="glance-value">To be confirmed</div></div>
+<div class="glance" style="--status-col:#56B4E9">
+       <div><div class="glance-label">Status</div><div class="glance-value">i Context indicator</div></div>
+       <div><div class="glance-label">Trend</div><div class="glance-value">→ No clear change</div></div>
+       <div><div class="glance-label">Confidence</div><div class="glance-value">●●○ Medium</div></div>
+       <div><div class="glance-label">Period</div><div class="glance-value">1997-2020</div></div>
      </div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Work in progress. Figures on this page are not final.</p>
-</div>
 </div>
 </div>
 <section id="what-this-measures" class="level2">
 <h2 class="anchored" data-anchor-id="what-this-measures">What this measures</h2>
-<!-- One or two sentences, plain language. -->
+<p>Near-surface sea temperature, sampled weekly by boat at the Scottish Coastal Observatory’s two long-term ecosystem monitoring sites:</p>
+<ul>
+<li><strong>Stonehaven</strong>, about 3 km off the Aberdeenshire coast in the North Sea, sampled since 1997.</li>
+<li><strong>Loch Ewe</strong>, a sea loch in Wester Ross on the Atlantic-influenced west coast, sampled since 1999.</li>
+</ul>
+<p>I express each month as an <strong>anomaly</strong>: how much warmer or cooler it was than the 1999 to 2020 average for that calendar month. Near-surface samples at Loch Ewe begin in mid-2002, so its usable series and baseline effectively start in 2003. This removes the seasonal cycle so that years can be compared fairly.</p>
 </section>
 <section id="why-it-matters" class="level2">
 <h2 class="anchored" data-anchor-id="why-it-matters">Why it matters</h2>
-<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->
+<p>Temperature shapes almost everything else in a marine ecosystem: plankton timing, fish distribution, seabird food supply, and the spread of warm-water species. This is a <strong>context indicator</strong>. It has no “good” or “bad” direction on its own, but it helps explain change in the biological indicators on this site.</p>
 </section>
 <section id="trend-and-status" class="level2">
 <h2 class="anchored" data-anchor-id="trend-and-status">Trend and status</h2>
-<!-- One clear chart, with the key takeaway written as the chart title. -->
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="sea-temperature_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="sea-temperature_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Warming stripes for Stonehaven and Loch Ewe: one coloured stripe per year from blue (cooler than average) to red (warmer than average)." width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="sea-temperature_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="sea-temperature_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" alt="Annual mean near-surface temperature anomaly at Stonehaven and Loch Ewe, as bars above and below zero, with a fitted linear trend line and its 95 percent confidence band." width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="ubjzkxantx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ubjzkxantx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ubjzkxantx thead, #ubjzkxantx tbody, #ubjzkxantx tfoot, #ubjzkxantx tr, #ubjzkxantx td, #ubjzkxantx th {
+  border-style: none;
+}
+
+#ubjzkxantx p {
+  margin: 0;
+  padding: 0;
+}
+
+#ubjzkxantx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ubjzkxantx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ubjzkxantx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ubjzkxantx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ubjzkxantx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ubjzkxantx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ubjzkxantx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ubjzkxantx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ubjzkxantx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ubjzkxantx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ubjzkxantx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ubjzkxantx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ubjzkxantx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ubjzkxantx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ubjzkxantx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ubjzkxantx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ubjzkxantx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ubjzkxantx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ubjzkxantx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ubjzkxantx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ubjzkxantx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ubjzkxantx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ubjzkxantx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ubjzkxantx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ubjzkxantx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ubjzkxantx .gt_left {
+  text-align: left;
+}
+
+#ubjzkxantx .gt_center {
+  text-align: center;
+}
+
+#ubjzkxantx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ubjzkxantx .gt_font_normal {
+  font-weight: normal;
+}
+
+#ubjzkxantx .gt_font_bold {
+  font-weight: bold;
+}
+
+#ubjzkxantx .gt_font_italic {
+  font-style: italic;
+}
+
+#ubjzkxantx .gt_super {
+  font-size: 65%;
+}
+
+#ubjzkxantx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ubjzkxantx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ubjzkxantx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ubjzkxantx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ubjzkxantx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ubjzkxantx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ubjzkxantx .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ubjzkxantx .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ubjzkxantx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Site" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Site</th>
+<th id="Years" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Years</th>
+<th id="Trend-(°C-per-decade)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Trend (°C per decade)</th>
+<th id="a95%-CI" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">95% CI</th>
+<th id="p" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p</th>
+<th id="Residual-lag-1-autocorrelation" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Residual lag-1 autocorrelation</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Site">Stonehaven</td>
+<td class="gt_row gt_left" headers="Years">1997 to 2019 (23 years)</td>
+<td class="gt_row gt_right" headers="Trend-(°C-per-decade)">+0.02</td>
+<td class="gt_row gt_left" headers="a95%-CI">-0.16 to +0.20</td>
+<td class="gt_row gt_right" headers="p">0.82</td>
+<td class="gt_row gt_right" headers="Residual-lag-1-autocorrelation">-0.11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Site">Loch Ewe</td>
+<td class="gt_row gt_left" headers="Years">2003 to 2020 (18 years)</td>
+<td class="gt_row gt_right" headers="Trend-(°C-per-decade)">-0.16</td>
+<td class="gt_row gt_left" headers="a95%-CI">-0.45 to +0.13</td>
+<td class="gt_row gt_right" headers="p">0.25</td>
+<td class="gt_row gt_right" headers="Residual-lag-1-autocorrelation">-0.03</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_footnotes odd">
+<td colspan="6" class="gt_footnote">Ordinary least squares on annual mean anomalies. Positive residual autocorrelation means the true uncertainty is somewhat wider than the interval shown.</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+<p><strong>Stonehaven:</strong> +0.02°C per decade (95% CI -0.16 to +0.20), an interval that includes zero.</p>
+<p><strong>Loch Ewe:</strong> -0.16°C per decade (95% CI -0.45 to +0.13), an interval that includes zero.</p>
+<p>Over roughly two decades, year-to-year variability is large compared with the long-term trend, so a single unusually warm or cold year can move the fitted line. That is why I report the confidence interval and not just the slope.</p>
+<section id="why-no-clear-trend" class="level3">
+<h3 class="anchored" data-anchor-id="why-no-clear-trend">Why no clear trend?</h3>
+<p>This does not mean Scottish seas are not warming. It is a question of time window:</p>
+<ul>
+<li><strong>Over the long term</strong>, Scottish waters (coastal and oceanic) have warmed by about 0.05 to 0.07°C per decade over 1870 to 2016, with faster warming over the most recent 30 years of that period (Scotland’s Marine Assessment 2020).</li>
+<li><strong>Over the shorter, more recent window</strong> these two sites cover, Scotland’s Marine Assessment 2020 also reports no significant linear trend in the most recent decade. It links a cold anomaly in the waters west of Scotland to strong ocean heat loss from the winter of 2013 to 2014.</li>
+<li><strong>Two sites over about 20 years</strong> cannot separate a long-term trend from multi-decadal natural variability in the North Atlantic.</li>
+</ul>
+<p>So the honest reading is: <strong>no detectable trend at these two sites over 1997 to 2020, consistent with the published regional picture</strong>, and not evidence against long-term warming. Adding the 2021 onwards data, once published, would be the most useful next step.</p>
+</section>
+</section>
+<section id="the-seasonal-cycle" class="level2">
+<h2 class="anchored" data-anchor-id="the-seasonal-cycle">The seasonal cycle</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="sea-temperature_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="sea-temperature_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Monthly mean temperature by calendar month at both sites, showing the seasonal cycle, with the 1999 to 2020 average as a line and individual years as faint points." width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- After the first render, add one sentence here on how the two sites' seasonal cycles differ. -->
 </section>
 <section id="map" class="level2">
 <h2 class="anchored" data-anchor-id="map">Map</h2>
-<!-- Leaflet or static sf map, where relevant. -->
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-a348dd2f815419b3f3b5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a348dd2f815419b3f3b5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false,"maxNativeZoom":10}]},{"method":"addCircleMarkers","args":[[57.84983,56.96333],[-5.6495,-2.11333],9,null,null,{"interactive":true,"className":"","stroke":true,"color":"#fff","weight":2,"opacity":0.5,"fill":true,"fillColor":["#E69F00","#0072B2"],"fillOpacity":1},null,null,["<b>Loch Ewe<\/b><br>951 weekly visits used<br>Jul 2002 to Dec 2020<br>Median sample depth 1 m","<b>Stonehaven<\/b><br>1034 weekly visits used<br>Jan 1997 to Dec 2020<br>Median sample depth 1 m"],null,["Loch Ewe","Stonehaven"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[57.4,-4],6,[]],"limits":{"lat":[56.96333,57.84983],"lng":[-5.6495,-2.11333]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="quality-control" class="level2">
+<h2 class="anchored" data-anchor-id="quality-control">Quality control</h2>
+<p>I followed the data owner’s flag guidance:</p>
+<ul>
+<li><strong>Rejected:</strong> QF 3 (probably bad), QF 4 (bad), and QF 9 (missing).</li>
+<li><strong>Kept:</strong> QF 1, 2, 5, and 8 (good, probably good, changed, or interpolated).</li>
+<li><strong>Kept but counted:</strong> QF 0 (not yet quality controlled) and QF 10 (phenomenon uncertain), so their share is visible.</li>
+<li><strong>Extra screen:</strong> values outside 0 to 22°C are removed as implausible for these sites.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="dipbuzttvx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dipbuzttvx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dipbuzttvx thead, #dipbuzttvx tbody, #dipbuzttvx tfoot, #dipbuzttvx tr, #dipbuzttvx td, #dipbuzttvx th {
+  border-style: none;
+}
+
+#dipbuzttvx p {
+  margin: 0;
+  padding: 0;
+}
+
+#dipbuzttvx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dipbuzttvx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dipbuzttvx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dipbuzttvx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dipbuzttvx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dipbuzttvx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dipbuzttvx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dipbuzttvx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dipbuzttvx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dipbuzttvx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dipbuzttvx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dipbuzttvx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dipbuzttvx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dipbuzttvx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dipbuzttvx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dipbuzttvx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dipbuzttvx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dipbuzttvx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dipbuzttvx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dipbuzttvx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dipbuzttvx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dipbuzttvx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dipbuzttvx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dipbuzttvx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dipbuzttvx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dipbuzttvx .gt_left {
+  text-align: left;
+}
+
+#dipbuzttvx .gt_center {
+  text-align: center;
+}
+
+#dipbuzttvx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dipbuzttvx .gt_font_normal {
+  font-weight: normal;
+}
+
+#dipbuzttvx .gt_font_bold {
+  font-weight: bold;
+}
+
+#dipbuzttvx .gt_font_italic {
+  font-style: italic;
+}
+
+#dipbuzttvx .gt_super {
+  font-size: 65%;
+}
+
+#dipbuzttvx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dipbuzttvx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dipbuzttvx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dipbuzttvx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dipbuzttvx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dipbuzttvx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dipbuzttvx .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dipbuzttvx .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dipbuzttvx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Outcome" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Outcome</th>
+<th id="Loch-Ewe-n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Loch Ewe n</th>
+<th id="Stonehaven-n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Stonehaven n</th>
+<th id="Loch-Ewe-pct" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Loch Ewe pct</th>
+<th id="Stonehaven-pct" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Stonehaven pct</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome">Kept (QF 1, 2, 5, 8)</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-n">3212</td>
+<td class="gt_row gt_right" headers="Stonehaven-n">3425</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-pct">60.2%</td>
+<td class="gt_row gt_right" headers="Stonehaven-pct">53.5%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Outcome">Kept, not yet quality controlled (QF 0)</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-n">137</td>
+<td class="gt_row gt_right" headers="Stonehaven-n">0</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-pct">2.6%</td>
+<td class="gt_row gt_right" headers="Stonehaven-pct">0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome">Rejected (QF 3)</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-n">1</td>
+<td class="gt_row gt_right" headers="Stonehaven-n">9</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-pct">0%</td>
+<td class="gt_row gt_right" headers="Stonehaven-pct">0.1%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Outcome">Rejected (QF 9)</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-n">1987</td>
+<td class="gt_row gt_right" headers="Stonehaven-n">2949</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-pct">37.2%</td>
+<td class="gt_row gt_right" headers="Stonehaven-pct">46.1%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome">Kept, use with caution (QF 10)</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-n">0</td>
+<td class="gt_row gt_right" headers="Stonehaven-n">1</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-pct">0%</td>
+<td class="gt_row gt_right" headers="Stonehaven-pct">0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Outcome">Rejected (QF 4)</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-n">0</td>
+<td class="gt_row gt_right" headers="Stonehaven-n">14</td>
+<td class="gt_row gt_right" headers="Loch-Ewe-pct">0%</td>
+<td class="gt_row gt_right" headers="Stonehaven-pct">0.2%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
 <section id="confidence" class="level2">
 <h2 class="anchored" data-anchor-id="confidence">Confidence</h2>
-<!-- Why high, medium, or low: coverage, frequency, method changes. -->
+<p><strong>Medium.</strong> These are carefully quality-controlled observations from fixed sites with a consistent method. But:</p>
+<ul>
+<li>They are two points, not a picture of all Scottish seas.</li>
+<li>Weekly sampling can miss short events such as marine heatwaves.</li>
+<li>The published record currently ends in 2020, so the most recent years are not included.</li>
+</ul>
 </section>
 <section id="limitations" class="level2">
 <h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
 <ul>
-<li><!-- What the data cannot tell us. --></li>
+<li>The record is about 20 years long. That is short for separating a long-term trend from natural variability such as the North Atlantic Oscillation.</li>
+<li>Months with missing visits make monthly means less certain. Years with fewer than 9 months of data are excluded from the annual series, which drops 2020 at Stonehaven.</li>
+<li>Near-surface means the shallowest sample on each visit, up to 5 m. Bottom water can behave differently, especially at Stonehaven, where the water column stratifies in summer.</li>
+<li>Loch Ewe is a sheltered sea loch, so it is not fully representative of open west-coast waters.</li>
 </ul>
 </section>
 <section id="data-sources-and-licences" class="level2">
 <h2 class="anchored" data-anchor-id="data-sources-and-licences">Data sources and licences</h2>
 <ul>
-<li><!-- Dataset, publisher, year, URL, licence, attribution wording. --></li>
+<li>Marine Scotland Science (2018). <em>Scottish Coastal Observatory: Stonehaven site data.</em> doi:10.7489/610-1. Environmental data CSV, 1997 to 2020.</li>
+<li>Marine Scotland Science (2018). <em>Scottish Coastal Observatory: Loch Ewe site data.</em> doi:10.7489/948-1. Environmental data CSV, 1999 to 2020.</li>
+<li>Data filtered to near-surface temperature, excluding QF 3, 4, and 9.</li>
+<li>Contains public sector information licensed under the Open Government Licence v3.0.</li>
+<li>Context: Scotland’s Marine Assessment 2020, Sea temperature (Marine Directorate).</li>
+<li>Background: Hindson et al.&nbsp;(2021). <em>The Scottish Coastal Observatory Dataset: 1997 to 2020.</em> Scottish Marine and Freshwater Science Vol 12 No 14.</li>
 </ul>
 
 
@@ -768,6 +1857,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

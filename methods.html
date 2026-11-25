@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-83af075ef87e82be695936d5cdf263b5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dbc1532b691a030cd1a565c1a43f35d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -166,7 +166,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="collapse">
   <li><a href="#approach" id="toc-approach" class="nav-link active" data-scroll-target="#approach">Approach</a></li>
-  <li><a href="#assigning-status-trend-and-confidence" id="toc-assigning-status-trend-and-confidence" class="nav-link" data-scroll-target="#assigning-status-trend-and-confidence">Assigning status, trend, and confidence</a></li>
+  <li><a href="#validation-against-published-figures" id="toc-validation-against-published-figures" class="nav-link" data-scroll-target="#validation-against-published-figures">Validation against published figures</a></li>
+  <li><a href="#how-status-trend-and-confidence-are-assigned" id="toc-how-status-trend-and-confidence-are-assigned" class="nav-link" data-scroll-target="#how-status-trend-and-confidence-are-assigned">How status, trend, and confidence are assigned</a></li>
   <li><a href="#an-epidemiologists-lens" id="toc-an-epidemiologists-lens" class="nav-link" data-scroll-target="#an-epidemiologists-lens">An epidemiologist’s lens</a></li>
   <li><a href="#reproducing-this-site" id="toc-reproducing-this-site" class="nav-link" data-scroll-target="#reproducing-this-site">Reproducing this site</a></li>
   </ul>
@@ -196,52 +197,127 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="approach" class="level2">
 <h2 class="anchored" data-anchor-id="approach">Approach</h2>
-<p>Each indicator follows the same pipeline:</p>
+<p>Every indicator follows the same pipeline:</p>
 <ol type="1">
-<li><strong>Download</strong> raw open data with a script in <code>R/</code> (raw files are not committed to Git).</li>
-<li><strong>Clean and check</strong> with documented, scripted quality control.</li>
+<li><strong>Download</strong> open data with a script in <code>R/</code>. Raw files stay local and are not committed to Git.</li>
+<li><strong>Check</strong> against a published figure wherever one exists, so errors in my processing would show up.</li>
 <li><strong>Summarise</strong> into a small tidy file in <code>data/processed/</code>.</li>
-<li><strong>Assess</strong> status, trend, and confidence, recorded in <code>data/lookup/indicator_status.csv</code>.</li>
-<li><strong>Render</strong> the page with Quarto. The homepage report card updates automatically.</li>
+<li><strong>Assess</strong> status, trend, and confidence, recorded in <code>data/lookup/indicator_status.csv</code>, which drives the report card.</li>
+<li><strong>Render</strong> with Quarto.</li>
 </ol>
 </section>
-<section id="assigning-status-trend-and-confidence" class="level2">
-<h2 class="anchored" data-anchor-id="assigning-status-trend-and-confidence">Assigning status, trend, and confidence</h2>
-<!-- Fill in the rules for each indicator so the calls are transparent and repeatable. -->
+<section id="validation-against-published-figures" class="level2">
+<h2 class="anchored" data-anchor-id="validation-against-published-figures">Validation against published figures</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Call</th>
-<th>How it is assigned</th>
+<th>Indicator</th>
+<th>My result</th>
+<th>Published figure</th>
+<th>Check</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Status</td>
-<td>Indicator-specific rule, written on each page</td>
+<td>MPA coverage</td>
+<td>36.9% (229,228 km²)</td>
+<td>36.9% (228,121 km²), 2024 MPA report to Parliament</td>
+<td>Within 0.5%</td>
 </tr>
 <tr class="even">
-<td>Trend</td>
-<td>Direction and size of change over the period, with uncertainty</td>
+<td>Salmon gradings</td>
+<td>173 stocks, counts by status 2021 to 2026</td>
+<td>Official national counts</td>
+<td>Exact match, all six seasons</td>
 </tr>
 <tr class="odd">
-<td>Confidence</td>
-<td>High: consistent, frequent, near-complete coverage. Medium: some gaps or method changes. Low: sparse, one-off, or partial coverage</td>
+<td>Seal counts</td>
+<td>Scotland totals 2021-25</td>
+<td>Harbour 19,978; grey 16,042 (NatureScot RR 1421)</td>
+<td>Exact match</td>
+</tr>
+<tr class="even">
+<td>Seabird SPA tables</td>
+<td>Great Skua SPA totals</td>
+<td>6,570 and 1,524 (RSPB RR 76, Table 9)</td>
+<td>Exact match</td>
+</tr>
+</tbody>
+</table>
+<p>Two of these checks found real quirks in the source tables (a salmon stock spanning two fishery districts, and an inconsistent dash in a river name), which were fixed and documented.</p>
+</section>
+<section id="how-status-trend-and-confidence-are-assigned" class="level2">
+<h2 class="anchored" data-anchor-id="how-status-trend-and-confidence-are-assigned">How status, trend, and confidence are assigned</h2>
+<p>These are my independent judgements, written down so they are transparent and repeatable. They are not official assessments.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Indicator</th>
+<th>Status rule</th>
+<th>Trend rule</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Seabirds</td>
+<td>Clear concern if the main species decline by more than 20% at surveyed SPAs</td>
+<td>Direction of change, baseline to 2023</td>
+<td>Medium: before-after design, variable baseline years, partial coverage</td>
+</tr>
+<tr class="even">
+<td>Seals</td>
+<td>Clear concern if the national harbour seal count is at or near its lowest and most units are declining</td>
+<td>Change between the last two national censuses</td>
+<td>High: systematic national census, consistent method</td>
+</tr>
+<tr class="odd">
+<td>Salmon</td>
+<td>Clear concern if most stocks are in poor status</td>
+<td>Change in the number of poor stocks, 2021 to 2026</td>
+<td>Medium: official gradings, but a short series of overlapping five-year assessments</td>
+</tr>
+<tr class="even">
+<td>Sea temperature</td>
+<td>Context indicator (no good or bad direction)</td>
+<td>Linear trend in annual anomalies with 95% CI; “no clear change” if the CI includes zero</td>
+<td>Medium: two sites, weekly sampling, record ends 2020</td>
+</tr>
+<tr class="odd">
+<td>MPA coverage</td>
+<td>Generally positive if more than 30% of Scottish seas is designated</td>
+<td>Change in designated area over time (published figures)</td>
+<td>Medium: high for area, low for effectiveness of management</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="an-epidemiologists-lens" class="level2">
 <h2 class="anchored" data-anchor-id="an-epidemiologists-lens">An epidemiologist’s lens</h2>
-<p>Several indicators borrow ideas from population health surveillance: comparing before and after an outbreak, separating true change from changes in survey effort, and being clear about what a census can and cannot tell us about cause.</p>
+<p>Several indicators borrow ideas from population health surveillance:</p>
+<ul>
+<li><strong>Before-after comparisons without a control group</strong> (seabirds): describe the size of change, and be explicit that this alone cannot establish cause.</li>
+<li><strong>Secular trends</strong> (seabirds, Gannet): a population that was growing before an outbreak makes a simple before-after comparison understate the impact.</li>
+<li><strong>Coverage as a response rate</strong> (seabirds): the share of the population surveyed affects how far a result generalises.</li>
+<li><strong>Counts are not populations</strong> (seals): haul-out counts are a consistent index, not a census of every animal.</li>
+<li><strong>Uncertainty reported alongside estimates</strong> (all): including when it is a minimum, as with Poisson intervals on large counts.</li>
+</ul>
 </section>
 <section id="reproducing-this-site" class="level2">
 <h2 class="anchored" data-anchor-id="reproducing-this-site">Reproducing this site</h2>
-<p>See the <a href="https://github.com/emmabranch/scotland-seas-indicators#readme">README on GitHub</a>.</p>
+<p>See the <a href="https://github.com/emmabranch/scotland-seas-indicators#readme">README on GitHub</a>. Two inputs need a manual step because the source websites block scripted downloads: the archived salmon consultation tables and the NatureScot seal report page. The README explains how.</p>
 
 
 </section>

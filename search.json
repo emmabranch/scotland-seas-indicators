@@ -4,147 +4,182 @@
     "href": "methods.html",
     "title": "Methods",
     "section": "",
-    "text": "Each indicator follows the same pipeline:\n\nDownload raw open data with a script in R/ (raw files are not committed to Git).\nClean and check with documented, scripted quality control.\nSummarise into a small tidy file in data/processed/.\nAssess status, trend, and confidence, recorded in data/lookup/indicator_status.csv.\nRender the page with Quarto. The homepage report card updates automatically."
+    "text": "Every indicator follows the same pipeline:\n\nDownload open data with a script in R/. Raw files stay local and are not committed to Git.\nCheck against a published figure wherever one exists, so errors in my processing would show up.\nSummarise into a small tidy file in data/processed/.\nAssess status, trend, and confidence, recorded in data/lookup/indicator_status.csv, which drives the report card.\nRender with Quarto."
   },
   {
     "objectID": "methods.html#approach",
     "href": "methods.html#approach",
     "title": "Methods",
     "section": "",
-    "text": "Each indicator follows the same pipeline:\n\nDownload raw open data with a script in R/ (raw files are not committed to Git).\nClean and check with documented, scripted quality control.\nSummarise into a small tidy file in data/processed/.\nAssess status, trend, and confidence, recorded in data/lookup/indicator_status.csv.\nRender the page with Quarto. The homepage report card updates automatically."
+    "text": "Every indicator follows the same pipeline:\n\nDownload open data with a script in R/. Raw files stay local and are not committed to Git.\nCheck against a published figure wherever one exists, so errors in my processing would show up.\nSummarise into a small tidy file in data/processed/.\nAssess status, trend, and confidence, recorded in data/lookup/indicator_status.csv, which drives the report card.\nRender with Quarto."
   },
   {
-    "objectID": "methods.html#assigning-status-trend-and-confidence",
-    "href": "methods.html#assigning-status-trend-and-confidence",
+    "objectID": "methods.html#validation-against-published-figures",
+    "href": "methods.html#validation-against-published-figures",
     "title": "Methods",
-    "section": "Assigning status, trend, and confidence",
-    "text": "Assigning status, trend, and confidence\n\n\n\n\n\n\n\n\nCall\nHow it is assigned\n\n\n\n\nStatus\nIndicator-specific rule, written on each page\n\n\nTrend\nDirection and size of change over the period, with uncertainty\n\n\nConfidence\nHigh: consistent, frequent, near-complete coverage. Medium: some gaps or method changes. Low: sparse, one-off, or partial coverage"
+    "section": "Validation against published figures",
+    "text": "Validation against published figures\n\n\n\n\n\n\n\n\n\nIndicator\nMy result\nPublished figure\nCheck\n\n\n\n\nMPA coverage\n36.9% (229,228 km²)\n36.9% (228,121 km²), 2024 MPA report to Parliament\nWithin 0.5%\n\n\nSalmon gradings\n173 stocks, counts by status 2021 to 2026\nOfficial national counts\nExact match, all six seasons\n\n\nSeal counts\nScotland totals 2021-25\nHarbour 19,978; grey 16,042 (NatureScot RR 1421)\nExact match\n\n\nSeabird SPA tables\nGreat Skua SPA totals\n6,570 and 1,524 (RSPB RR 76, Table 9)\nExact match\n\n\n\nTwo of these checks found real quirks in the source tables (a salmon stock spanning two fishery districts, and an inconsistent dash in a river name), which were fixed and documented."
+  },
+  {
+    "objectID": "methods.html#how-status-trend-and-confidence-are-assigned",
+    "href": "methods.html#how-status-trend-and-confidence-are-assigned",
+    "title": "Methods",
+    "section": "How status, trend, and confidence are assigned",
+    "text": "How status, trend, and confidence are assigned\nThese are my independent judgements, written down so they are transparent and repeatable. They are not official assessments.\n\n\n\n\n\n\n\n\n\nIndicator\nStatus rule\nTrend rule\nConfidence\n\n\n\n\nSeabirds\nClear concern if the main species decline by more than 20% at surveyed SPAs\nDirection of change, baseline to 2023\nMedium: before-after design, variable baseline years, partial coverage\n\n\nSeals\nClear concern if the national harbour seal count is at or near its lowest and most units are declining\nChange between the last two national censuses\nHigh: systematic national census, consistent method\n\n\nSalmon\nClear concern if most stocks are in poor status\nChange in the number of poor stocks, 2021 to 2026\nMedium: official gradings, but a short series of overlapping five-year assessments\n\n\nSea temperature\nContext indicator (no good or bad direction)\nLinear trend in annual anomalies with 95% CI; “no clear change” if the CI includes zero\nMedium: two sites, weekly sampling, record ends 2020\n\n\nMPA coverage\nGenerally positive if more than 30% of Scottish seas is designated\nChange in designated area over time (published figures)\nMedium: high for area, low for effectiveness of management"
   },
   {
     "objectID": "methods.html#an-epidemiologists-lens",
     "href": "methods.html#an-epidemiologists-lens",
     "title": "Methods",
     "section": "An epidemiologist’s lens",
-    "text": "An epidemiologist’s lens\nSeveral indicators borrow ideas from population health surveillance: comparing before and after an outbreak, separating true change from changes in survey effort, and being clear about what a census can and cannot tell us about cause."
+    "text": "An epidemiologist’s lens\nSeveral indicators borrow ideas from population health surveillance:\n\nBefore-after comparisons without a control group (seabirds): describe the size of change, and be explicit that this alone cannot establish cause.\nSecular trends (seabirds, Gannet): a population that was growing before an outbreak makes a simple before-after comparison understate the impact.\nCoverage as a response rate (seabirds): the share of the population surveyed affects how far a result generalises.\nCounts are not populations (seals): haul-out counts are a consistent index, not a census of every animal.\nUncertainty reported alongside estimates (all): including when it is a minimum, as with Poisson intervals on large counts."
   },
   {
     "objectID": "methods.html#reproducing-this-site",
     "href": "methods.html#reproducing-this-site",
     "title": "Methods",
     "section": "Reproducing this site",
-    "text": "Reproducing this site\nSee the README on GitHub."
+    "text": "Reproducing this site\nSee the README on GitHub. Two inputs need a manual step because the source websites block scripted downloads: the archived salmon consultation tables and the NatureScot seal report page. The README explains how."
   },
   {
     "objectID": "indicators/seabirds.html",
     "href": "indicators/seabirds.html",
     "title": "Seabirds after avian flu",
     "section": "",
-    "text": "Status? Not yet assessed\n       Trend· Trend not yet assessed\n       Confidence●○○ Low\n       Period2015-2023"
+    "text": "Status✕ Clear concern\n       Trend↘ Declining\n       Confidence●●○ Medium\n       Period2014-2023"
+  },
+  {
+    "objectID": "indicators/seabirds.html#the-short-version",
+    "href": "indicators/seabirds.html#the-short-version",
+    "title": "Seabirds after avian flu",
+    "section": "The short version",
+    "text": "The short version\n\nAt the nine Scottish SPAs surveyed for Great Skua, breeding territories fell from 6,570 to 1,524 (-77%).\nAt six Scottish Northern Gannet SPAs, nest counts fell from 169,054 to 131,361 (-22%). Against a baseline projected forward for pre-outbreak growth, the fall is -28%.\nNot every species declined everywhere. Guillemot counts, for example, rose at some SPAs and fell at others.\nThese are before-and-after counts at surveyed sites. They show a large drop that coincides with the outbreak, but on their own they cannot prove how much of it HPAI caused."
   },
   {
     "objectID": "indicators/seabirds.html#what-this-measures",
     "href": "indicators/seabirds.html#what-this-measures",
     "title": "Seabirds after avian flu",
     "section": "What this measures",
-    "text": "What this measures"
+    "text": "What this measures\nThe change in the number of breeding seabirds at Scottish Special Protection Areas (SPAs) between a pre-outbreak baseline (mostly from the Seabirds Count census, 2015 to 2021) and a coordinated survey in 2023, after highly pathogenic avian influenza (HPAI H5N1) caused mass seabird deaths in 2021 and 2022. Counts are of breeding units: apparently occupied nests, sites, or territories, or individual birds for Guillemot."
   },
   {
     "objectID": "indicators/seabirds.html#why-it-matters",
     "href": "indicators/seabirds.html#why-it-matters",
     "title": "Seabirds after avian flu",
     "section": "Why it matters",
-    "text": "Why it matters"
+    "text": "Why it matters\nScotland holds internationally important seabird populations, many protected by SPAs under the Habitats Regulations. HPAI arrived on top of existing declines: the Seabirds Count census found that most seabird species in Scotland had already declined since the previous census. Seabird abundance and breeding success are OSPAR and UK Marine Strategy indicators of marine bird status."
+  },
+  {
+    "objectID": "indicators/seabirds.html#reading-this-like-an-outbreak-investigation",
+    "href": "indicators/seabirds.html#reading-this-like-an-outbreak-investigation",
+    "title": "Seabirds after avian flu",
+    "section": "Reading this like an outbreak investigation",
+    "text": "Reading this like an outbreak investigation\n\n\nWhat the data can tell us\n\nMagnitude: how much smaller breeding numbers were in 2023 at the sites surveyed.\nDistribution: which species and which colonies changed most.\nTiming: the drop coincides with the outbreak, and for some species it is far outside their recent trend.\n\n\n\nWhat it cannot tell us on its own\n\nCause: there is no unexposed comparison group, so this is a before-after design. Other pressures were operating at the same time.\nMechanism: fewer breeding birds could mean deaths, or survivors skipping a breeding season.\nThe full picture: only surveyed sites are included, and mortality after early 2023 is not captured.\n\n\n\nThe epidemiological questions behind each chart:\n\nIs the change real or noise? The forest plot shows each colony’s change with a confidence interval.\nWhat would have happened anyway? For Gannet, the report projects each colony’s pre-outbreak trend forward to 2021. Comparing against that projection is like adjusting for a secular trend.\nWho was counted? Coverage (the share of the population surveyed) works like a response rate, and it varies a lot between species."
   },
   {
     "objectID": "indicators/seabirds.html#trend-and-status",
     "href": "indicators/seabirds.html#trend-and-status",
     "title": "Seabirds after avian flu",
     "section": "Trend and status",
-    "text": "Trend and status"
+    "text": "Trend and status\n\nUK picture: 13 species\n\n\n\n\n\n\n\n\n\n\n\nColony by colony: Great Skua and Gannet\n\n\n\n\n\n\n\n\n\nThe confidence intervals are narrow because these are large counts. That makes them a minimum estimate of uncertainty: they reflect counting noise only, not observer error, survey timing, or differences between baseline years. Even so, the Great Skua declines are far too large and too consistent to be explained by noise.\n\n\nGannet: how much depends on the baseline?\n\n\n\n\n\n\n\n\n\nGannet colonies were growing before the outbreak, and some baselines date from 2014. Comparing 2023 with the counted baseline gives -22%. Comparing it with each colony’s projected 2021 size gives -28%. This is the same logic as adjusting for a secular trend: if a population was rising, a simple before-after comparison understates the impact."
   },
   {
     "objectID": "indicators/seabirds.html#map",
     "href": "indicators/seabirds.html#map",
     "title": "Seabirds after avian flu",
     "section": "Map",
-    "text": "Map"
+    "text": "Map\n\n\n\n\n\nChange, baseline to 2023 (%):\n\n\nBelow −60\n\n\n\n−60 to −40\n\n\n\n−40 to −20\n\n\n\n−20 to 0\n\n\n\nIncrease\n\n\nCircle size shows the baseline count. Great Skua is shown first; switch to Gannet with the layers icon (top right). Both species share some SPAs, such as Noss and Hermaness."
+  },
+  {
+    "objectID": "indicators/seabirds.html#all-scottish-spa-results",
+    "href": "indicators/seabirds.html#all-scottish-spa-results",
+    "title": "Seabirds after avian flu",
+    "section": "All Scottish SPA results",
+    "text": "All Scottish SPA results\n\n\n\n\n\n\nNotes on starred rows (from the report):\n\nForth Islands (Northern Gannet): 2023 figure is a preliminary estimate (approx. 55,000).\nNorth Rona and Sula Sgeir (Northern Gannet): Low confidence in 2023 count (high observer variation).\nAilsa Craig (Northern Gannet): Low confidence in 2023 count (high observer variation).\n\n95% CI reflects counting noise only. % counted: share of the SPA population surveyed in 2023 (blank where not reported). Units: AON/AOS/AOT = apparently occupied nests/sites/territories; IND = individual birds.\nSpecies with small colonies (for example Arctic Skua, with single-figure counts at some SPAs) are included for completeness but say little on their own."
   },
   {
     "objectID": "indicators/seabirds.html#confidence",
     "href": "indicators/seabirds.html#confidence",
     "title": "Seabirds after avian flu",
     "section": "Confidence",
-    "text": "Confidence"
+    "text": "Confidence\nMedium. The 2023 survey was large and coordinated, and for Great Skua, Gannet, and the terns it covered most of the population. But:\n\nBaseline years vary (2014 to 2021), so some of each change happened before the outbreak.\nA few 2023 counts are flagged by the report authors as preliminary or low confidence.\nCoverage is low for some species, so totals may not represent the whole population."
   },
   {
     "objectID": "indicators/seabirds.html#limitations",
     "href": "indicators/seabirds.html#limitations",
     "title": "Seabirds after avian flu",
     "section": "Limitations",
-    "text": "Limitations"
+    "text": "Limitations\n\nAttribution: the report’s authors consider HPAI the main driver for Great Skua, Gannet, and Roseate Tern, and likely for Sandwich and Common Tern. For species already in long-term decline, separating HPAI from other pressures is harder. This page reports change; it does not estimate a causal effect.\nBreeding numbers only: the data do not include breeding success or adult survival.\nIncomplete timing: further HPAI deaths in 2023 happened after these counts.\nTranscription: SPA figures were transcribed from the report’s PDF tables (table and page recorded for each row) and checked against printed totals where available."
+  },
+  {
+    "objectID": "indicators/seabirds.html#optional-next-step",
+    "href": "indicators/seabirds.html#optional-next-step",
+    "title": "Seabirds after avian flu",
+    "section": "Optional next step",
+    "text": "Optional next step\nWith approved access to the Seabird Monitoring Programme database (BTO/JNCC), annual counts at monitored colonies would show whether populations have started to recover since 2023, and allow a proper interrupted time-series analysis. Any such analysis would follow the SMP data use policy."
   },
   {
     "objectID": "indicators/seabirds.html#data-sources-and-licences",
     "href": "indicators/seabirds.html#data-sources-and-licences",
     "title": "Seabirds after avian flu",
     "section": "Data sources and licences",
-    "text": "Data sources and licences"
+    "text": "Data sources and licences\n\nTremlett, C.J., Morley, N. and Wilson, L.J. (2024). UK seabird colony counts in 2023 following the 2021-22 outbreak of Highly Pathogenic Avian Influenza. RSPB Research Report 76. RSPB Centre for Conservation Science. Figures transcribed from Tables 6, 9, 18, 22, 25, 28, and 37 and Section 5, and used here with full citation for non-commercial analysis.\nSpecial Protection Area boundaries: NatureScot. Open Government Licence v3.0.\nBackground: Seabirds Count (2015 to 2021), JNCC. Open Government Licence v3.0."
   },
   {
     "objectID": "indicators/salmon.html",
     "href": "indicators/salmon.html",
     "title": "Wild Atlantic salmon",
     "section": "",
-    "text": "Status? Not yet assessed\n       Trend· Trend not yet assessed\n       Confidence●○○ Low\n       Period2021-2026"
+    "text": "Status✕ Clear concern\n       Trend↘ Declining\n       Confidence●●○ Medium\n       Period2021-2026"
   },
   {
     "objectID": "indicators/salmon.html#what-this-measures",
     "href": "indicators/salmon.html#what-this-measures",
     "title": "Wild Atlantic salmon",
     "section": "What this measures",
-    "text": "What this measures"
+    "text": "What this measures\nEach year the Scottish Government assesses the conservation status of 173 wild Atlantic salmon stocks: single rivers, or groups of rivers where catches cannot be separated. A stock’s status is the probability that it will meet its conservation limit (the number of spawning adults needed for a healthy population) over five years:\n\nGood: at least an 80% probability. No extra management needed.\nModerate: a 60 to 80% probability. Catch-and-release strongly encouraged.\nPoor: under a 60% probability. Mandatory catch-and-release for the season.\n\nThe grading for each season is based on the previous assessment, so the “2026” grading reflects the most recent data."
   },
   {
     "objectID": "indicators/salmon.html#why-it-matters",
     "href": "indicators/salmon.html#why-it-matters",
     "title": "Wild Atlantic salmon",
     "section": "Why it matters",
-    "text": "Why it matters"
+    "text": "Why it matters\nAtlantic salmon is a protected species under the Habitats Regulations, with 17 Special Areas of Conservation designated for it in Scotland. It moves between rivers and the open ocean, so its status reflects conditions in both freshwater and the sea. This indicator reports status only. It does not try to attribute change to any one pressure."
   },
   {
     "objectID": "indicators/salmon.html#trend-and-status",
     "href": "indicators/salmon.html#trend-and-status",
     "title": "Wild Atlantic salmon",
     "section": "Trend and status",
-    "text": "Trend and status"
+    "text": "Trend and status\n115 of 173 stocks (66%) were in poor conservation status for the 2026 season, up from 102 (59%) in 2021.\n\n\n\n\n\n\n\n\n\n\nWhere did stocks move?"
   },
   {
     "objectID": "indicators/salmon.html#map",
     "href": "indicators/salmon.html#map",
     "title": "Wild Atlantic salmon",
     "section": "Map",
-    "text": "Map"
+    "text": "Map\nEach point is a river mouth (the official outflow point), coloured by its 2026 status. Click a point to see its grading history. Use the layer control to show one status at a time.\n\n\n\n\n\n2026 status:\n\n\nGood\n\n\n\nModerate\n\n\n\nPoor"
   },
   {
     "objectID": "indicators/salmon.html#confidence",
     "href": "indicators/salmon.html#confidence",
     "title": "Wild Atlantic salmon",
     "section": "Confidence",
-    "text": "Confidence"
+    "text": "Confidence\nHigh that the gradings are reported accurately, since they are the official assessments. Medium for reading a trend from them:\n\nSix seasons is a short window.\nEach grading already averages over five years, so successive seasons are not independent.\nStocks near a threshold can change category with small changes in the underlying probability."
   },
   {
     "objectID": "indicators/salmon.html#limitations",
     "href": "indicators/salmon.html#limitations",
     "title": "Wild Atlantic salmon",
     "section": "Limitations",
-    "text": "Limitations"
+    "text": "Limitations\n\nStatus is categorical. It hides how close a stock is to a boundary.\nAssessments rely mainly on rod catch data (plus counters where available), which is affected by fishing effort and river conditions, not only by fish numbers.\n8 fishery districts have no individual river data and are graded poor by default.\nSome rivers take the lower grade of an overlapping SAC, so their grading may not reflect their own assessment.\nStock boundaries are not openly available, so the map shows river mouths rather than catchments.\nNational counts are the official published figures. River-level data, the transitions grid, and the map are my reconstruction from the published tables. That reconstruction gives 173 stocks and matches the official Good, Moderate, and Poor counts exactly for every season from 2021 to 2026. The check caught two quirks in the source tables: one stock (North Harris SAC) spans two fishery districts, and one row used a different dash in a grouped river name."
   },
   {
     "objectID": "indicators/salmon.html#data-sources-and-licences",
     "href": "indicators/salmon.html#data-sources-and-licences",
     "title": "Wild Atlantic salmon",
     "section": "Data sources and licences",
-    "text": "Data sources and licences"
+    "text": "Data sources and licences\n\nScottish Government. Salmon fishing: proposed river gradings for 2026 season (consultation, 2025), including gradings for 2021 to 2025.\nScottish Government. Salmon fishing: final river gradings for the 2026 season.\nScottish Government. Conservation of wild salmon (policy page): conservation status definitions.\nContains public sector information licensed under the Open Government Licence v3.0."
   },
   {
     "objectID": "index.html",
@@ -200,91 +235,105 @@
     "href": "framework.html#frameworks-in-brief",
     "title": "Framework map",
     "section": "Frameworks in brief",
-    "text": "Frameworks in brief\n\nScottish Biodiversity Strategy to 2045: Scotland’s overarching biodiversity strategy and delivery plan.\nMarine (Scotland) Act 2010: marine planning, Nature Conservation MPAs, and seal conservation in Scottish territorial waters.\nNatural Environment (Scotland) Act: \nHabitats Regulations: protection of SACs and SPAs (the site network formerly part of Natura 2000).\nUK Marine Strategy: Good Environmental Status assessed against 11 descriptors.\nOSPAR: the North-East Atlantic regional convention; Quality Status Report 2023.\nKunming-Montreal Global Biodiversity Framework: 23 targets for 2030, including Target 3 (30x30)."
+    "text": "Frameworks in brief\n\nScottish Biodiversity Strategy to 2045: Scotland’s overarching biodiversity strategy (final version November 2024), with the first Delivery Plan covering 2024 to 2030. The Delivery Plan includes the “30 by 30” commitment and an action to develop marine biodiversity monitoring aligned with the UK Marine Strategy.\nNatural Environment (Scotland) Act 2026: Part 1 creates a legally binding framework for statutory nature restoration targets, with monitoring and reporting duties. Royal Assent 12 March 2026.\nMarine (Scotland) Act 2010: marine planning, Nature Conservation MPAs, and seal conservation in Scottish territorial waters.\nHabitats Regulations: protection of SACs and SPAs (the UK site network, formerly part of Natura 2000).\nUK Marine Strategy: Good Environmental Status assessed against 11 descriptors.\nOSPAR: the North-East Atlantic regional convention. Common indicators include B1 (marine bird abundance), B3 (breeding success), M3 (seal abundance and distribution), and M5 (grey seal pup production). Latest assessment: Quality Status Report 2023.\nKunming-Montreal Global Biodiversity Framework: 23 targets for 2030, including Target 3 (30x30).\n\nRows marked ✓ were confirmed against the source documents (November 2026). The salmon row has one OSPAR link still to confirm."
   },
   {
     "objectID": "indicators/mpas.html",
     "href": "indicators/mpas.html",
     "title": "MPA coverage and 30x30",
     "section": "",
-    "text": "Status? Not yet assessed\n       Trend· Trend not yet assessed\n       Confidence●○○ Low\n       PeriodCurrent"
+    "text": "Status✓ Generally positive\n       Trend↗ Improving\n       Confidence●●○ Medium\n       Period2018-2025"
   },
   {
     "objectID": "indicators/mpas.html#what-this-measures",
     "href": "indicators/mpas.html#what-this-measures",
     "title": "MPA coverage and 30x30",
     "section": "What this measures",
-    "text": "What this measures"
+    "text": "What this measures\nThe share of Scotland’s seas that lies inside at least one designated Marine Protected Area (MPA). This includes Nature Conservation MPAs, Special Areas of Conservation (SACs), and Special Protection Areas (SPAs), inshore and offshore. Where sites overlap, the area is counted once."
   },
   {
     "objectID": "indicators/mpas.html#why-it-matters",
     "href": "indicators/mpas.html#why-it-matters",
     "title": "MPA coverage and 30x30",
     "section": "Why it matters",
-    "text": "Why it matters"
+    "text": "Why it matters\nTarget 3 of the Kunming-Montreal Global Biodiversity Framework asks countries to make sure that at least 30% of coastal and marine areas are effectively conserved and managed by 2030 (“30x30”). The word effectively matters. Designation is the first step. The target is about protection that works in practice, through management measures, monitoring, and enforcement."
   },
   {
     "objectID": "indicators/mpas.html#trend-and-status",
     "href": "indicators/mpas.html#trend-and-status",
     "title": "MPA coverage and 30x30",
     "section": "Trend and status",
-    "text": "Trend and status"
+    "text": "Trend and status\n36.9% of Scottish seas (229,228 km² of 621,789 km²) is inside a designated MPA by my calculation. The published figure is about 37%. Either way, this is above the 30% area threshold.\n\n\n\n\n\n\n\n\n\nThe national figure hides a lot of variation between regions, so read the chart alongside the map.\nChange over time. Scotland’s Marine Assessment 2020 reports that the network covered about 22% of Scotland’s seas in 2018, rising to 37% after new designations in 2020. I have not rebuilt that time series from boundaries, so the trend arrow rests on the published figures.\nChecks. My figure (229,228 km², 36.9%) is within 0.5% of the published 228,121 km² (36.9%). Counting all SACs and SPAs, rather than only those flagged as part of the MPA network, changed the total by less than 50 km², so the result is not sensitive to that choice.\n\nBy designation type\n\n\n\n\n\n\n\n\nDesignation\nSites\nArea (km²)\n% of Scottish seas\n\n\n\n\nOffshore MPA (JNCC, all types)\n35\n195,965\n31.5%\n\n\nNature Conservation MPA\n36\n175,663\n28.3%\n\n\nSpecial Area of Conservation\n58\n48,535\n7.8%\n\n\nSpecial Protection Area\n58\n18,322\n2.9%\n\n\n\nTypes overlap, so these rows add up to more than the combined total."
   },
   {
     "objectID": "indicators/mpas.html#map",
     "href": "indicators/mpas.html#map",
     "title": "MPA coverage and 30x30",
     "section": "Map",
-    "text": "Map"
+    "text": "Map\n\n\n\n\n\nDesignation:\n\n\nOffshore MPA (JNCC)\n\n\n\nNature Conservation MPA\n\n\n\nSAC\n\n\n\nSPA\n\n\nSAC: Special Area of Conservation. SPA: Special Protection Area. Use the layers icon (top right) to switch designations on and off. Dashed lines are the marine regions."
+  },
+  {
+    "objectID": "indicators/mpas.html#designated-is-not-the-same-as-effectively-managed",
+    "href": "indicators/mpas.html#designated-is-not-the-same-as-effectively-managed",
+    "title": "MPA coverage and 30x30",
+    "section": "Designated is not the same as effectively managed",
+    "text": "Designated is not the same as effectively managed\n\nDesignation sets out what a site protects and why.\nManagement measures (for example, fisheries restrictions) decide whether activities that could damage protected features are actually controlled. Measures for some inshore MPAs and Priority Marine Features have been the subject of recent Scottish Government consultation.\nCondition monitoring shows whether protected features are improving, stable, or declining.\n\nSo this indicator answers “how much is designated?” but not “how much is protected well enough to make a difference?”. An honest GBF Target 3 assessment needs all three layers."
   },
   {
     "objectID": "indicators/mpas.html#confidence",
     "href": "indicators/mpas.html#confidence",
     "title": "MPA coverage and 30x30",
     "section": "Confidence",
-    "text": "Confidence"
+    "text": "Confidence\nMedium overall. High for the area calculation. The boundaries are official, and my figure can be checked against the published total. Low for what it says about protection in practice, for the reasons above."
   },
   {
     "objectID": "indicators/mpas.html#limitations",
     "href": "indicators/mpas.html#limitations",
     "title": "MPA coverage and 30x30",
     "section": "Limitations",
-    "text": "Limitations"
+    "text": "Limitations\n\nArea only: says nothing about how well sites represent habitats, how they connect, or what condition they are in.\nMy total depends on which site types and which sea boundary are included, so it may differ slightly from official figures.\nHistoric MPAs, the Demonstration and Research MPA, and other area-based measures (OECMs) are not included.\nBoundaries are simplified for the web map. Areas are calculated on the full-resolution boundaries."
   },
   {
     "objectID": "indicators/mpas.html#data-sources-and-licences",
     "href": "indicators/mpas.html#data-sources-and-licences",
     "title": "MPA coverage and 30x30",
     "section": "Data sources and licences",
-    "text": "Data sources and licences"
+    "text": "Data sources and licences\n\nNature Conservation MPAs, Special Areas of Conservation, Special Protection Areas: NatureScot, via spatialdata.gov.scot. Open Government Licence v3.0.\nUK Offshore Marine Protected Areas (version 20251203): JNCC. Open Government Licence v3.0. Contains Joint Nature Conservation Committee data © copyright and database right. Contains NatureScot data © copyright and database right.\nScottish Assessment areas (Scottish Marine Regions and Offshore Marine Regions): Scottish Government Marine Directorate. Contains information from the Scottish Government (Marine Scotland) licensed under the Open Government Licence v3.0.\nComparison figure: Scottish Government (2024), Marine Protected Area network: 2024 report to the Scottish Parliament."
   },
   {
     "objectID": "indicators/sea-temperature.html",
     "href": "indicators/sea-temperature.html",
     "title": "Sea temperature",
     "section": "",
-    "text": "Status? Not yet assessed\n       Trend↔ Context indicator (no good/bad direction)\n       Confidence●○○ Low\n       PeriodTo be confirmed"
+    "text": "Statusi Context indicator\n       Trend→ No clear change\n       Confidence●●○ Medium\n       Period1997-2020"
   },
   {
     "objectID": "indicators/sea-temperature.html#what-this-measures",
     "href": "indicators/sea-temperature.html#what-this-measures",
     "title": "Sea temperature",
     "section": "What this measures",
-    "text": "What this measures"
+    "text": "What this measures\nNear-surface sea temperature, sampled weekly by boat at the Scottish Coastal Observatory’s two long-term ecosystem monitoring sites:\n\nStonehaven, about 3 km off the Aberdeenshire coast in the North Sea, sampled since 1997.\nLoch Ewe, a sea loch in Wester Ross on the Atlantic-influenced west coast, sampled since 1999.\n\nI express each month as an anomaly: how much warmer or cooler it was than the 1999 to 2020 average for that calendar month. Near-surface samples at Loch Ewe begin in mid-2002, so its usable series and baseline effectively start in 2003. This removes the seasonal cycle so that years can be compared fairly."
   },
   {
     "objectID": "indicators/sea-temperature.html#why-it-matters",
     "href": "indicators/sea-temperature.html#why-it-matters",
     "title": "Sea temperature",
     "section": "Why it matters",
-    "text": "Why it matters"
+    "text": "Why it matters\nTemperature shapes almost everything else in a marine ecosystem: plankton timing, fish distribution, seabird food supply, and the spread of warm-water species. This is a context indicator. It has no “good” or “bad” direction on its own, but it helps explain change in the biological indicators on this site."
   },
   {
     "objectID": "indicators/sea-temperature.html#trend-and-status",
     "href": "indicators/sea-temperature.html#trend-and-status",
     "title": "Sea temperature",
     "section": "Trend and status",
-    "text": "Trend and status"
+    "text": "Trend and status\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSite\nYears\nTrend (°C per decade)\n95% CI\np\nResidual lag-1 autocorrelation\n\n\n\n\nStonehaven\n1997 to 2019 (23 years)\n+0.02\n-0.16 to +0.20\n0.82\n-0.11\n\n\nLoch Ewe\n2003 to 2020 (18 years)\n-0.16\n-0.45 to +0.13\n0.25\n-0.03\n\n\n\nOrdinary least squares on annual mean anomalies. Positive residual autocorrelation means the true uncertainty is somewhat wider than the interval shown.\n\n\n\n\n\n\n\n\nStonehaven: +0.02°C per decade (95% CI -0.16 to +0.20), an interval that includes zero.\nLoch Ewe: -0.16°C per decade (95% CI -0.45 to +0.13), an interval that includes zero.\nOver roughly two decades, year-to-year variability is large compared with the long-term trend, so a single unusually warm or cold year can move the fitted line. That is why I report the confidence interval and not just the slope.\n\nWhy no clear trend?\nThis does not mean Scottish seas are not warming. It is a question of time window:\n\nOver the long term, Scottish waters (coastal and oceanic) have warmed by about 0.05 to 0.07°C per decade over 1870 to 2016, with faster warming over the most recent 30 years of that period (Scotland’s Marine Assessment 2020).\nOver the shorter, more recent window these two sites cover, Scotland’s Marine Assessment 2020 also reports no significant linear trend in the most recent decade. It links a cold anomaly in the waters west of Scotland to strong ocean heat loss from the winter of 2013 to 2014.\nTwo sites over about 20 years cannot separate a long-term trend from multi-decadal natural variability in the North Atlantic.\n\nSo the honest reading is: no detectable trend at these two sites over 1997 to 2020, consistent with the published regional picture, and not evidence against long-term warming. Adding the 2021 onwards data, once published, would be the most useful next step."
+  },
+  {
+    "objectID": "indicators/sea-temperature.html#the-seasonal-cycle",
+    "href": "indicators/sea-temperature.html#the-seasonal-cycle",
+    "title": "Sea temperature",
+    "section": "The seasonal cycle",
+    "text": "The seasonal cycle"
   },
   {
     "objectID": "indicators/sea-temperature.html#map",
@@ -294,80 +343,94 @@
     "text": "Map"
   },
   {
+    "objectID": "indicators/sea-temperature.html#quality-control",
+    "href": "indicators/sea-temperature.html#quality-control",
+    "title": "Sea temperature",
+    "section": "Quality control",
+    "text": "Quality control\nI followed the data owner’s flag guidance:\n\nRejected: QF 3 (probably bad), QF 4 (bad), and QF 9 (missing).\nKept: QF 1, 2, 5, and 8 (good, probably good, changed, or interpolated).\nKept but counted: QF 0 (not yet quality controlled) and QF 10 (phenomenon uncertain), so their share is visible.\nExtra screen: values outside 0 to 22°C are removed as implausible for these sites.\n\n\n\n\n\n\n\n\n\nOutcome\nLoch Ewe n\nStonehaven n\nLoch Ewe pct\nStonehaven pct\n\n\n\n\nKept (QF 1, 2, 5, 8)\n3212\n3425\n60.2%\n53.5%\n\n\nKept, not yet quality controlled (QF 0)\n137\n0\n2.6%\n0%\n\n\nRejected (QF 3)\n1\n9\n0%\n0.1%\n\n\nRejected (QF 9)\n1987\n2949\n37.2%\n46.1%\n\n\nKept, use with caution (QF 10)\n0\n1\n0%\n0%\n\n\nRejected (QF 4)\n0\n14\n0%\n0.2%"
+  },
+  {
     "objectID": "indicators/sea-temperature.html#confidence",
     "href": "indicators/sea-temperature.html#confidence",
     "title": "Sea temperature",
     "section": "Confidence",
-    "text": "Confidence"
+    "text": "Confidence\nMedium. These are carefully quality-controlled observations from fixed sites with a consistent method. But:\n\nThey are two points, not a picture of all Scottish seas.\nWeekly sampling can miss short events such as marine heatwaves.\nThe published record currently ends in 2020, so the most recent years are not included."
   },
   {
     "objectID": "indicators/sea-temperature.html#limitations",
     "href": "indicators/sea-temperature.html#limitations",
     "title": "Sea temperature",
     "section": "Limitations",
-    "text": "Limitations"
+    "text": "Limitations\n\nThe record is about 20 years long. That is short for separating a long-term trend from natural variability such as the North Atlantic Oscillation.\nMonths with missing visits make monthly means less certain. Years with fewer than 9 months of data are excluded from the annual series, which drops 2020 at Stonehaven.\nNear-surface means the shallowest sample on each visit, up to 5 m. Bottom water can behave differently, especially at Stonehaven, where the water column stratifies in summer.\nLoch Ewe is a sheltered sea loch, so it is not fully representative of open west-coast waters."
   },
   {
     "objectID": "indicators/sea-temperature.html#data-sources-and-licences",
     "href": "indicators/sea-temperature.html#data-sources-and-licences",
     "title": "Sea temperature",
     "section": "Data sources and licences",
-    "text": "Data sources and licences"
+    "text": "Data sources and licences\n\nMarine Scotland Science (2018). Scottish Coastal Observatory: Stonehaven site data. doi:10.7489/610-1. Environmental data CSV, 1997 to 2020.\nMarine Scotland Science (2018). Scottish Coastal Observatory: Loch Ewe site data. doi:10.7489/948-1. Environmental data CSV, 1999 to 2020.\nData filtered to near-surface temperature, excluding QF 3, 4, and 9.\nContains public sector information licensed under the Open Government Licence v3.0.\nContext: Scotland’s Marine Assessment 2020, Sea temperature (Marine Directorate).\nBackground: Hindson et al. (2021). The Scottish Coastal Observatory Dataset: 1997 to 2020. Scottish Marine and Freshwater Science Vol 12 No 14."
   },
   {
     "objectID": "indicators/seals.html",
     "href": "indicators/seals.html",
     "title": "Harbour and grey seals",
     "section": "",
-    "text": "Status? Not yet assessed\n       Trend· Trend not yet assessed\n       Confidence●○○ Low\n       PeriodTo be confirmed"
+    "text": "Status✕ Clear concern\n       Trend↘ Declining\n       Confidence●●● High\n       Period1996-2025"
   },
   {
     "objectID": "indicators/seals.html#what-this-measures",
     "href": "indicators/seals.html#what-this-measures",
     "title": "Harbour and grey seals",
     "section": "What this measures",
-    "text": "What this measures"
+    "text": "What this measures\nThe number of harbour seals and grey seals counted hauled out on land during the harbour seal moult in August, from helicopter surveys by the Sea Mammal Research Unit (SMRU). The whole Scottish coastline is surveyed roughly every five years. Counts are reported for Scotland’s seven Seal Management Units (SMUs).\nA count is not a population estimate. Many seals are at sea during any survey. Comparing counts across years works because surveys follow a consistent method at the same time of year."
   },
   {
     "objectID": "indicators/seals.html#why-it-matters",
     "href": "indicators/seals.html#why-it-matters",
     "title": "Harbour and grey seals",
     "section": "Why it matters",
-    "text": "Why it matters"
+    "text": "Why it matters\nBoth species are protected under the Marine (Scotland) Act 2010 and are features of Special Areas of Conservation. Harbour seals in particular have declined sharply in parts of Scotland since the early 2000s, and the causes are not fully understood. Seal counts feed into OSPAR and UK Marine Strategy assessments of marine mammals."
   },
   {
     "objectID": "indicators/seals.html#trend-and-status",
     "href": "indicators/seals.html#trend-and-status",
     "title": "Harbour and grey seals",
     "section": "Trend and status",
-    "text": "Trend and status"
+    "text": "Trend and status\nThe 2021 to 2025 census counted 19,978 harbour seals, the lowest Scottish total since the first full census in 1996-97 and 26% below 2016-19. It counted 16,042 grey seals in August, 37% below 2016-19.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGrey seals need extra care. August counts capture grey seals hauled out in summer, which is not the main way their population is monitored (that is through pup production in autumn). The report notes that the low 2021-25 grey seal total is driven mainly by a very low 2025 count in Orkney, so one survey has a big influence."
   },
   {
     "objectID": "indicators/seals.html#map",
     "href": "indicators/seals.html#map",
     "title": "Harbour and grey seals",
     "section": "Map",
-    "text": "Map"
+    "text": "Map\n\n\n\n\n\nChange since 2016-19 (%):\n\n\n−50 to −40\n\n\n\n−40 to −30\n\n\n\n−30 to −20\n\n\n\n−20 to −10\n\n\n\n−10 to 0"
+  },
+  {
+    "objectID": "indicators/seals.html#statistical-trends-as-published",
+    "href": "indicators/seals.html#statistical-trends-as-published",
+    "title": "Harbour and grey seals",
+    "section": "Statistical trends (as published)",
+    "text": "Statistical trends (as published)\nThe report fits trends to the full count series for each unit. I reproduce its harbour seal trend table here rather than refitting, because the authors account for survey design in ways a reanalysis of summary counts cannot.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArea\nLast survey\nLast count\nN\nAnnual change, %\n(95% CI)\nChange since highest count, %\n(95% CI; year of high)\n\n\n\n\n1. Southwest Scotland\n\n\nWhole unit\n2023\n1,563\n7\n-2.6 (-5.5, 0.4)\n-3.6 (-13.5, 7.4; 2020)\n\n\n2. West Scotland\n\n\nWhole unit\n2023\n11,754\n7\n-4.8 (-7.6, -1.9)\n-22.1 (-34.1, -8.2; 2016)\n\n\n2a. West Scotland - south\n\n\nWhole subdivision\n2023\n5,272\n7\n-5.4 (-8.2, -2.5)\n-27.7 (-43.8, -7.6; 2015)\n\n\nSouth-East Islay Skerries SAC\n2023\n207\n8\n-22.2 (-29.1, -14.7)\n-76.5 (-85.6, -61.9; 2014)\n\n\nEileanan agus Sgeiran Lios mor SAC\n2023\n197\n11\n-2.1 (-3.3, -0.9)\n-50.5 (-67.3, -24.8; 1990)\n\n\n2b. West Scotland - central\n\n\nWhole subdivision\n2022\n5,563\n8\n-4.2 (-7.3, -1)\n-13.5 (-24.5, -1; 2017)\n\n\nAscrib, Isay and Dunvegan SAC\n2022\n340\n12\n-5.2 (-13.4, 3.7)\n-46.4 (-69.8, -5.9; 2003)\n\n\n2c. West Scotland - north\n\n\nWhole subdivision\n2022\n919\n7\n-4.3 (-7.5, -1)\n-13.9 (-25.3, -0.7; 2017)\n\n\n3. Western Isles\n\n\nWhole unit\n2022\n3,080\n9\n-4.4 (-8.6, -0.2)\n-14 (-30.5, 5.8; 2017)\n\n\nSound of Barra SAC\n2022\n91\n10\n-2.4 (-9.2, 5)\n-89 (-92.9, -83.1; 1992)\n\n\n4. North Coast & Orkney\n\n\nWhole unit\n2025\n880\n11\n-7.9 (-8.8, -6.9)\n-90.4 (-92, -88.4; 2002)\n\n\nSanday SAC\n2025\n32\n14\n-12.9 (-15.3, -10.6)\n-98 (-98.7, -96.8; 2002)\n\n\n5. Shetland\n\n\nWhole unit\n2025\n1,744\n9\n-8.7 (-11.4, -5.9)\n-67 (-73.3, -58.9; 2002)\n\n\nMousa SAC\n2025\n4\n9\n-16.8 (-20.9, -12.6)\n-99.1 (-99.6, -98; 2002)\n\n\nYell Sound Coast SAC\n2025\n111\n9\n0\n-44.6 (-62.3, -19.3; 2002)\n\n\n6. Moray Firth\n\n\nWhole unit\n2023\n944\n-\n-\n-\n\n\nHelmsdale to Findhorn\n2024\n733 (97%)\n24\n0\n-34 (-47.8, -15.7; 2002)\n\n\nDornoch Firth and Morrich More SAC\n2024\n46\n32\n-7.6 (-8.8, -6.5)\n-92.1 (-94.7, -88.3; 1992)\n\n\n7. East Scotland\n\n\nWhole unit\n2023\n192\n7\n-5.2 (-6.9, -3.4)\n-75 (-84.5, -59.8; 1997)\n\n\nFirth of Tay and Eden Estuary SAC\n2025\n55\n33\n9.4 (3.2, 15.9)\n-92.8 (-94.8, -90.1; 1997)\n\n\n\nSource: NatureScot Research Report 1421, Table 3. Column names shortened. '-' means not reported."
   },
   {
     "objectID": "indicators/seals.html#confidence",
     "href": "indicators/seals.html#confidence",
     "title": "Harbour and grey seals",
     "section": "Confidence",
-    "text": "Confidence"
+    "text": "Confidence\nHigh. These are systematic, repeated national surveys by a specialist team using consistent methods, and the declines are large relative to survey uncertainty in most units. Confidence is lower for:\n\nGrey seals in August, as above.\nSingle-year counts in any one area, which can be affected by weather and disturbance on the survey day."
   },
   {
     "objectID": "indicators/seals.html#limitations",
     "href": "indicators/seals.html#limitations",
     "title": "Harbour and grey seals",
     "section": "Limitations",
-    "text": "Limitations"
+    "text": "Limitations\n\nCounts are a minimum, not a population size. The report scales the latest counts to population estimates with wide confidence intervals.\nCensus periods span several years, so the “midpoint” on the charts is a simplification.\nSurvey methods changed over time (for example, the move to thermal imaging), which the report describes.\nThe data describe change, not its causes. SCOS and SMRU continue to investigate potential drivers of harbour seal decline."
   },
   {
     "objectID": "indicators/seals.html#data-sources-and-licences",
     "href": "indicators/seals.html#data-sources-and-licences",
     "title": "Harbour and grey seals",
     "section": "Data sources and licences",
-    "text": "Data sources and licences"
+    "text": "Data sources and licences\n\nMorris, C.D., Duck, C.D., Riddoch, N.G., Thompson, D. and Russell, D.J.F. (2026). Aerial surveys of seals in Scotland during the harbour seal moult, 2021-2025. NatureScot Research Report 1421. Tables 2, 3, and 6.\nSeal Management Areas: Scottish Government Marine Directorate, provided by the Sea Mammal Research Unit. Contains Scottish Government information licensed under the Open Government Licence v3.0. © Sea Mammal Research Unit.\nBackground: SCOS (2025). Scientific advice on matters related to the management of seal populations: 2025. NERC Special Committee on Seals."
   }
 ]
