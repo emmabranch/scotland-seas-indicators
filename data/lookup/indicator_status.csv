@@ -2,5 +2,5 @@ id,order,featured,theme,title,status,trend,confidence,period,headline
 seabirds,1,TRUE,Featured deep dive,Seabirds after avian flu,unknown,unknown,low,2015-2023,"How much did the 2021-22 HPAI outbreak change Scottish seabird colony counts? Analysis in progress."
 seals,2,FALSE,Marine mammals,Harbour and grey seals,unknown,unknown,low,To be confirmed,"August count trends by Seal Management Unit. Analysis in progress."
 salmon,3,FALSE,Fish,Wild Atlantic salmon,unknown,unknown,low,2021-2026,"Annual conservation grading of Scotland's salmon stocks. Analysis in progress."
-sea-temperature,4,FALSE,Climate and ocean,Sea temperature,unknown,context,low,To be confirmed,"Long-term warming at Stonehaven and Loch Ewe. Analysis in progress."
+sea-temperature,4,FALSE,Climate and ocean,Sea temperature,context,stable,medium,1997-2020,"No clear trend at Stonehaven or Loch Ewe over about 20 years, against a background of longer-term warming in Scottish waters."
 mpas,5,FALSE,Protected areas,MPA coverage and 30x30,good,improving,medium,2018-2025,"36.9% of Scottish seas is designated, above the 30% area threshold. Whether sites are effectively managed is the open question."

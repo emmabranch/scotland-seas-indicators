@@ -1,0 +1,10 @@
+site,outcome,n,pct
+Loch Ewe,"Kept (QF 1, 2, 5, 8)",3212,60.18362375866592
+Loch Ewe,"Kept, not yet quality controlled (QF 0)",137,2.566985197676597
+Loch Ewe,Rejected (QF 3),1,0.01873711823121604
+Loch Ewe,Rejected (QF 9),1987,37.23065392542627
+Stonehaven,"Kept (QF 1, 2, 5, 8)",3425,53.53235386058143
+Stonehaven,"Kept, use with caution (QF 10)",1,0.01562988433885589
+Stonehaven,Rejected (QF 3),9,0.14066895904970303
+Stonehaven,Rejected (QF 4),14,0.2188183807439825
+Stonehaven,Rejected (QF 9),2949,46.092528915286024

@@ -31,6 +31,7 @@ status_key <- tibble::tribble(
   "good",         "Generally positive",       "✓",   "#009E73",
   "mixed",        "Mixed or some concern",    "◐",   "#E69F00",
   "poor",         "Clear concern",            "✕",   "#D55E00",
+  "context",      "Context indicator",        "i",   "#56B4E9",
   "unknown",      "Not yet assessed",         "?",   "#8C8C8C"
 )
 

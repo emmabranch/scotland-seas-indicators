@@ -1,45 +1,219 @@
 ---
 title: "Sea temperature"
-subtitle: "Long-term change at Stonehaven and Loch Ewe"
+subtitle: "Long-term change at Stonehaven and Loch Ewe, Scotland's two coastal ecosystem monitoring sites"
 ---
 
 ```{r}
 #| include: false
 source(here::here("R", "report_card.R"))
+library(dplyr)
+library(ggplot2)
+
+p <- \(f) here::here("data", "processed", f)
+have_data <- file.exists(p("sea_temp_annual.csv"))
+if (have_data) {
+  annual  <- readr::read_csv(p("sea_temp_annual.csv"),  show_col_types = FALSE)
+  monthly <- readr::read_csv(p("sea_temp_monthly.csv"), show_col_types = FALSE)
+  trends  <- readr::read_csv(p("sea_temp_trends.csv"),  show_col_types = FALSE)
+  qc      <- readr::read_csv(p("sea_temp_qc.csv"),      show_col_types = FALSE)
+  sites   <- readr::read_csv(p("sea_temp_sites.csv"),   show_col_types = FALSE)
+  site_order <- c("Stonehaven", "Loch Ewe")
+  annual$site  <- factor(annual$site,  site_order)
+  monthly$site <- factor(monthly$site, site_order)
+  tr <- \(s, col) trends[[col]][trends$site == s]
+}
+f2 <- \(x) formatC(x, format = "f", digits = 2, flag = "+")
 ```
 
 ```{r}
 glance_box("sea-temperature")
 ```
 
-::: {.callout-warning appearance="simple"}
-Work in progress. Figures on this page are not final.
-:::
+```{r}
+#| results: asis
+if (!have_data) cat("::: {.callout-warning}\nRun `R/02_sea_temperature.R` to build this page's data.\n:::\n")
+```
 
 ## What this measures
 
-<!-- One or two sentences, plain language. -->
+Near-surface sea temperature, sampled weekly by boat at the Scottish Coastal Observatory's two long-term ecosystem monitoring sites:
+
+- **Stonehaven**, about 3 km off the Aberdeenshire coast in the North Sea, sampled since 1997.
+- **Loch Ewe**, a sea loch in Wester Ross on the Atlantic-influenced west coast, sampled since 1999.
+
+I express each month as an **anomaly**: how much warmer or cooler it was than the 1999 to 2020 average for that calendar month. Near-surface samples at Loch Ewe begin in mid-2002, so its usable series and baseline effectively start in 2003. This removes the seasonal cycle so that years can be compared fairly.
 
 ## Why it matters
 
-<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->
+Temperature shapes almost everything else in a marine ecosystem: plankton timing, fish distribution, seabird food supply, and the spread of warm-water species. This is a **context indicator**. It has no "good" or "bad" direction on its own, but it helps explain change in the biological indicators on this site.
 
 ## Trend and status
 
-<!-- One clear chart, with the key takeaway written as the chart title. -->
+```{r}
+#| fig-height: 2.6
+#| fig-alt: "Warming stripes for Stonehaven and Loch Ewe: one coloured stripe per year from blue (cooler than average) to red (warmer than average)."
+if (have_data) {
+  lim <- max(abs(annual$anom))
+  ggplot(annual, aes(year, 1, fill = anom)) +
+    geom_tile(width = 1, height = 1) +
+    facet_wrap(~site, ncol = 1, strip.position = "left") +
+    scale_fill_distiller(palette = "RdBu", limits = c(-lim, lim),
+                         name = "Anomaly (°C)", labels = \(x) f2(x)) +
+    scale_x_continuous(expand = c(0, 0), breaks = seq(1995, 2020, 5)) +
+    labs(title = "Warming stripes", x = NULL, y = NULL) +
+    theme_seas() +
+    theme(axis.text.y = element_blank(), panel.grid = element_blank(),
+          strip.text.y.left = element_text(angle = 0, face = "bold", hjust = 1),
+          legend.position = "right")
+}
+```
+
+```{r}
+#| fig-height: 5.5
+#| fig-alt: "Annual mean near-surface temperature anomaly at Stonehaven and Loch Ewe, as bars above and below zero, with a fitted linear trend line and its 95 percent confidence band."
+if (have_data) {
+  annual |>
+    mutate(sign = ifelse(anom >= 0, "Warmer than average", "Cooler than average")) |>
+    ggplot(aes(year, anom)) +
+    geom_hline(yintercept = 0, colour = "#5A6B7B") +
+    geom_col(aes(fill = sign), width = 0.8) +
+    geom_smooth(method = "lm", formula = y ~ x, colour = seas_cols[["deep"]],
+                fill = seas_cols[["grey"]], alpha = 0.25, linewidth = 0.9) +
+    facet_wrap(~site, ncol = 1) +
+    scale_fill_manual(values = c("Warmer than average" = seas_cols[["red"]],
+                                 "Cooler than average" = seas_cols[["blue"]]), name = NULL) +
+    scale_y_continuous(labels = \(x) paste0(f2(x), "°C")) +
+    labs(title = "Annual near-surface temperature anomaly, with linear trend",
+         subtitle = "Difference from the 1999 to 2020 average for each calendar month, averaged over the year",
+         x = NULL, y = NULL,
+         caption = seas_caption("Scottish Coastal Observatory, Marine Directorate")) +
+    theme_seas() +
+    theme(strip.text = element_text(face = "bold", hjust = 0))
+}
+```
+
+```{r}
+if (have_data) {
+  trends |>
+    mutate(site = factor(site, site_order)) |>
+    arrange(site) |>
+    transmute(
+      Site = site,
+      Years = paste0(first_year, " to ", last_year, " (", n_years, " years)"),
+      `Trend (°C per decade)` = f2(slope_decade),
+      `95% CI` = paste0(f2(lo_decade), " to ", f2(hi_decade)),
+      `p` = signif(p_value, 2),
+      `Residual lag-1 autocorrelation` = round(resid_lag1, 2)
+    ) |>
+    gt::gt() |>
+    gt::tab_footnote("Ordinary least squares on annual mean anomalies. Positive residual autocorrelation means the true uncertainty is somewhat wider than the interval shown.")
+}
+```
+
+```{r}
+#| results: asis
+if (have_data) {
+  sig <- \(s) tr(s, "lo_decade") > 0 | tr(s, "hi_decade") < 0
+  describe <- \(s) sprintf("**%s:** %s°C per decade (95%% CI %s to %s)%s.",
+    s, f2(tr(s, "slope_decade")), f2(tr(s, "lo_decade")), f2(tr(s, "hi_decade")),
+    ifelse(sig(s), "", ", an interval that includes zero"))
+  cat(describe("Stonehaven"), "\n\n", describe("Loch Ewe"), "\n", sep = "")
+}
+```
+
+Over roughly two decades, year-to-year variability is large compared with the long-term trend, so a single unusually warm or cold year can move the fitted line. That is why I report the confidence interval and not just the slope.
+
+### Why no clear trend?
+
+This does not mean Scottish seas are not warming. It is a question of time window:
+
+- **Over the long term**, Scottish waters (coastal and oceanic) have warmed by about 0.05 to 0.07°C per decade over 1870 to 2016, with faster warming over the most recent 30 years of that period (Scotland's Marine Assessment 2020).
+- **Over the shorter, more recent window** these two sites cover, Scotland's Marine Assessment 2020 also reports no significant linear trend in the most recent decade. It links a cold anomaly in the waters west of Scotland to strong ocean heat loss from the winter of 2013 to 2014.
+- **Two sites over about 20 years** cannot separate a long-term trend from multi-decadal natural variability in the North Atlantic.
+
+So the honest reading is: **no detectable trend at these two sites over 1997 to 2020, consistent with the published regional picture**, and not evidence against long-term warming. Adding the 2021 onwards data, once published, would be the most useful next step.
+
+## The seasonal cycle
+
+```{r}
+#| fig-height: 4
+#| fig-alt: "Monthly mean temperature by calendar month at both sites, showing the seasonal cycle, with the 1999 to 2020 average as a line and individual years as faint points."
+if (have_data) {
+  clim <- monthly |> distinct(site, month, clim)
+  ggplot(monthly, aes(month, temp, colour = site)) +
+    geom_jitter(width = 0.15, alpha = 0.25, size = 1) +
+    geom_line(data = clim, aes(y = clim), linewidth = 1.1) +
+    scale_colour_manual(values = c(Stonehaven = seas_cols[["blue"]], `Loch Ewe` = seas_cols[["orange"]]),
+                        name = NULL) +
+    scale_x_continuous(breaks = 1:12, labels = month.abb) +
+    scale_y_continuous(labels = \(x) paste0(x, "°C")) +
+    labs(title = "The seasonal cycle at each site",
+         subtitle = "Monthly means (points) and the 1999 to 2020 average (line)",
+         x = NULL, y = NULL,
+         caption = seas_caption("Scottish Coastal Observatory, Marine Directorate")) +
+    theme_seas()
+}
+```
+
+<!-- After the first render, add one sentence here on how the two sites' seasonal cycles differ. -->
 
 ## Map
 
-<!-- Leaflet or static sf map, where relevant. -->
+```{r}
+if (have_data) {
+  library(leaflet)
+  leaflet(sites) |>
+    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    setView(lng = -4, lat = 57.4, zoom = 6) |>
+    addCircleMarkers(~lon, ~lat, radius = 9, weight = 2, color = "#fff",
+                     fillColor = c(seas_cols[["blue"]], seas_cols[["orange"]])[match(sites$site, c("Stonehaven", "Loch Ewe"))],
+                     fillOpacity = 1,
+                     label = ~site,
+                     popup = ~sprintf("<b>%s</b><br>%s weekly visits used<br>%s to %s<br>Median sample depth %s m",
+                                      site, n_visits, format(first, "%b %Y"), format(last, "%b %Y"), median_depth))
+}
+```
+
+## Quality control
+
+I followed the data owner's flag guidance:
+
+- **Rejected:** QF 3 (probably bad), QF 4 (bad), and QF 9 (missing).
+- **Kept:** QF 1, 2, 5, and 8 (good, probably good, changed, or interpolated).
+- **Kept but counted:** QF 0 (not yet quality controlled) and QF 10 (phenomenon uncertain), so their share is visible.
+- **Extra screen:** values outside 0 to 22°C are removed as implausible for these sites.
+
+```{r}
+if (have_data) {
+  qc |>
+    mutate(pct = paste0(round(pct, 1), "%")) |>
+    tidyr::pivot_wider(id_cols = outcome, names_from = site, values_from = c(n, pct),
+                       names_glue = "{site} {.value}", values_fill = list(n = 0, pct = "0%")) |>
+    rename(Outcome = outcome) |>
+    gt::gt()
+}
+```
 
 ## Confidence
 
-<!-- Why high, medium, or low: coverage, frequency, method changes. -->
+**Medium.** These are carefully quality-controlled observations from fixed sites with a consistent method. But:
+
+- They are two points, not a picture of all Scottish seas.
+- Weekly sampling can miss short events such as marine heatwaves.
+- The published record currently ends in 2020, so the most recent years are not included.
 
 ## Limitations
 
-- <!-- What the data cannot tell us. -->
+- The record is about 20 years long. That is short for separating a long-term trend from natural variability such as the North Atlantic Oscillation.
+- Months with missing visits make monthly means less certain. Years with fewer than 9 months of data are excluded from the annual series, which drops 2020 at Stonehaven.
+- Near-surface means the shallowest sample on each visit, up to 5 m. Bottom water can behave differently, especially at Stonehaven, where the water column stratifies in summer.
+- Loch Ewe is a sheltered sea loch, so it is not fully representative of open west-coast waters.
 
 ## Data sources and licences
 
-- <!-- Dataset, publisher, year, URL, licence, attribution wording. -->
+- Marine Scotland Science (2018). *Scottish Coastal Observatory: Stonehaven site data.* doi:10.7489/610-1. Environmental data CSV, 1997 to 2020.
+- Marine Scotland Science (2018). *Scottish Coastal Observatory: Loch Ewe site data.* doi:10.7489/948-1. Environmental data CSV, 1999 to 2020.
+- Data filtered to near-surface temperature, excluding QF 3, 4, and 9.
+- Contains public sector information licensed under the Open Government Licence v3.0.
+- Context: Scotland's Marine Assessment 2020, Sea temperature (Marine Directorate).
+- Background: Hindson et al. (2021). *The Scottish Coastal Observatory Dataset: 1997 to 2020.* Scottish Marine and Freshwater Science Vol 12 No 14.
