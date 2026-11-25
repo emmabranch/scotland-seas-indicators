@@ -7,7 +7,7 @@ project:
     - "!docs/"
 
 execute:
-  freeze: auto        # re-run code only when a page's source changes
+  freeze: false       # always re-run, so pages pick up changes to data files
   echo: false
   warning: false
   message: false

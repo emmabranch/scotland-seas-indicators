@@ -1,14 +1,14 @@
 species,pct_uk_pop_counted,pct_change,source,verified
-Northern Gannet,75,-25,Section 5 summary,FALSE
-Great Skua,81,-76,Section 5 summary,FALSE
-Herring Gull,27,-7,Section 5 summary,FALSE
-Black-legged Kittiwake,38,8,Section 5 summary,FALSE
-Sandwich Tern,92,-35,Section 5 summary,FALSE
-Roseate Tern,98,-21,Section 5 summary,FALSE
-Common Tern,40,-42,Section 5 summary,FALSE
-Arctic Tern,31,-2,Section 5 summary,FALSE
-Common Guillemot,52,-6,Section 5 summary,FALSE
-Black-headed Gull,50,-11,Section 5 summary,FALSE
-Great Black-backed Gull,25,-20,Section 5 summary,FALSE
-Arctic Skua,48,-28,Section 5 summary,FALSE
-Lesser Black-backed Gull,22,-25,Section 5 summary,FALSE
+Northern Gannet,75,-25,Section 5 summary,TRUE
+Great Skua,81,-76,Section 5 summary,TRUE
+Herring Gull,27,-7,Section 5 summary,TRUE
+Black-legged Kittiwake,38,8,Section 5 summary,TRUE
+Sandwich Tern,92,-35,Section 5 summary,TRUE
+Roseate Tern,98,-21,Section 5 summary,TRUE
+Common Tern,40,-42,Section 5 summary,TRUE
+Arctic Tern,31,-2,Section 5 summary,TRUE
+Common Guillemot,52,-6,Section 5 summary,TRUE
+Black-headed Gull,50,-11,Section 5 summary,TRUE
+Great Black-backed Gull,25,-20,Section 5 summary,TRUE
+Arctic Skua,48,-28,Section 5 summary,TRUE
+Lesser Black-backed Gull,22,-25,Section 5 summary,TRUE
