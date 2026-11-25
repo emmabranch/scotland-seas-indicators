@@ -1,7 +1,6 @@
 ---
 title: "Framework map"
 subtitle: "How each indicator links to the strategies, laws, and conventions with assessment and reporting requirements"
-page-layout: full
 ---
 
 ```{r}
@@ -14,7 +13,7 @@ This table is the spine of the project. Each indicator is mapped to the reportin
 
 ```{r}
 fw |>
-  dplyr::mutate(verified = ifelse(verified, "✓ Checked", "Draft")) |>
+  dplyr::mutate(verified = ifelse(verified, "✓", "Draft")) |>
   gt::gt() |>
   gt::cols_label(
     indicator = "Indicator",
@@ -26,15 +25,20 @@ fw |>
     verified = "Status"
   ) |>
   gt::tab_style(gt::cell_text(weight = "bold"), gt::cells_body(columns = indicator)) |>
-  gt::opt_interactive(use_search = TRUE, use_highlight = TRUE, page_size_default = 10)
+  gt::cols_width(indicator ~ gt::px(105), verified ~ gt::px(58)) |>
+  gt::tab_options(table.font.size = gt::pct(80), table.width = gt::pct(100)) |>
+  gt::opt_interactive(use_search = TRUE, use_highlight = TRUE, use_compact_mode = TRUE,
+                      use_text_wrapping = TRUE, page_size_default = 10)
 ```
 
 ## Frameworks in brief
 
-- **Scottish Biodiversity Strategy to 2045:** Scotland's overarching biodiversity strategy and delivery plan.
+- **Scottish Biodiversity Strategy to 2045:** Scotland's overarching biodiversity strategy (final version November 2024), with the first Delivery Plan covering 2024 to 2030. The Delivery Plan includes the "30 by 30" commitment and an action to develop marine biodiversity monitoring aligned with the UK Marine Strategy.
+- **Natural Environment (Scotland) Act 2026:** Part 1 creates a legally binding framework for statutory nature restoration targets, with monitoring and reporting duties. Royal Assent 12 March 2026.
 - **Marine (Scotland) Act 2010:** marine planning, Nature Conservation MPAs, and seal conservation in Scottish territorial waters.
-- **Natural Environment (Scotland) Act:** <!-- confirm year, current status, and what it sets for statutory nature targets -->
-- **Habitats Regulations:** protection of SACs and SPAs (the site network formerly part of Natura 2000).
+- **Habitats Regulations:** protection of SACs and SPAs (the UK site network, formerly part of Natura 2000).
 - **UK Marine Strategy:** Good Environmental Status assessed against 11 descriptors.
-- **OSPAR:** the North-East Atlantic regional convention; Quality Status Report 2023.
+- **OSPAR:** the North-East Atlantic regional convention. Common indicators include B1 (marine bird abundance), B3 (breeding success), M3 (seal abundance and distribution), and M5 (grey seal pup production). Latest assessment: Quality Status Report 2023.
 - **Kunming-Montreal Global Biodiversity Framework:** 23 targets for 2030, including Target 3 (30x30).
+
+Rows marked ✓ were confirmed against the source documents (November 2026). The salmon row has one OSPAR link still to confirm.

@@ -4,28 +4,47 @@ title: "Methods"
 
 ## Approach
 
-Each indicator follows the same pipeline:
+Every indicator follows the same pipeline:
 
-1. **Download** raw open data with a script in `R/` (raw files are not committed to Git).
-2. **Clean and check** with documented, scripted quality control.
+1. **Download** open data with a script in `R/`. Raw files stay local and are not committed to Git.
+2. **Check** against a published figure wherever one exists, so errors in my processing would show up.
 3. **Summarise** into a small tidy file in `data/processed/`.
-4. **Assess** status, trend, and confidence, recorded in `data/lookup/indicator_status.csv`.
-5. **Render** the page with Quarto. The homepage report card updates automatically.
+4. **Assess** status, trend, and confidence, recorded in `data/lookup/indicator_status.csv`, which drives the report card.
+5. **Render** with Quarto.
 
-## Assigning status, trend, and confidence
+## Validation against published figures
 
-<!-- Fill in the rules for each indicator so the calls are transparent and repeatable. -->
+| Indicator | My result | Published figure | Check |
+|---|---|---|---|
+| MPA coverage | 36.9% (229,228 km²) | 36.9% (228,121 km²), 2024 MPA report to Parliament | Within 0.5% |
+| Salmon gradings | 173 stocks, counts by status 2021 to 2026 | Official national counts | Exact match, all six seasons |
+| Seal counts | Scotland totals 2021-25 | Harbour 19,978; grey 16,042 (NatureScot RR 1421) | Exact match |
+| Seabird SPA tables | Great Skua SPA totals | 6,570 and 1,524 (RSPB RR 76, Table 9) | Exact match |
 
-| Call | How it is assigned |
-|---|---|
-| Status | Indicator-specific rule, written on each page |
-| Trend | Direction and size of change over the period, with uncertainty |
-| Confidence | High: consistent, frequent, near-complete coverage. Medium: some gaps or method changes. Low: sparse, one-off, or partial coverage |
+Two of these checks found real quirks in the source tables (a salmon stock spanning two fishery districts, and an inconsistent dash in a river name), which were fixed and documented.
+
+## How status, trend, and confidence are assigned
+
+These are my independent judgements, written down so they are transparent and repeatable. They are not official assessments.
+
+| Indicator | Status rule | Trend rule | Confidence |
+|---|---|---|---|
+| Seabirds | Clear concern if the main species decline by more than 20% at surveyed SPAs | Direction of change, baseline to 2023 | Medium: before-after design, variable baseline years, partial coverage |
+| Seals | Clear concern if the national harbour seal count is at or near its lowest and most units are declining | Change between the last two national censuses | High: systematic national census, consistent method |
+| Salmon | Clear concern if most stocks are in poor status | Change in the number of poor stocks, 2021 to 2026 | Medium: official gradings, but a short series of overlapping five-year assessments |
+| Sea temperature | Context indicator (no good or bad direction) | Linear trend in annual anomalies with 95% CI; "no clear change" if the CI includes zero | Medium: two sites, weekly sampling, record ends 2020 |
+| MPA coverage | Generally positive if more than 30% of Scottish seas is designated | Change in designated area over time (published figures) | Medium: high for area, low for effectiveness of management |
 
 ## An epidemiologist's lens
 
-Several indicators borrow ideas from population health surveillance: comparing before and after an outbreak, separating true change from changes in survey effort, and being clear about what a census can and cannot tell us about cause.
+Several indicators borrow ideas from population health surveillance:
+
+- **Before-after comparisons without a control group** (seabirds): describe the size of change, and be explicit that this alone cannot establish cause.
+- **Secular trends** (seabirds, Gannet): a population that was growing before an outbreak makes a simple before-after comparison understate the impact.
+- **Coverage as a response rate** (seabirds): the share of the population surveyed affects how far a result generalises.
+- **Counts are not populations** (seals): haul-out counts are a consistent index, not a census of every animal.
+- **Uncertainty reported alongside estimates** (all): including when it is a minimum, as with Poisson intervals on large counts.
 
 ## Reproducing this site
 
-See the [README on GitHub](https://github.com/emmabranch/scotland-seas-indicators#readme).
+See the [README on GitHub](https://github.com/emmabranch/scotland-seas-indicators#readme). Two inputs need a manual step because the source websites block scripted downloads: the archived salmon consultation tables and the NatureScot seal report page. The README explains how.
