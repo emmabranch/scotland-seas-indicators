@@ -25,3 +25,4 @@ data/restricted/
 .DS_Store
 
 **/*.quarto_ipynb
+_test.tgz

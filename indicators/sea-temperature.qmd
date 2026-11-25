@@ -57,7 +57,7 @@ if (have_data) {
   ggplot(annual, aes(year, 1, fill = anom)) +
     geom_tile(width = 1, height = 1) +
     facet_wrap(~site, ncol = 1, strip.position = "left") +
-    scale_fill_distiller(palette = "RdBu", limits = c(-lim, lim),
+    scale_fill_eb_div(reverse = TRUE, limits = c(-lim, lim),
                          name = "Anomaly (°C)", labels = \(x) f2(x)) +
     scale_x_continuous(expand = c(0, 0), breaks = seq(1995, 2020, 5)) +
     labs(title = "Warming stripes", x = NULL, y = NULL) +
@@ -75,13 +75,16 @@ if (have_data) {
   annual |>
     mutate(sign = ifelse(anom >= 0, "Warmer than average", "Cooler than average")) |>
     ggplot(aes(year, anom)) +
-    geom_hline(yintercept = 0, colour = "#5A6B7B") +
+    geom_hline(yintercept = 0, colour = "#111111") +
+    # Confidence band behind the bars, trend line on top
+    geom_smooth(method = "lm", formula = y ~ x, colour = NA,
+                fill = seas_cols[["grey"]], alpha = 0.5) +
     geom_col(aes(fill = sign), width = 0.8) +
-    geom_smooth(method = "lm", formula = y ~ x, colour = seas_cols[["deep"]],
-                fill = seas_cols[["grey"]], alpha = 0.25, linewidth = 0.9) +
+    geom_smooth(method = "lm", formula = y ~ x, se = FALSE,
+                colour = seas_cols[["deep"]], linewidth = 0.9) +
     facet_wrap(~site, ncol = 1) +
-    scale_fill_manual(values = c("Warmer than average" = seas_cols[["red"]],
-                                 "Cooler than average" = seas_cols[["blue"]]), name = NULL) +
+    scale_fill_manual(values = c("Warmer than average" = seas_cols[["down"]],
+                                 "Cooler than average" = seas_cols[["up"]]), name = NULL) +
     scale_y_continuous(labels = \(x) paste0(f2(x), "°C")) +
     labs(title = "Annual near-surface temperature anomaly, with linear trend",
          subtitle = "Difference from the 1999 to 2020 average for each calendar month, averaged over the year",
@@ -143,7 +146,7 @@ if (have_data) {
   ggplot(monthly, aes(month, temp, colour = site)) +
     geom_jitter(width = 0.15, alpha = 0.25, size = 1) +
     geom_line(data = clim, aes(y = clim), linewidth = 1.1) +
-    scale_colour_manual(values = c(Stonehaven = seas_cols[["blue"]], `Loch Ewe` = seas_cols[["orange"]]),
+    scale_colour_manual(values = c(Stonehaven = eb_cat_line[1], `Loch Ewe` = eb_cat_line[2]),
                         name = NULL) +
     scale_x_continuous(breaks = 1:12, labels = month.abb) +
     scale_y_continuous(labels = \(x) paste0(x, "°C")) +
@@ -163,10 +166,10 @@ if (have_data) {
 if (have_data) {
   library(leaflet)
   leaflet(sites) |>
-    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    addProviderTiles(seas_basemap, options = providerTileOptions(maxNativeZoom = 10)) |>
     setView(lng = -4, lat = 57.4, zoom = 6) |>
-    addCircleMarkers(~lon, ~lat, radius = 9, weight = 2, color = "#fff",
-                     fillColor = c(seas_cols[["blue"]], seas_cols[["orange"]])[match(sites$site, c("Stonehaven", "Loch Ewe"))],
+    addCircleMarkers(~lon, ~lat, radius = 9, weight = 2, color = "#111111",
+                     fillColor = c(eb_cat_fill[1], eb_cat_fill[2])[match(sites$site, c("Stonehaven", "Loch Ewe"))],
                      fillOpacity = 1,
                      label = ~site,
                      popup = ~sprintf("<b>%s</b><br>%s weekly visits used<br>%s to %s<br>Median sample depth %s m",

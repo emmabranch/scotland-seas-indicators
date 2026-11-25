@@ -8,6 +8,11 @@ project:
     - "indicators/*.qmd"
     - "!docs/"
 
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    fig.retina: 3
+
 execute:
   freeze: false       # always re-run, so pages pick up changes to data files
   echo: false
@@ -66,7 +71,6 @@ format:
     fig-align: center
     fig-width: 9
     fig-height: 5
-    fig-dpi: 150
     fig-responsive: true
     lightbox: true
     smooth-scroll: true

@@ -56,9 +56,9 @@ if (have_data) {
     geom_col(aes(fill = above), width = 0.7) +
     geom_vline(xintercept = 30, linetype = "dashed", colour = seas_cols[["deep"]]) +
     annotate("label", x = 30, y = 1, label = "30x30 threshold", hjust = -0.05,
-             size = 3.3, label.size = 0, fill = "white", colour = seas_cols[["deep"]]) +
+             size = 3.3, label.size = 0, fill = "#F3EEE3", colour = seas_cols[["deep"]]) +
     geom_text(aes(label = paste0(round(pct_designated), "%")), hjust = -0.15, size = 3.3) +
-    scale_fill_manual(values = c(`TRUE` = seas_cols[["blue"]], `FALSE` = seas_cols[["sky"]]),
+    scale_fill_manual(values = c(`TRUE` = seas_cols[["accent"]], `FALSE` = seas_cols[["accent3"]]),
                       labels = c(`TRUE` = "30% or more", `FALSE` = "Under 30%"), name = NULL) +
     scale_x_continuous(limits = c(0, 105), expand = c(0, 0),
                        labels = \(x) paste0(x, "%")) +
@@ -132,9 +132,12 @@ whatIf = {
       <div class="whatif-line" style="left:60%"><span>30%</span></div>
     </div>
     <div class="whatif-scale"><span>0%</span><span>50%</span></div>
-    ${chosen.length ? html`<p class="whatif-sub">What each selected type adds that no other selected type already covers:</p>
-    <ul class="whatif-list">${unique.map(u => html`<li><span>${u.type}</span><b>+${u.add.toFixed(1)} points</b></li>`)}</ul>`
-    : html`<p class="whatif-sub">Tick at least one designation.</p>`}
+    <p class="whatif-sub">What each selected type adds that no other selected type already covers:</p>
+    <ul class="whatif-list">${mpaTypes.map(t => {
+      const u = unique.find(d => d.type === t);
+      return u ? html`<li><span>${t}</span><b>+${u.add.toFixed(1)} points</b></li>`
+               : html`<li class="off"><span>${t}</span><b>not selected</b></li>`;
+    })}</ul>
   </div>`;
 }
 ```
@@ -158,7 +161,7 @@ if (have_data) {
   bb <- sf::st_bbox(rgn)
   m <- leaflet(options = leafletOptions(minZoom = 4, zoomSnap = 0.25)) |>
     fitBounds(bb[["xmin"]], bb[["ymin"]], bb[["xmax"]], bb[["ymax"]]) |>
-    addProviderTiles(providers$Esri.OceanBasemap, group = "Ocean basemap",
+    addProviderTiles(seas_basemap, group = "Grey basemap",
                      options = providerTileOptions(maxNativeZoom = 10)) |>
     addTiles(group = "Street map")
   for (i in seq_len(nrow(des))) {
@@ -167,23 +170,23 @@ if (have_data) {
     m <- m |>
       addMapPane(pane, zIndex = 410 + i) |>
       addPolygons(data = des[i, ], fillColor = pal(t), fillOpacity = 0.45,
-                  color = pal(t), weight = 0.6, label = t, group = t,
+                  color = "#111111", weight = 0.6, label = t, group = t,
                   options = pathOptions(pane = pane))
   }
   m <- m |>
     addMapPane("regions", zIndex = 450) |>
-    addPolygons(data = rgn, fill = FALSE, color = "#33414E", weight = 1,
+    addPolygons(data = rgn, fill = FALSE, color = "#111111", weight = 1,
                 dashArray = "4", label = ~region, group = "Marine regions",
                 options = pathOptions(pane = "regions"))
   m <- m |>
-    addLayersControl(baseGroups = c("Ocean basemap", "Street map"),
+    addLayersControl(baseGroups = c("Grey basemap", "Street map"),
                      overlayGroups = c(des$type, "Marine regions"),
                      options = layersControlOptions(collapsed = TRUE))
   short <- c("Offshore MPA (JNCC, all types)" = "Offshore MPA (JNCC)",
              "Nature Conservation MPA" = "Nature Conservation MPA",
              "Special Area of Conservation" = "SAC",
              "Special Protection Area" = "SPA")
-  htmltools::tagList(m, map_key(unname(short[des$type]), pal(des$type), "Designation:"),
+  htmltools::tagList(m, map_key(unname(short[des$type]), scales::alpha(pal(des$type), 0.45), "Designation:"),
     htmltools::p(class = "small text-muted",
                  "SAC: Special Area of Conservation. SPA: Special Protection Area. Use the layers icon (top right) to switch designations on and off. Dashed lines are the marine regions."))
 }

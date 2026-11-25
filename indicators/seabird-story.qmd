@@ -19,6 +19,8 @@ toc: false
 library(dplyr)
 library(ggplot2)
 source(here::here("R", "theme_seas.R"))
+# Maps fill the whole picture with sea colour (no white strips at the sides)
+knitr::opts_chunk$set(dev.args = list(bg = "#DCE2F5"))
 p <- \(f) here::here("data", "processed", f)
 land <- sf::st_read(p("story_land.gpkg"), quiet = TRUE)
 spa  <- readr::read_csv(p("seabirds_spa_change.csv"), show_col_types = FALSE)
@@ -29,18 +31,18 @@ t_of <- \(sp, col) tot[[col]][tot$species == sp]
 
 base_map <- function(xlim, ylim, title = NULL) {
   ggplot() +
-    geom_sf(data = land, fill = "#EDE8DC", colour = "#B9B09A", linewidth = 0.25) +
+    geom_sf(data = land, fill = "#F3EEE3", colour = "#8F8778", linewidth = 0.3) +
     coord_sf(xlim = xlim, ylim = ylim, expand = FALSE) +
     labs(title = title) +
-    theme_void(base_size = 14) +
-    theme(panel.background = element_rect(fill = "#D3E6F3", colour = NA),
-          plot.background = element_rect(fill = "white", colour = NA),
+    theme_void(base_size = 14, base_family = .eb$sans) +
+    theme(panel.background = element_rect(fill = "#DCE2F5", colour = NA),
+          plot.background = element_rect(fill = "#DCE2F5", colour = NA),
           plot.margin = margin(14, 14, 10, 14),
           plot.title.position = "plot",
-          plot.title = element_text(face = "bold", colour = "#0B3C5D", margin = margin(b = 8)),
+          plot.title = element_text(family = .eb$sans_heavy, colour = "#111111", size = 19, margin = margin(b = 8)),
           legend.position = "bottom",
-          legend.title = element_text(size = 11, colour = "#33414E"),
-          legend.text = element_text(size = 10, colour = "#33414E"))
+          legend.title = element_text(family = .eb$mono, size = 10, colour = "#111111"),
+          legend.text = element_text(family = .eb$mono, size = 9.5, colour = "#111111"))
 }
 # Put labels on whichever side of the point has more room
 side_labels <- function(d, xlim, nudge) {
@@ -49,7 +51,7 @@ side_labels <- function(d, xlim, nudge) {
               lx = ifelse(right, lon + nudge, lon - nudge),
               hj = ifelse(right, 0, 1))
 }
-change_fill <- scale_fill_gradient2(low = "#B2182B", mid = "#F7F7F7", high = "#2166AC",
+change_fill <- scale_fill_gradient2(low = "#A3241A", mid = "#F3EEE3", high = "#1F33B5",
                                     midpoint = 0, limits = c(-100, 100), breaks = c(-100, 0, 100),
                                     labels = c("\u2212100%", "No change", "+100%"),
                                     name = "Change, baseline to 2023",
@@ -71,7 +73,7 @@ Scotland holds some of the most important seabird colonies in the North Atlantic
 #| fig-height: 7.5
 cols <- spa |> distinct(spa, lon, lat)
 base_map(scot$x, scot$y, "Seabird SPAs with 2023 counts") +
-  geom_point(data = cols, aes(lon, lat), shape = 21, size = 3.2, fill = "#0B3C5D", colour = "white", stroke = 0.8)
+  geom_point(data = cols, aes(lon, lat), shape = 21, size = 3.2, fill = "#5f6b1e", colour = "#111111", stroke = 0.8)
 ```
 :::
 
@@ -83,8 +85,8 @@ In the summer of 2021, highly pathogenic avian influenza (H5N1) was first record
 #| fig-height: 7.5
 sk <- spa |> filter(species == "Great Skua")
 base_map(north$x, north$y, "Great Skua SPAs, sized by pre-outbreak count") +
-  geom_point(data = sk, aes(lon, lat, size = baseline), shape = 21, fill = "#56B4E9",
-             colour = "#0B3C5D", stroke = 0.8, alpha = 0.9) +
+  geom_point(data = sk, aes(lon, lat, size = baseline), shape = 21, fill = "#a7b544",
+             colour = "#111111", stroke = 0.8, alpha = 0.95) +
   scale_size_area(max_size = 14, name = "Territories (baseline)")
 ```
 :::
@@ -97,7 +99,7 @@ By the 2023 breeding season, every surveyed Great Skua colony had fewer territor
 #| fig-height: 7.5
 base_map(north$x, north$y, paste0("Great Skua: ", pc(t_of("Great Skua", "pct")), " across nine SPAs")) +
   geom_point(data = sk, aes(lon, lat, size = baseline, fill = pct), shape = 21,
-             colour = "#33414E", stroke = 0.6) +
+             colour = "#111111", stroke = 0.6) +
   scale_size_area(max_size = 14, guide = "none") + change_fill
 ```
 :::
@@ -111,10 +113,10 @@ Shetland holds the largest colonies. Zooming in, the falls range from 40% at Ron
 sk_sh <- sk |> filter(between(lon, shet$x[1], shet$x[2]), between(lat, shet$y[1], shet$y[2]))
 base_map(shet$x, shet$y, "Great Skua in Shetland and Fair Isle") +
   geom_point(data = sk_sh, aes(lon, lat, size = baseline, fill = pct), shape = 21,
-             colour = "#33414E", stroke = 0.6) +
+             colour = "#111111", stroke = 0.6) +
   geom_label(data = side_labels(sk_sh, shet$x, 0.09),
              aes(lx, lat, label = paste0(sub(",.*| - .*", "", spa), " ", pc(pct)), hjust = hj),
-             size = 3.6, label.size = 0, fill = alpha("white", 0.88)) +
+             size = 3.6, label.size = 0, fill = alpha("#F3EEE3", 0.92)) +
   scale_size_area(max_size = 14, guide = "none") + change_fill
 ```
 :::
@@ -128,10 +130,10 @@ In 2022 the virus hit **Northern Gannets**. RSPB reported at least 11,000 Gannet
 gn <- spa |> filter(species == "Northern Gannet")
 base_map(scot$x, scot$y, paste0("Gannet: ", pc(gtot$pct_observed_baseline), " across six SPAs")) +
   geom_point(data = gn, aes(lon, lat, size = baseline, fill = pct), shape = 21,
-             colour = "#33414E", stroke = 0.6) +
+             colour = "#111111", stroke = 0.6) +
   geom_label(data = side_labels(gn, scot$x, 0.3),
              aes(lx, lat, label = paste0(sub(",.*| and .*", "", spa), " ", pc(pct)), hjust = hj),
-             size = 3.4, label.size = 0, fill = alpha("white", 0.88)) +
+             size = 3.4, label.size = 0, fill = alpha("#F3EEE3", 0.92)) +
   scale_size_area(max_size = 16, guide = "none") + change_fill
 ```
 :::
@@ -146,12 +148,12 @@ tibble(baseline = factor(c("Counted baseline\n(2014 to 2021)", "Projected to 202
                          levels = c("Counted baseline\n(2014 to 2021)", "Projected to 2021\n(pre-outbreak trend)")),
        pct = c(gtot$pct_observed_baseline, gtot$pct_trend_adjusted)) |>
   ggplot(aes(baseline, pct)) +
-  geom_col(fill = c("#56B4E9", "#0B3C5D"), width = 0.55) +
-  geom_text(aes(label = pc(pct)), vjust = 1.6, colour = "white", fontface = "bold", size = 7) +
-  geom_hline(yintercept = 0, colour = "#33414E") +
+  geom_col(fill = c("#5f6b1e", "#111111"), colour = "#111111", width = 0.55) +
+  geom_text(aes(label = pc(pct)), vjust = -0.8, colour = "white", fontface = "bold", size = 7) +
+  geom_hline(yintercept = 0, colour = "#111111") +
   scale_y_continuous(labels = \(x) paste0(x, "%"), limits = c(-35, 0)) +
   labs(title = "Gannet change to 2023, by choice of baseline", x = NULL, y = NULL) +
-  theme_seas(base_size = 15) + theme(panel.grid.major.y = element_line(colour = "#E3E8ED"))
+  theme_seas(base_size = 15, bg = "white")
 ```
 :::
 
@@ -164,7 +166,7 @@ Not every species fell everywhere. **Guillemot** counts rose at some SPAs and fe
 gu <- spa |> filter(species == "Common Guillemot")
 base_map(scot$x, scot$y, "Guillemot: mixed fortunes across 18 SPAs") +
   geom_point(data = gu, aes(lon, lat, size = baseline, fill = pct), shape = 21,
-             colour = "#33414E", stroke = 0.6) +
+             colour = "#111111", stroke = 0.6) +
   scale_size_area(max_size = 12, guide = "none") + change_fill
 ```
 :::

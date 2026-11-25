@@ -61,14 +61,14 @@ frameworkNetwork = {
 
   const indSel = svg.append("g").selectAll("g").data(inds).join("g")
     .attr("transform", d => `translate(${xL},${yInd.get(d)})`).style("cursor", "pointer");
-  indSel.append("circle").attr("r", 6).attr("cx", 6).attr("fill", "#0B3C5D");
+  indSel.append("circle").attr("r", 6).attr("cx", 6).attr("fill", "#111111");
   indSel.append("text").text(d => d).attr("x", -6).attr("dy", "0.35em").attr("text-anchor", "end")
-    .attr("font-weight", 700).attr("fill", "#0B3C5D");
+    .attr("font-weight", 700).attr("fill", "#111111");
 
   const itemSel = svg.append("g").selectAll("g").data(its).join("g")
     .attr("transform", d => `translate(${xR},${yItem.get(d.item)})`).style("cursor", "pointer");
   itemSel.append("circle").attr("r", 4.5).attr("fill", d => famColour.get(d.family));
-  itemSel.append("text").text(d => d.label).attr("x", 11).attr("dy", "0.35em").attr("fill", "#22303C");
+  itemSel.append("text").text(d => d.label).attr("x", 11).attr("dy", "0.35em").attr("fill", "#111111");
 
   const info = html`<div class="fw-info"><strong>Click any indicator or framework item.</strong></div>`;
   let current = null;

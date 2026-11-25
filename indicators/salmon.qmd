@@ -92,8 +92,8 @@ if (have_data) {
     ggplot(aes(to, factor(from, rev(lv)))) +
     geom_tile(aes(fill = kind), colour = "white", linewidth = 1.5, alpha = 0.85) +
     geom_text(aes(label = n_stocks), size = 5, fontface = "bold") +
-    scale_fill_manual(values = c(Improved = seas_cols[["sky"]], `No change` = "#E5E9EE",
-                                 Worsened = seas_cols[["orange"]]), name = NULL) +
+    scale_fill_manual(values = c(Improved = seas_cols[["cobalt_light"]], `No change` = "#DCD4C4",
+                                 Worsened = "#E08A6E"), name = NULL) +
     labs(title = "Status in 2021 (rows) against status in 2026 (columns)",
          x = "2026", y = "2021",
          caption = "Counts of stocks, from my reconstruction of the river-level tables (validated against official totals).") +
@@ -118,11 +118,11 @@ if (have_data) {
               .groups = "drop") |>
     filter(!is.na(lon), !is.na(s2026))
   m <- leaflet(hist, options = leafletOptions(zoomSnap = 0.25)) |>
-    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    addProviderTiles(seas_basemap, options = providerTileOptions(maxNativeZoom = 10)) |>
     fitBounds(min(hist$lon), min(hist$lat), max(hist$lon), max(hist$lat))
   for (s in c("Poor", "Moderate", "Good")) {
     d <- hist[hist$s2026 == s, ]
-    m <- m |> addCircleMarkers(data = d, ~lon, ~lat, radius = 5, weight = 1, color = "#fff",
+    m <- m |> addCircleMarkers(data = d, ~lon, ~lat, radius = 5, weight = 1, color = "#111111",
                                fillColor = status_cols[[s]], fillOpacity = 0.95, group = s,
                                label = ~paste0(river, " (", s, ")"),
                                popup = ~paste0("<b>", river, "</b><br>", district, " district<br><br>", history))

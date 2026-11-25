@@ -180,3 +180,44 @@ main .leaflet-container { box-shadow: 4px 4px 0 #111111; }
   height: min(calc(100vh - 7rem), 900px); width: auto; max-width: 100%;
   object-fit: contain; transition: none !important;
 }
+
+// ---------- Tables (gt and reactable): site fonts, paper background, ink rules ----------
+main .gt_table,
+main .gt_table * { font-family: "Bricolage Grotesque", system-ui, sans-serif !important; }
+main .gt_table, main .gt_heading, main .gt_title, main .gt_subtitle,
+main .gt_col_headings, main .gt_col_heading, main .gt_column_spanner_outer, main .gt_column_spanner,
+main .gt_group_heading, main .gt_empty_group_heading, main .gt_table_body, main .gt_row, main .gt_stub,
+main .gt_sourcenotes, main .gt_sourcenote, main .gt_footnotes, main .gt_footnote {
+  background-color: transparent !important; color: #111111 !important;
+}
+main .gt_table { border-top: 2px solid #111111 !important; border-bottom: 2px solid #111111 !important; }
+main .gt_col_headings { border-top: none !important; border-bottom: 2px solid #111111 !important; }
+main .gt_col_heading, main .gt_column_spanner {
+  font-family: "Space Mono", monospace !important; font-size: .74rem !important;
+  font-weight: 700 !important; text-transform: uppercase; letter-spacing: .04em; color: #5A544A !important;
+}
+main .gt_row { border-top: 1px solid #DCD4C4 !important; }
+main .gt_striped { background-color: rgba(17, 17, 17, .035) !important; }
+main .gt_group_heading { font-weight: 800 !important; border-top: 2px solid #111111 !important; border-bottom: 1px solid #DCD4C4 !important; }
+main .gt_sourcenotes, main .gt_footnotes { border-top: 2px solid #111111 !important; border-bottom: none !important; }
+main .gt_sourcenote, main .gt_footnote {
+  font-family: "Space Mono", monospace !important; font-size: .72rem !important; color: #5A544A !important;
+}
+
+main .reactable, main .reactable * { font-family: "Bricolage Grotesque", system-ui, sans-serif !important; }
+main .reactable, main .reactable .rt-table, main .reactable .rt-thead, main .reactable .rt-tbody,
+main .reactable .rt-tr, main .reactable .rt-th, main .reactable .rt-td,
+main .reactable .rt-pagination { background-color: transparent !important; color: #111111; }
+main .reactable .rt-table { border-top: 2px solid #111111; border-bottom: 2px solid #111111; }
+main .reactable .rt-thead .rt-th {
+  font-family: "Space Mono", monospace !important; font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; color: #5A544A; border-bottom: 2px solid #111111 !important;
+}
+main .reactable .rt-td { border-top-color: #DCD4C4; }
+main .reactable .rt-tr-highlight:hover { background-color: rgba(219, 229, 138, .45) !important; }
+main .reactable .rt-search {
+  background: #fff; border: 2px solid #111111; border-radius: 0; box-shadow: 3px 3px 0 #111111; margin-bottom: .9rem;
+}
+
+// What-if box: every designation always has a row, so the box never changes size
+.whatif .whatif-list li.off { color: #9A9284; b { font-weight: 400; font-family: "Space Mono", monospace; font-size: .78rem; } }

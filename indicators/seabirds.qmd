@@ -96,11 +96,11 @@ if (have_data) {
     mutate(species = reorder(species, pct_change),
            dir = ifelse(pct_change < 0, "Decline", "Increase")) |>
     ggplot(aes(pct_change, species)) +
-    geom_vline(xintercept = 0, colour = "#5A6B7B") +
+    geom_vline(xintercept = 0, colour = "#111111") +
     geom_segment(aes(x = 0, xend = pct_change, yend = species, colour = dir), linewidth = 1) +
     geom_point(aes(size = pct_uk_pop_counted, colour = dir)) +
     geom_text(aes(label = pc(pct_change), hjust = ifelse(pct_change < 0, 1.6, -0.6)), size = 3.3) +
-    scale_colour_manual(values = c(Decline = seas_cols[["red"]], Increase = seas_cols[["blue"]]), guide = "none") +
+    scale_colour_manual(values = c(Decline = seas_cols[["down"]], Increase = seas_cols[["up"]]), guide = "none") +
     scale_size_area(max_size = 7, name = "% of UK population counted", breaks = c(25, 50, 75, 100)) +
     scale_x_continuous(labels = \(x) paste0(x, "%"), limits = c(-95, 30)) +
     labs(title = "Nine of 13 species fell by more than 10% at the sites surveyed",
@@ -126,10 +126,10 @@ if (have_data) {
            label = reorder(paste(species, label, sep = "___"), pct))
   totd <- tot |> filter(species %in% c("Great Skua", "Northern Gannet"))
   ggplot(d, aes(pct, label)) +
-    geom_vline(xintercept = 0, colour = "#5A6B7B") +
+    geom_vline(xintercept = 0, colour = "#111111") +
     geom_vline(data = totd, aes(xintercept = pct), linetype = "dashed", colour = seas_cols[["deep"]]) +
-    geom_errorbarh(aes(xmin = lo, xmax = hi), height = 0.35, linewidth = 0.8, colour = seas_cols[["red"]]) +
-    geom_point(shape = 21, size = 2.6, stroke = 0.8, fill = seas_cols[["red"]], colour = "white") +
+    geom_errorbarh(aes(xmin = lo, xmax = hi), height = 0.35, linewidth = 0.8, colour = seas_cols[["down"]]) +
+    geom_point(shape = 21, size = 2.6, stroke = 0.8, fill = seas_cols[["down"]], colour = "#111111") +
     facet_grid(species ~ ., scales = "free_y", space = "free_y") +
     scale_y_discrete(labels = \(x) sub("^.*___", "", x)) +
     scale_x_continuous(labels = \(x) paste0(x, "%"), limits = c(-100, 10)) +
@@ -162,11 +162,11 @@ if (have_data) {
                                     "Against a 2021 baseline projected from the pre-outbreak trend"))) |>
     arrange(type) |>
     ggplot(aes(pct, spa)) +
-    geom_vline(xintercept = 0, colour = "#5A6B7B") +
-    geom_line(aes(group = spa), colour = "#B8C4CF", linewidth = 1.2) +
+    geom_vline(xintercept = 0, colour = "#111111") +
+    geom_line(aes(group = spa), colour = "#C9C1B3", linewidth = 1.2) +
     geom_point(aes(colour = type, size = type)) +
     scale_size_manual(values = c(5, 2.6), guide = "none") +
-    scale_colour_manual(values = c(seas_cols[["deep"]], seas_cols[["sky"]]), name = NULL) +
+    scale_colour_manual(values = c(seas_cols[["deep"]], seas_cols[["accent2"]]), name = NULL) +
     scale_x_continuous(labels = \(x) paste0(x, "%"), limits = c(-45, 5)) +
     labs(title = "Allowing for pre-outbreak growth makes the Gannet decline larger",
          subtitle = "Change in Gannet nest counts to 2023, by choice of baseline.\nWhere the baseline was counted in 2021 (Fair Isle, Hermaness), no adjustment is needed and the dots overlap.",
@@ -192,15 +192,15 @@ if (have_data) {
   library(leaflet)
   m_d <- spa |> filter(!is.na(lon), species %in% c("Great Skua", "Northern Gannet"))
   bins <- c(-100, -60, -40, -20, 0, 100)
-  pal  <- colorBin(c("#67001F", "#B2182B", "#D6604D", "#F4A582", "#92C5DE"), domain = bins, bins = bins)
+  pal  <- colorBin(c("#6E1810", "#A3241A", "#E08A6E", "#F2C2AE", "#8A9BEA"), domain = bins, bins = bins)
   m <- leaflet(options = leafletOptions(zoomSnap = 0.25)) |>
-    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    addProviderTiles(seas_basemap, options = providerTileOptions(maxNativeZoom = 10)) |>
     fitBounds(min(m_d$lon) - 0.5, min(m_d$lat) - 0.3, max(m_d$lon) + 0.5, max(m_d$lat) + 0.3)
   for (sp in c("Northern Gannet", "Great Skua")) {
     d <- m_d |> filter(species == sp)
     m <- m |> addCircleMarkers(
       data = d, lng = ~lon, lat = ~lat, group = sp,
-      radius = ~pmax(5, sqrt(baseline) / 6), weight = 1.5, color = "#fff",
+      radius = ~pmax(5, sqrt(baseline) / 6), weight = 1.5, color = "#111111",
       fillColor = ~pal(pct), fillOpacity = 0.9,
       label = ~sprintf("%s, %s: %s", species, spa, pc(pct)),
       popup = ~sprintf("<b>%s</b><br>%s<br>Baseline: %s %s<br>2023: %s<br>Change: %s (95%% CI %s to %s)%s",
@@ -243,12 +243,24 @@ if (have_data) {
     searchable = TRUE, sortable = FALSE, compact = TRUE, highlight = TRUE,
     defaultPageSize = 50, fullWidth = TRUE,
     style = list(fontSize = "0.82rem"),
+    # Site look: paper background, ink rules, site fonts
+    theme = reactable::reactableTheme(
+      backgroundColor = "transparent", color = "#111111", borderColor = "#DCD4C4",
+      highlightColor = "rgba(219, 229, 138, 0.45)",
+      style = list(fontFamily = "'Bricolage Grotesque', system-ui, sans-serif"),
+      headerStyle = list(fontFamily = "'Space Mono', monospace", fontSize = "0.72rem",
+                         textTransform = "uppercase", letterSpacing = "0.04em",
+                         color = "#5A544A", borderBottom = "2px solid #111111"),
+      searchInputStyle = list(backgroundColor = "#FFFFFF", border = "2px solid #111111",
+                              borderRadius = "0", boxShadow = "3px 3px 0 #111111"),
+      inputStyle = list(backgroundColor = "#FFFFFF", border = "2px solid #111111", borderRadius = "0"),
+      pageButtonStyle = list(borderRadius = "0")),
     rowStyle = function(index) if (index %in% first_rows && index > 1)
-      list(borderTop = "2px solid #0B3C5D"),
+      list(borderTop = "2px solid #111111"),
     defaultColDef = reactable::colDef(headerStyle = list(whiteSpace = "normal")),
     columns = list(
       shown       = reactable::colDef(name = "Species", minWidth = 130,
-                                      style = list(fontWeight = 700, color = "#0B3C5D")),
+                                      style = list(fontWeight = 700, color = "#111111")),
       Species     = reactable::colDef(show = FALSE),   # kept so search finds every row
       SPA         = reactable::colDef(minWidth = 170),
       Unit        = reactable::colDef(minWidth = 45, maxWidth = 55),

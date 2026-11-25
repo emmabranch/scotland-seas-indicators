@@ -66,9 +66,9 @@ if (have_data) {
     left_join(lab, by = "unit") |>
     mutate(panel = factor(panel, lab$panel[match(smu_order, lab$unit)]))
   ggplot(d, aes(mid, count)) +
-    geom_area(fill = seas_cols[["sky"]], alpha = 0.25) +
-    geom_line(colour = seas_cols[["blue"]], linewidth = 1) +
-    geom_point(colour = seas_cols[["blue"]], size = 2) +
+    geom_area(fill = seas_cols[["accent3"]], alpha = 0.6) +
+    geom_line(colour = seas_cols[["accent"]], linewidth = 1) +
+    geom_point(colour = seas_cols[["accent"]], size = 2) +
     facet_wrap(~panel, scales = "free_y", ncol = 4) +
     scale_y_continuous(labels = scales::label_comma(), limits = c(0, NA),
                        expand = expansion(mult = c(0, 0.08))) +
@@ -93,7 +93,7 @@ if (have_data) {
     ggplot(aes(mid, count, colour = species)) +
     geom_line(linewidth = 1.1) +
     geom_point(size = 2.4) +
-    scale_colour_manual(values = c(`Harbour seal` = seas_cols[["blue"]], `Grey seal` = seas_cols[["orange"]]),
+    scale_colour_manual(values = c(`Harbour seal` = eb_cat_line[1], `Grey seal` = eb_cat_line[2]),
                         name = NULL) +
     scale_y_continuous(labels = scales::label_comma(), limits = c(0, NA)) +
     labs(title = "Scotland-wide August counts of both species are at their lowest",
@@ -120,13 +120,13 @@ if (have_data && file.exists(p("seals_map.gpkg"))) {
               by = "smu_no")
   # Every unit declined, so use a compact sequential scale of 10-point bands
   lo  <- min(-50, floor(min(sma$pct_vs_prev, na.rm = TRUE) / 10) * 10)
-  pal <- colorBin(c("#67001F", "#B2182B", "#D6604D", "#F4A582", "#FDDBC7"),
+  pal <- colorBin(c("#6E1810", "#A3241A", "#E08A6E", "#F2C2AE", "#F7E6DC"),
                   domain = c(lo, 0), bins = seq(lo, 0, 10), reverse = FALSE)
   bb  <- sf::st_bbox(sma)
   m <- leaflet(sma, options = leafletOptions(zoomSnap = 0.25)) |>
-    addProviderTiles(providers$Esri.OceanBasemap, options = providerTileOptions(maxNativeZoom = 10)) |>
+    addProviderTiles(seas_basemap, options = providerTileOptions(maxNativeZoom = 10)) |>
     fitBounds(bb[["xmin"]], bb[["ymin"]], bb[["xmax"]], bb[["ymax"]]) |>
-    addPolygons(fillColor = ~pal(pct_vs_prev), fillOpacity = 0.75, color = "#33414E", weight = 1,
+    addPolygons(fillColor = ~pal(pct_vs_prev), fillOpacity = 0.75, color = "#111111", weight = 1,
                 label = ~sprintf("%s: %+d%%", unit, round(pct_vs_prev)),
                 popup = ~sprintf("<b>%s</b><br>Harbour seals counted<br>2016-19: %s<br>2021-25: %s<br>Change: %+d%%<br>Since 1996-97: %+d%%",
                                  unit, fmt(prev_count), fmt(latest_count), round(pct_vs_prev), round(pct_vs_first)))
@@ -134,7 +134,7 @@ if (have_data && file.exists(p("seals_map.gpkg"))) {
   htmltools::tagList(m, map_key(
     labels  = sprintf("\u2212%d to \u2212%d", -head(brks, -1), -tail(brks, -1)) |>
                 sub(pattern = "\u22120$", replacement = "0"),
-    colours = pal(head(brks, -1) + 5),
+    colours = scales::alpha(pal(head(brks, -1) + 5), 0.75),
     title   = "Change since 2016-19 (%):"))
 } else if (have_data) {
   cat("Map not available: Seal Management Area boundaries could not be downloaded.")
