@@ -3,4 +3,4 @@ seabirds,1,TRUE,Featured deep dive,Seabirds after avian flu,unknown,unknown,low,
 seals,2,FALSE,Marine mammals,Harbour and grey seals,unknown,unknown,low,To be confirmed,"August count trends by Seal Management Unit. Analysis in progress."
 salmon,3,FALSE,Fish,Wild Atlantic salmon,unknown,unknown,low,2021-2026,"Annual conservation grading of Scotland's salmon stocks. Analysis in progress."
 sea-temperature,4,FALSE,Climate and ocean,Sea temperature,unknown,context,low,To be confirmed,"Long-term warming at Stonehaven and Loch Ewe. Analysis in progress."
-mpas,5,FALSE,Protected areas,MPA coverage and 30x30,unknown,unknown,low,Current,"Share of Scottish seas inside designated MPAs. Analysis in progress."
+mpas,5,FALSE,Protected areas,MPA coverage and 30x30,good,improving,medium,2018-2025,"36.9% of Scottish seas is designated, above the 30% area threshold. Whether sites are effectively managed is the open question."

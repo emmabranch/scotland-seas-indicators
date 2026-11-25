@@ -6,40 +6,152 @@ subtitle: "How much of Scotland's seas is designated, and what that does and doe
 ```{r}
 #| include: false
 source(here::here("R", "report_card.R"))
+library(dplyr)
+library(ggplot2)
+
+f_sum <- here::here("data", "processed", "mpas_summary.csv")
+have_data <- file.exists(f_sum)
+if (have_data) {
+  s   <- readr::read_csv(f_sum, show_col_types = FALSE)
+  reg <- readr::read_csv(here::here("data", "processed", "mpas_by_region.csv"), show_col_types = FALSE)
+  typ <- readr::read_csv(here::here("data", "processed", "mpas_by_type.csv"), show_col_types = FALSE)
+}
+fmt <- function(x, d = 0) format(round(x, d), big.mark = ",", nsmall = d)
 ```
 
 ```{r}
 glance_box("mpas")
 ```
 
-::: {.callout-warning appearance="simple"}
-Work in progress. Figures on this page are not final.
-:::
+```{r}
+#| results: asis
+if (!have_data) cat("::: {.callout-warning}\nRun `R/01_mpas.R` to build this page's data.\n:::\n")
+```
 
 ## What this measures
 
-<!-- One or two sentences, plain language. -->
+The share of Scotland's seas that lies inside at least one designated Marine Protected Area (MPA). This includes Nature Conservation MPAs, Special Areas of Conservation (SACs), and Special Protection Areas (SPAs), inshore and offshore. Where sites overlap, the area is counted once.
 
 ## Why it matters
 
-<!-- Ecological importance, plus which targets it reports against (see the Framework map). -->
+Target 3 of the Kunming-Montreal Global Biodiversity Framework asks countries to make sure that at least 30% of coastal and marine areas are effectively conserved and managed by 2030 ("30x30"). The word *effectively* matters. Designation is the first step. The target is about protection that works in practice, through management measures, monitoring, and enforcement.
 
 ## Trend and status
 
-<!-- One clear chart, with the key takeaway written as the chart title. -->
+```{r}
+#| results: asis
+if (have_data) cat(sprintf(
+  "**%s%% of Scottish seas** (%s km² of %s km²) is inside a designated MPA by my calculation. The published figure is about 37%%. Either way, this is above the 30%% area threshold.\n",
+  fmt(s$pct_designated, 1), fmt(s$designated_km2), fmt(s$sea_km2)))
+```
+
+```{r}
+#| fig-height: 6.5
+#| fig-alt: "Horizontal bar chart showing the percentage of each Scottish marine region inside designated MPAs, with a dashed line at the 30 percent target."
+if (have_data) {
+  reg |>
+    mutate(region = reorder(region, pct_designated),
+           above = pct_designated >= 30) |>
+    ggplot(aes(pct_designated, region)) +
+    geom_col(aes(fill = above), width = 0.7) +
+    geom_vline(xintercept = 30, linetype = "dashed", colour = seas_cols[["deep"]]) +
+    annotate("label", x = 30, y = 1, label = "30x30 threshold", hjust = -0.05,
+             size = 3.3, label.size = 0, fill = "white", colour = seas_cols[["deep"]]) +
+    geom_text(aes(label = paste0(round(pct_designated), "%")), hjust = -0.15, size = 3.3) +
+    scale_fill_manual(values = c(`TRUE` = seas_cols[["blue"]], `FALSE` = seas_cols[["sky"]]),
+                      labels = c(`TRUE` = "30% or more", `FALSE` = "Under 30%"), name = NULL) +
+    scale_x_continuous(limits = c(0, 105), expand = c(0, 0),
+                       labels = \(x) paste0(x, "%")) +
+    labs(title = "Coverage is uneven across Scotland's marine regions",
+         subtitle = "Share of each Scottish marine region inside at least one designated MPA",
+         x = NULL, y = NULL,
+         caption = seas_caption("NatureScot; JNCC; Scottish Government Marine Directorate")) +
+    theme_seas()
+}
+```
+
+The national figure hides a lot of variation between regions, so read the chart alongside the map.
+
+**Change over time.** Scotland's Marine Assessment 2020 reports that the network covered about 22% of Scotland's seas in 2018, rising to 37% after new designations in 2020. I have not rebuilt that time series from boundaries, so the trend arrow rests on the published figures.
+
+**Checks.** My figure (229,228 km², 36.9%) is within 0.5% of the published 228,121 km² (36.9%). Counting all SACs and SPAs, rather than only those flagged as part of the MPA network, changed the total by less than 50 km², so the result is not sensitive to that choice.
+
+### By designation type
+
+```{r}
+if (have_data) {
+  typ |>
+    arrange(desc(km2)) |>
+    transmute(`Designation` = type,
+              `Sites` = n_sites,
+              `Area (km²)` = fmt(km2),
+              `% of Scottish seas` = paste0(fmt(pct_of_seas, 1), "%")) |>
+    gt::gt() |>
+    gt::tab_footnote("Types overlap, so these rows add up to more than the combined total.")
+}
+```
 
 ## Map
 
-<!-- Leaflet or static sf map, where relevant. -->
+```{r}
+if (have_data) {
+  library(leaflet)
+  mf  <- here::here("data", "processed", "mpas_map.gpkg")
+  des <- sf::st_read(mf, layer = "designations", quiet = TRUE)
+  rgn <- sf::st_read(mf, layer = "regions", quiet = TRUE)
+  pal <- colorFactor(seas_qual[seq_len(nrow(des))], des$type)
+
+  # Fixed stacking order: largest areas at the bottom, smallest on top.
+  # Each layer gets its own pane, so toggling never changes the order.
+  des <- des[order(-typ$km2[match(des$type, typ$type)]), ]   # sizes from the type table
+  m <- leaflet(options = leafletOptions(minZoom = 4)) |>
+    addProviderTiles(providers$Esri.OceanBasemap, group = "Ocean basemap",
+                     options = providerTileOptions(maxNativeZoom = 10)) |>
+    addTiles(group = "Street map")
+  for (i in seq_len(nrow(des))) {
+    t    <- des$type[i]
+    pane <- paste0("pane", i)
+    m <- m |>
+      addMapPane(pane, zIndex = 410 + i) |>
+      addPolygons(data = des[i, ], fillColor = pal(t), fillOpacity = 0.45,
+                  color = pal(t), weight = 0.6, label = t, group = t,
+                  options = pathOptions(pane = pane))
+  }
+  m <- m |>
+    addMapPane("regions", zIndex = 450) |>
+    addPolygons(data = rgn, fill = FALSE, color = "#33414E", weight = 1,
+                dashArray = "4", label = ~region, group = "Marine regions",
+                options = pathOptions(pane = "regions"))
+  m |>
+    addLayersControl(baseGroups = c("Ocean basemap", "Street map"),
+                     overlayGroups = c(des$type, "Marine regions"),
+                     options = layersControlOptions(collapsed = FALSE)) |>
+    addLegend(pal = pal, values = des$type, title = "Designation", opacity = 0.8)
+}
+```
+
+## Designated is not the same as effectively managed
+
+- **Designation** sets out what a site protects and why.
+- **Management measures** (for example, fisheries restrictions) decide whether activities that could damage protected features are actually controlled. Measures for some inshore MPAs and Priority Marine Features have been the subject of recent Scottish Government consultation.
+- **Condition monitoring** shows whether protected features are improving, stable, or declining.
+
+So this indicator answers "how much is designated?" but not "how much is protected well enough to make a difference?". An honest GBF Target 3 assessment needs all three layers.
 
 ## Confidence
 
-<!-- Why high, medium, or low: coverage, frequency, method changes. -->
+**Medium overall.** **High** for the area calculation. The boundaries are official, and my figure can be checked against the published total. **Low** for what it says about protection in practice, for the reasons above.
 
 ## Limitations
 
-- <!-- What the data cannot tell us. -->
+- Area only: says nothing about how well sites represent habitats, how they connect, or what condition they are in.
+- My total depends on which site types and which sea boundary are included, so it may differ slightly from official figures.
+- Historic MPAs, the Demonstration and Research MPA, and other area-based measures (OECMs) are not included.
+- Boundaries are simplified for the web map. Areas are calculated on the full-resolution boundaries.
 
 ## Data sources and licences
 
-- <!-- Dataset, publisher, year, URL, licence, attribution wording. -->
+- Nature Conservation MPAs, Special Areas of Conservation, Special Protection Areas: NatureScot, via spatialdata.gov.scot. Open Government Licence v3.0.
+- UK Offshore Marine Protected Areas (version 20251203): JNCC. Open Government Licence v3.0. Contains Joint Nature Conservation Committee data © copyright and database right. Contains NatureScot data © copyright and database right.
+- Scottish Assessment areas (Scottish Marine Regions and Offshore Marine Regions): Scottish Government Marine Directorate. Contains information from the Scottish Government (Marine Scotland) licensed under the Open Government Licence v3.0.
+- Comparison figure: Scottish Government (2024), *Marine Protected Area network: 2024 report to the Scottish Parliament*.
