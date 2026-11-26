@@ -3,6 +3,7 @@ project:
   output-dir: _site
   resources:
     - images/motif.svg
+    - images/social-card.png
   render:
     - "*.qmd"
     - "indicators/*.qmd"
@@ -26,7 +27,11 @@ website:
   repo-url: https://github.com/emmabranch/scotland-seas-indicators
   repo-actions: [source, issue]
   page-navigation: true
-  open-graph: true
+  open-graph:
+    image: images/social-card.png
+    image-alt: "State of Scotland's Seas: an independent indicator report card for Scotland's seas"
+  twitter-card:
+    image: images/social-card.png
   favicon: images/favicon.png
   navbar:
     logo: images/motif.svg

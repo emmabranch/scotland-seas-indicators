@@ -1,5 +1,5 @@
 id,order,featured,theme,title,status,trend,confidence,period,headline
-seabirds,1,TRUE,Featured deep dive,Seabirds after avian flu,poor,declining,medium,2014-2023,"After the 2021-22 HPAI outbreak, Great Skua territories at nine Scottish SPAs fell by 77% and Gannet nests at six SPAs by 22%."
+seabirds,1,TRUE,Featured deep dive,Seabirds after avian flu,poor,declining,medium,2014-2023,"Between pre-outbreak baselines and 2023 counts, Great Skua territories at nine Scottish SPAs fell by 77% and Gannet nests at six SPAs by 22%."
 seals,2,FALSE,Marine mammals,Harbour and grey seals,poor,declining,high,1996-2025,"19,978 harbour seals counted in 2021-25: the lowest since the first census and 26% below 2016-19. Counts fell in all seven units."
 salmon,3,FALSE,Fish,Wild Atlantic salmon,poor,declining,medium,2021-2026,"115 of 173 assessed stocks (66%) are in poor conservation status for 2026, up from 102 in 2021."
 sea-temperature,4,FALSE,Climate and ocean,Sea temperature,context,stable,medium,1997-2020,"No clear trend at Stonehaven or Loch Ewe over about 20 years, against a background of longer-term warming in Scottish waters."

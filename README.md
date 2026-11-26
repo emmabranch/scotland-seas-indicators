@@ -14,7 +14,7 @@ A reproducible Quarto website that summarises five indicators of the state of Sc
 
 | Indicator | Headline | Status |
 |---|---|---|
-| **Seabirds after avian flu** (featured deep dive) | Great Skua territories at nine Scottish SPAs fell 77% after the 2021-22 HPAI outbreak; Gannet nests at six SPAs fell 22% (28% against a trend-adjusted baseline) | Clear concern |
+| **Seabirds after avian flu** (featured deep dive) | Between pre-outbreak baselines and 2023 counts, Great Skua territories at nine Scottish SPAs fell 77% and Gannet nests at six SPAs fell 22% (28% against a trend-adjusted baseline) | Clear concern |
 | Harbour and grey seals | 19,978 harbour seals counted in 2021-25: the lowest since the first census, 26% below 2016-19 | Clear concern |
 | Wild Atlantic salmon | 115 of 173 assessed stocks in poor conservation status for 2026, up from 102 in 2021 | Clear concern |
 | Sea temperature | No clear trend at Stonehaven or Loch Ewe over 1997-2020, against a background of longer-term warming | Context |

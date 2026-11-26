@@ -64,13 +64,15 @@ cat(sprintf('<p class="hero-note">Background: one stripe per year of sea tempera
 ```{r}
 #| output: asis
 cat(sprintf('<div class="stat-row lift">
-<div class="stat-box"><span class="num">%d</span><span class="lab">indicators, each with a status, trend, and confidence</span></div>
-<div class="stat-box"><span class="num">%d of %d</span><span class="lab">show a clear concern</span></div>
-<div class="stat-box"><span class="num">%d of %d</span><span class="lab">generally positive</span></div>
+<div class="stat-box"><span class="num">%d</span> <span class="lab">indicators, each with a status, trend, and confidence</span></div>
+<div class="stat-box"><span class="num">%d of %d</span> <span class="lab">show a clear concern</span></div>
+<div class="stat-box"><span class="num">%d of %d</span> <span class="lab">generally positive</span></div>
 </div>', n_ind, n_poor, n_ind, n_good, n_ind))
 ```
 
 ## At a glance
+
+These five indicators were selected to show how open data can be turned into transparent, reproducible indicators across different parts of the marine environment. They are a sample, not a comprehensive assessment of Scotland's seas.
 
 ```{r}
 report_card()
