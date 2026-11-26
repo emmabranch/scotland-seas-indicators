@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-06df27c8158acedd5d263560cd4ba62e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-646fb0223a8783aa45ebb05f2837dc05.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-37dc364990e45e0e0a51f37c552e62ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-646fb0223a8783aa45ebb05f2837dc05.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-87e43cbbf5e1aac36eca640e26454e3c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-86aef4181bd498c8d0bf710744476ea2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-87e43cbbf5e1aac36eca640e26454e3c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -295,14 +295,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> indSel <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">data</span>(inds)<span class="op">.</span><span class="fu">join</span>(<span class="st">"g"</span>)</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="vs">`translate(</span><span class="sc">${</span>xL<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>yInd<span class="op">.</span><span class="fu">get</span>(d)<span class="sc">}</span><span class="vs">)`</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"pointer"</span>)<span class="op">;</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  indSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"cx"</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#0B3C5D"</span>)<span class="op">;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  indSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"cx"</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#111111"</span>)<span class="op">;</span></span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  indSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="op">-</span><span class="dv">6</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"0.35em"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"end"</span>)</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> <span class="dv">700</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#0B3C5D"</span>)<span class="op">;</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> <span class="dv">700</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#111111"</span>)<span class="op">;</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> itemSel <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"g"</span>)<span class="op">.</span><span class="fu">data</span>(its)<span class="op">.</span><span class="fu">join</span>(<span class="st">"g"</span>)</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="vs">`translate(</span><span class="sc">${</span>xR<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>yItem<span class="op">.</span><span class="fu">get</span>(d<span class="op">.</span><span class="at">item</span>)<span class="sc">}</span><span class="vs">)`</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"pointer"</span>)<span class="op">;</span></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  itemSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> <span class="fl">4.5</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> d <span class="kw">=&gt;</span> famColour<span class="op">.</span><span class="fu">get</span>(d<span class="op">.</span><span class="at">family</span>))<span class="op">;</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  itemSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">label</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">11</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"0.35em"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#22303C"</span>)<span class="op">;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  itemSel<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">label</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">11</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"0.35em"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#111111"</span>)<span class="op">;</span></span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> info <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div class="fw-info"&gt;&lt;strong&gt;Click any indicator or framework item.&lt;/strong&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
 <span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> current <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
@@ -363,23 +363,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The full mapping, with the wording for each link. Links are my reading of the published documents, confirmed against the source text where marked.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ttpmoniafu" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ttpmoniafu table {
+<div id="riayztgiut" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#riayztgiut table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ttpmoniafu thead, #ttpmoniafu tbody, #ttpmoniafu tfoot, #ttpmoniafu tr, #ttpmoniafu td, #ttpmoniafu th {
+#riayztgiut thead, #riayztgiut tbody, #riayztgiut tfoot, #riayztgiut tr, #riayztgiut td, #riayztgiut th {
   border-style: none;
 }
 
-#ttpmoniafu p {
+#riayztgiut p {
   margin: 0;
   padding: 0;
 }
 
-#ttpmoniafu .gt_table {
+#riayztgiut .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -405,12 +405,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_caption {
+#riayztgiut .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ttpmoniafu .gt_title {
+#riayztgiut .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -422,7 +422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#ttpmoniafu .gt_subtitle {
+#riayztgiut .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -434,7 +434,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#ttpmoniafu .gt_heading {
+#riayztgiut .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -446,13 +446,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_bottom_border {
+#riayztgiut .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_col_headings {
+#riayztgiut .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -467,7 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_col_heading {
+#riayztgiut .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -487,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ttpmoniafu .gt_column_spanner_outer {
+#riayztgiut .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -499,15 +499,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#ttpmoniafu .gt_column_spanner_outer:first-child {
+#riayztgiut .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ttpmoniafu .gt_column_spanner_outer:last-child {
+#riayztgiut .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ttpmoniafu .gt_column_spanner {
+#riayztgiut .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -519,11 +519,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#ttpmoniafu .gt_spanner_row {
+#riayztgiut .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ttpmoniafu .gt_group_heading {
+#riayztgiut .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -549,7 +549,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#ttpmoniafu .gt_empty_group_heading {
+#riayztgiut .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -564,15 +564,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#ttpmoniafu .gt_from_md > :first-child {
+#riayztgiut .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ttpmoniafu .gt_from_md > :last-child {
+#riayztgiut .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ttpmoniafu .gt_row {
+#riayztgiut .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -591,7 +591,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ttpmoniafu .gt_stub {
+#riayztgiut .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -604,7 +604,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ttpmoniafu .gt_stub_row_group {
+#riayztgiut .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -618,15 +618,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#ttpmoniafu .gt_row_group_first td {
+#riayztgiut .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ttpmoniafu .gt_row_group_first th {
+#riayztgiut .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ttpmoniafu .gt_summary_row {
+#riayztgiut .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -636,16 +636,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ttpmoniafu .gt_first_summary_row {
+#riayztgiut .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_first_summary_row.thick {
+#riayztgiut .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ttpmoniafu .gt_last_summary_row {
+#riayztgiut .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -655,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_grand_summary_row {
+#riayztgiut .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ttpmoniafu .gt_first_grand_summary_row {
+#riayztgiut .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -675,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_last_grand_summary_row_top {
+#riayztgiut .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -685,11 +685,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_striped {
+#riayztgiut .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ttpmoniafu .gt_table_body {
+#riayztgiut .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -698,7 +698,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_footnotes {
+#riayztgiut .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -712,7 +712,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_footnote {
+#riayztgiut .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -721,7 +721,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ttpmoniafu .gt_sourcenotes {
+#riayztgiut .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -735,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ttpmoniafu .gt_sourcenote {
+#riayztgiut .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -743,77 +743,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ttpmoniafu .gt_left {
+#riayztgiut .gt_left {
   text-align: left;
 }
 
-#ttpmoniafu .gt_center {
+#riayztgiut .gt_center {
   text-align: center;
 }
 
-#ttpmoniafu .gt_right {
+#riayztgiut .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ttpmoniafu .gt_font_normal {
+#riayztgiut .gt_font_normal {
   font-weight: normal;
 }
 
-#ttpmoniafu .gt_font_bold {
+#riayztgiut .gt_font_bold {
   font-weight: bold;
 }
 
-#ttpmoniafu .gt_font_italic {
+#riayztgiut .gt_font_italic {
   font-style: italic;
 }
 
-#ttpmoniafu .gt_super {
+#riayztgiut .gt_super {
   font-size: 65%;
 }
 
-#ttpmoniafu .gt_footnote_marks {
+#riayztgiut .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ttpmoniafu .gt_asterisk {
+#riayztgiut .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ttpmoniafu .gt_indent_1 {
+#riayztgiut .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ttpmoniafu .gt_indent_2 {
+#riayztgiut .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ttpmoniafu .gt_indent_3 {
+#riayztgiut .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ttpmoniafu .gt_indent_4 {
+#riayztgiut .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ttpmoniafu .gt_indent_5 {
+#riayztgiut .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ttpmoniafu .katex-display {
+#riayztgiut .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ttpmoniafu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#riayztgiut div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-<div id="ttpmoniafu" class="reactable html-widget" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="ttpmoniafu">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"indicator":["Seabirds after avian flu","Harbour and grey seals","Wild Atlantic salmon","Sea temperature","MPA coverage and 30x30"],"scottish_biodiversity_strategy":["Marine and coastal outcomes; Delivery Plan 2024-2030 action on marine biodiversity monitoring aligned with the UK Marine Strategy","Marine and coastal outcomes; species recovery","Freshwater and marine outcomes; species recovery","Context for climate resilience across marine outcomes","Delivery Plan 2024-2030: at least 30% of land and sea protected and effectively managed by 2030 (30 by 30)"],"habitats_regs_or_scottish_law":["Seabird SPAs under the Habitats Regulations; statutory nature restoration targets framework, Natural Environment (Scotland) Act 2026 (Part 1)","Seal SACs (Annex II species); seal conservation and haul-out site protection, Marine (Scotland) Act 2010 Part 6","Salmon SACs (Annex II species); Conservation of Salmon (Scotland) Regulations 2016","Context indicator, not a biodiversity status measure","Nature Conservation MPAs, Marine (Scotland) Act 2010 and Marine and Coastal Access Act 2009; SACs and SPAs under the Habitats Regulations"],"ospar":["B1 Marine bird abundance; B3 Marine bird breeding success/failure","M3 Seal abundance and distribution; M5 Grey seal pup production","On the OSPAR List of Threatened and/or Declining Species (Agreement 2008-6); not an OSPAR common indicator","Context for OSPAR QSR 2023 climate assessment","OSPAR network of MPAs"],"uk_marine_strategy":["D1 Biodiversity (birds); D4 Food webs","D1 Biodiversity (marine mammals)","D1 Biodiversity (fish)","D7 Hydrographical conditions (context)","D1 Biodiversity; D6 Seafloor integrity (via protection)"],"gbf_targets":["Target 4 (species recovery); Target 21 (data and knowledge)","Target 4 (species recovery)","Target 4 (species recovery); Target 5 (sustainable use)","Target 8 (climate change impacts on biodiversity)","Target 3 (30x30)"],"verified":["✓","✓","✓","✓","✓"]},"columns":[{"id":"indicator","name":"Indicator","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":105,"align":"left"},{"id":"scottish_biodiversity_strategy","name":"Scottish Biodiversity Strategy","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"habitats_regs_or_scottish_law","name":"Habitats Regulations and Scottish law","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"ospar","name":"OSPAR","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"uk_marine_strategy","name":"UK Marine Strategy descriptor","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"gbf_targets","name":"Global Biodiversity Framework","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"verified","name":"Status","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":58,"align":"left"}],"searchable":true,"defaultPageSize":10,"showPageSizeOptions":false,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"compact":true,"width":"100%","height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"font-family":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif","fontSize":"80%"},"tableStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3"},"headerStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"groupHeaderStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"cellStyle":{"fontWeight":"normal"}},"elementId":"ttpmoniafu","dataKey":"403ef1a3809530fcb060be2944750195"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style"],"jsHooks":[]}</script>
+<div id="riayztgiut" class="reactable html-widget" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="riayztgiut">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"indicator":["Seabirds after avian flu","Harbour and grey seals","Wild Atlantic salmon","Sea temperature","MPA coverage and 30x30"],"scottish_biodiversity_strategy":["Marine and coastal outcomes; Delivery Plan 2024-2030 action on marine biodiversity monitoring aligned with the UK Marine Strategy","Marine and coastal outcomes; species recovery","Freshwater and marine outcomes; species recovery","Context for climate resilience across marine outcomes","Delivery Plan 2024-2030: at least 30% of land and sea protected and effectively managed by 2030 (30 by 30)"],"habitats_regs_or_scottish_law":["Seabird SPAs under the Habitats Regulations; statutory nature restoration targets framework, Natural Environment (Scotland) Act 2026 (Part 1)","Seal SACs (Annex II species); seal conservation and haul-out site protection, Marine (Scotland) Act 2010 Part 6","Salmon SACs (Annex II species); Conservation of Salmon (Scotland) Regulations 2016","Context indicator, not a biodiversity status measure","Nature Conservation MPAs, Marine (Scotland) Act 2010 and Marine and Coastal Access Act 2009; SACs and SPAs under the Habitats Regulations"],"ospar":["B1 Marine bird abundance; B3 Marine bird breeding success/failure","M3 Seal abundance and distribution; M5 Grey seal pup production","On the OSPAR List of Threatened and/or Declining Species (Agreement 2008-6); not an OSPAR common indicator","Context for OSPAR QSR 2023 climate assessment","OSPAR network of MPAs"],"uk_marine_strategy":["D1 Biodiversity (birds); D4 Food webs","D1 Biodiversity (marine mammals)","D1 Biodiversity (fish)","D7 Hydrographical conditions (context)","D1 Biodiversity; D6 Seafloor integrity (via protection)"],"gbf_targets":["Target 4 (species recovery); Target 21 (data and knowledge)","Target 4 (species recovery)","Target 4 (species recovery); Target 5 (sustainable use)","Target 8 (climate change impacts on biodiversity)","Target 3 (30x30)"],"verified":["✓","✓","✓","✓","✓"]},"columns":[{"id":"indicator","name":"Indicator","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":105,"align":"left"},{"id":"scottish_biodiversity_strategy","name":"Scottish Biodiversity Strategy","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"habitats_regs_or_scottish_law","name":"Habitats Regulations and Scottish law","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"ospar","name":"OSPAR","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"uk_marine_strategy","name":"UK Marine Strategy descriptor","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"gbf_targets","name":"Global Biodiversity Framework","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"align":"left"},{"id":"verified","name":"Status","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\nif (colInfo.id === 'indicator' & rowIndex === 1) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 2) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 3) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 4) {\n  return { fontWeight: 'bold' }\n}\n\nif (colInfo.id === 'indicator' & rowIndex === 5) {\n  return { fontWeight: 'bold' }\n}\n\n}","html":true,"width":58,"align":"left"}],"searchable":true,"defaultPageSize":10,"showPageSizeOptions":false,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"compact":true,"width":"100%","height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"font-family":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif","fontSize":"80%"},"tableStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3"},"headerStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"groupHeaderStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"cellStyle":{"fontWeight":"normal"}},"elementId":"riayztgiut","dataKey":"403ef1a3809530fcb060be2944750195"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -912,7 +912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
 </script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZhbUNvbG91ciA9IG5ldyBNYXAoW1xuICBbXCJTY290dGlzaCBCaW9kaXZlcnNpdHkgU3RyYXRlZ3lcIiwgXCIjMDA3MkIyXCJdLFxuICBbXCJTY290dGlzaCBsYXdcIiwgXCIjMDA5RTczXCJdLFxuICBbXCJIYWJpdGF0cyBSZWd1bGF0aW9uc1wiLCBcIiM1NkI0RTlcIl0sXG4gIFtcIk9TUEFSXCIsIFwiI0U2OUYwMFwiXSxcbiAgW1wiVUsgTWFyaW5lIFN0cmF0ZWd5XCIsIFwiI0NDNzlBN1wiXSxcbiAgW1wiR2xvYmFsIEJpb2RpdmVyc2l0eSBGcmFtZXdvcmtcIiwgXCIjRDU1RTAwXCJdXG5dKVxuXG5mcmFtZXdvcmtOZXR3b3JrID0ge1xuICBjb25zdCBpdGVtcyA9IHRyYW5zcG9zZShmd19pdGVtcyk7XG4gIGNvbnN0IGxpbmtzID0gdHJhbnNwb3NlKGZ3X2xpbmtzKTtcbiAgY29uc3QgaW5kcyA9IFtcIlNlYWJpcmRzXCIsIFwiU2VhbHNcIiwgXCJTYWxtb25cIiwgXCJTZWEgdGVtcGVyYXR1cmVcIiwgXCJNUEFzIGFuZCAzMHgzMFwiXTtcbiAgY29uc3QgZmFtcyA9IFsuLi5mYW1Db2xvdXIua2V5cygpXTtcbiAgY29uc3QgaXRzID0gaXRlbXMuc2xpY2UoKS5zb3J0KChhLCBiKSA9PiBmYW1zLmluZGV4T2YoYS5mYW1pbHkpIC0gZmFtcy5pbmRleE9mKGIuZmFtaWx5KSk7XG4gIGNvbnN0IGZhbU9mID0gbmV3IE1hcChpdGVtcy5tYXAoZCA9PiBbZC5pdGVtLCBkLmZhbWlseV0pKTtcbiAgY29uc3QgYnlJZCA9IG5ldyBNYXAoaXRlbXMubWFwKGQgPT4gW2QuaXRlbSwgZF0pKTtcblxuICBjb25zdCB3aWRlID0gd2lkdGggPj0gOTAwO1xuICBjb25zdCBXID0gd2lkZSA/IE1hdGgucm91bmQod2lkdGggKiAwLjY0KSA6IE1hdGgubWF4KHdpZHRoLCA1MjApLCByb3dIID0gMTcuNSwgdG9wID0gMTA7XG4gIGNvbnN0IEggPSB0b3AgKyBpdHMubGVuZ3RoICogcm93SCArIDEwO1xuICBjb25zdCB4TCA9IE1hdGgubWluKDEzNSwgVyAqIDAuMjUpLCB4UiA9IFcgKiAwLjQyO1xuICBjb25zdCB5SXRlbSA9IG5ldyBNYXAoaXRzLm1hcCgoZCwgaSkgPT4gW2QuaXRlbSwgdG9wICsgaSAqIHJvd0ggKyByb3dIIC8gMl0pKTtcbiAgY29uc3Qgc3BhbiA9IGl0cy5sZW5ndGggKiByb3dIO1xuICBjb25zdCB5SW5kID0gbmV3IE1hcChpbmRzLm1hcCgoZCwgaSkgPT4gW2QsIHRvcCArIHNwYW4gKiAoaSArIDAuNSkgLyBpbmRzLmxlbmd0aF0pKTtcblxuICBjb25zdCBzdmcgPSBkMy5jcmVhdGUoXCJzdmdcIikuYXR0cihcInZpZXdCb3hcIiwgWzAsIDAsIFcsIEhdKS5hdHRyKFwid2lkdGhcIiwgVylcbiAgICAuYXR0cihcInJvbGVcIiwgXCJpbWdcIikuYXR0cihcImFyaWEtbGFiZWxcIiwgXCJOZXR3b3JrIGxpbmtpbmcgZml2ZSBpbmRpY2F0b3JzIHRvIGZyYW1ld29yayBpdGVtc1wiKVxuICAgIC5zdHlsZShcImZvbnRcIiwgXCIxMnB4IHN5c3RlbS11aSwgc2Fucy1zZXJpZlwiKS5zdHlsZShcIm1heC13aWR0aFwiLCBcIjEwMCVcIik7XG5cbiAgY29uc3QgcGF0aCA9IGQgPT4ge1xuICAgIGNvbnN0IHkwID0geUluZC5nZXQoZC5pbmRpY2F0b3IpLCB5MSA9IHlJdGVtLmdldChkLml0ZW0pLCB4MCA9IHhMICsgMTAsIHgxID0geFIgLSA4LCBteCA9ICh4MCArIHgxKSAvIDI7XG4gICAgcmV0dXJuIGBNJHt4MH0sJHt5MH1DJHtteH0sJHt5MH0gJHtteH0sJHt5MX0gJHt4MX0sJHt5MX1gO1xuICB9O1xuICBjb25zdCBsaW5rU2VsID0gc3ZnLmFwcGVuZChcImdcIikuYXR0cihcImZpbGxcIiwgXCJub25lXCIpLnNlbGVjdEFsbChcInBhdGhcIikuZGF0YShsaW5rcykuam9pbihcInBhdGhcIilcbiAgICAuYXR0cihcImRcIiwgcGF0aCkuYXR0cihcInN0cm9rZVwiLCBkID0+IGZhbUNvbG91ci5nZXQoZmFtT2YuZ2V0KGQuaXRlbSkpKVxuICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDEuOCkuYXR0cihcInN0cm9rZS1vcGFjaXR5XCIsIDAuNDUpO1xuXG4gIGNvbnN0IGluZFNlbCA9IHN2Zy5hcHBlbmQoXCJnXCIpLnNlbGVjdEFsbChcImdcIikuZGF0YShpbmRzKS5qb2luKFwiZ1wiKVxuICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIGQgPT4gYHRyYW5zbGF0ZSgke3hMfSwke3lJbmQuZ2V0KGQpfSlgKS5zdHlsZShcImN1cnNvclwiLCBcInBvaW50ZXJcIik7XG4gIGluZFNlbC5hcHBlbmQoXCJjaXJjbGVcIikuYXR0cihcInJcIiwgNikuYXR0cihcImN4XCIsIDYpLmF0dHIoXCJmaWxsXCIsIFwiIzBCM0M1RFwiKTtcbiAgaW5kU2VsLmFwcGVuZChcInRleHRcIikudGV4dChkID0+IGQpLmF0dHIoXCJ4XCIsIC02KS5hdHRyKFwiZHlcIiwgXCIwLjM1ZW1cIikuYXR0cihcInRleHQtYW5jaG9yXCIsIFwiZW5kXCIpXG4gICAgLmF0dHIoXCJmb250LXdlaWdodFwiLCA3MDApLmF0dHIoXCJmaWxsXCIsIFwiIzBCM0M1RFwiKTtcblxuICBjb25zdCBpdGVtU2VsID0gc3ZnLmFwcGVuZChcImdcIikuc2VsZWN0QWxsKFwiZ1wiKS5kYXRhKGl0cykuam9pbihcImdcIilcbiAgICAuYXR0cihcInRyYW5zZm9ybVwiLCBkID0+IGB0cmFuc2xhdGUoJHt4Un0sJHt5SXRlbS5nZXQoZC5pdGVtKX0pYCkuc3R5bGUoXCJjdXJzb3JcIiwgXCJwb2ludGVyXCIpO1xuICBpdGVtU2VsLmFwcGVuZChcImNpcmNsZVwiKS5hdHRyKFwiclwiLCA0LjUpLmF0dHIoXCJmaWxsXCIsIGQgPT4gZmFtQ29sb3VyLmdldChkLmZhbWlseSkpO1xuICBpdGVtU2VsLmFwcGVuZChcInRleHRcIikudGV4dChkID0+IGQubGFiZWwpLmF0dHIoXCJ4XCIsIDExKS5hdHRyKFwiZHlcIiwgXCIwLjM1ZW1cIikuYXR0cihcImZpbGxcIiwgXCIjMjIzMDNDXCIpO1xuXG4gIGNvbnN0IGluZm8gPSBodG1sYDxkaXYgY2xhc3M9XCJmdy1pbmZvXCI+PHN0cm9uZz5DbGljayBhbnkgaW5kaWNhdG9yIG9yIGZyYW1ld29yayBpdGVtLjwvc3Ryb25nPjwvZGl2PmA7XG4gIGxldCBjdXJyZW50ID0gbnVsbDtcblxuICBmdW5jdGlvbiByZXNldCgpIHtcbiAgICBjdXJyZW50ID0gbnVsbDtcbiAgICBsaW5rU2VsLmF0dHIoXCJzdHJva2Utb3BhY2l0eVwiLCAwLjQ1KS5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDEuOCk7XG4gICAgaW5kU2VsLmF0dHIoXCJvcGFjaXR5XCIsIDEpOyBpdGVtU2VsLmF0dHIoXCJvcGFjaXR5XCIsIDEpLnNlbGVjdChcInRleHRcIikuYXR0cihcImZvbnQtd2VpZ2h0XCIsIDQwMCk7XG4gICAgaW5mby5pbm5lckhUTUwgPSBcIjxzdHJvbmc+Q2xpY2sgYW55IGluZGljYXRvciBvciBmcmFtZXdvcmsgaXRlbS48L3N0cm9uZz5cIjtcbiAgfVxuICBmdW5jdGlvbiBzZWxlY3Qoa2luZCwga2V5KSB7XG4gICAgaWYgKGN1cnJlbnQgPT09IGtpbmQgKyBrZXkpIHJldHVybiByZXNldCgpO1xuICAgIGN1cnJlbnQgPSBraW5kICsga2V5O1xuICAgIGNvbnN0IG9uID0gbGlua3MuZmlsdGVyKGwgPT4ga2luZCA9PT0gXCJpbmRcIiA/IGwuaW5kaWNhdG9yID09PSBrZXkgOiBsLml0ZW0gPT09IGtleSk7XG4gICAgY29uc3Qgb25JbmRzID0gbmV3IFNldChvbi5tYXAobCA9PiBsLmluZGljYXRvcikpLCBvbkl0ZW1zID0gbmV3IFNldChvbi5tYXAobCA9PiBsLml0ZW0pKTtcbiAgICBsaW5rU2VsLmF0dHIoXCJzdHJva2Utb3BhY2l0eVwiLCBsID0+IG9uLmluY2x1ZGVzKGwpID8gMC45NSA6IDAuMDYpXG4gICAgICAgICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIGwgPT4gb24uaW5jbHVkZXMobCkgPyAyLjYgOiAxLjQpO1xuICAgIGluZFNlbC5hdHRyKFwib3BhY2l0eVwiLCBkID0+IG9uSW5kcy5oYXMoZCkgPyAxIDogMC4yNSk7XG4gICAgaXRlbVNlbC5hdHRyKFwib3BhY2l0eVwiLCBkID0+IG9uSXRlbXMuaGFzKGQuaXRlbSkgPyAxIDogMC4yNSlcbiAgICAgICAgICAgLnNlbGVjdChcInRleHRcIikuYXR0cihcImZvbnQtd2VpZ2h0XCIsIGQgPT4gb25JdGVtcy5oYXMoZC5pdGVtKSA/IDcwMCA6IDQwMCk7XG4gICAgaWYgKGtpbmQgPT09IFwiaW5kXCIpIHtcbiAgICAgIGNvbnN0IGdyb3VwZWQgPSBmYW1zLm1hcChmID0+IFtmLCBpdHMuZmlsdGVyKGQgPT4gZC5mYW1pbHkgPT09IGYgJiYgb25JdGVtcy5oYXMoZC5pdGVtKSldKS5maWx0ZXIoZyA9PiBnWzFdLmxlbmd0aCk7XG4gICAgICBpbmZvLmlubmVySFRNTCA9IGA8c3Ryb25nPiR7a2V5fTwvc3Ryb25nPiByZXBvcnRzIGFnYWluc3QgJHtvbi5sZW5ndGh9IGZyYW1ld29yayBpdGVtczpgICtcbiAgICAgICAgZ3JvdXBlZC5tYXAoKFtmLCB4c10pID0+IGA8ZGl2IGNsYXNzPVwiZnctcm93XCI+PHNwYW4gY2xhc3M9XCJmdy1kb3RcIiBzdHlsZT1cImJhY2tncm91bmQ6JHtmYW1Db2xvdXIuZ2V0KGYpfVwiPjwvc3Bhbj5gICtcbiAgICAgICAgICBgPGVtPiR7Zn06PC9lbT4gJHt4cy5tYXAoeCA9PiB4LmxhYmVsKS5qb2luKFwiOyBcIil9PC9kaXY+YCkuam9pbihcIlwiKTtcbiAgICB9IGVsc2Uge1xuICAgICAgY29uc3QgaXQgPSBieUlkLmdldChrZXkpO1xuICAgICAgaW5mby5pbm5lckhUTUwgPSBgPGRpdiBjbGFzcz1cImZ3LXJvd1wiPjxzcGFuIGNsYXNzPVwiZnctZG90XCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiR7ZmFtQ29sb3VyLmdldChpdC5mYW1pbHkpfVwiPjwvc3Bhbj5gICtcbiAgICAgICAgYDxlbT4ke2l0LmZhbWlseX08L2VtPjwvZGl2PjxzdHJvbmc+JHtpdC5sYWJlbH08L3N0cm9uZz48cD4ke2l0LmRlc2NyaXB0aW9ufTwvcD5gICtcbiAgICAgICAgYDxwPjxiPkluZm9ybWVkIGJ5OjwvYj4gJHtbLi4ub25JbmRzXS5qb2luKFwiLCBcIil9PC9wPmA7XG4gICAgfVxuICB9XG4gIGluZFNlbC5vbihcImNsaWNrXCIsIChlLCBkKSA9PiBzZWxlY3QoXCJpbmRcIiwgZCkpO1xuICBpdGVtU2VsLm9uKFwiY2xpY2tcIiwgKGUsIGQpID0+IHNlbGVjdChcIml0ZW1cIiwgZC5pdGVtKSk7XG5cbiAgY29uc3QgbGVnZW5kID0gaHRtbGA8ZGl2IGNsYXNzPVwibWFwLWtleVwiPiR7ZmFtcy5tYXAoZiA9PiBodG1sYDxzcGFuIGNsYXNzPVwia2V5XCI+XG4gICAgPHNwYW4gY2xhc3M9XCJzd2F0Y2hcIiBzdHlsZT1cImJhY2tncm91bmQ6JHtmYW1Db2xvdXIuZ2V0KGYpfVwiPjwvc3Bhbj4ke2Z9PC9zcGFuPmApfTwvZGl2PmA7XG4gIHJldHVybiBodG1sYDxkaXYgY2xhc3M9XCJmdy1uZXR3b3JrXCI+JHtsZWdlbmR9PGRpdiBjbGFzcz1cImZ3LWJvZHkgJHt3aWRlID8gXCJmdy13aWRlXCIgOiBcIlwifVwiPlxuICAgIDxkaXYgY2xhc3M9XCJmdy1jaGFydFwiPiR7c3ZnLm5vZGUoKX08L2Rpdj4ke2luZm99PC9kaXY+PC9kaXY+YDtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZhbUNvbG91ciA9IG5ldyBNYXAoW1xuICBbXCJTY290dGlzaCBCaW9kaXZlcnNpdHkgU3RyYXRlZ3lcIiwgXCIjMDA3MkIyXCJdLFxuICBbXCJTY290dGlzaCBsYXdcIiwgXCIjMDA5RTczXCJdLFxuICBbXCJIYWJpdGF0cyBSZWd1bGF0aW9uc1wiLCBcIiM1NkI0RTlcIl0sXG4gIFtcIk9TUEFSXCIsIFwiI0U2OUYwMFwiXSxcbiAgW1wiVUsgTWFyaW5lIFN0cmF0ZWd5XCIsIFwiI0NDNzlBN1wiXSxcbiAgW1wiR2xvYmFsIEJpb2RpdmVyc2l0eSBGcmFtZXdvcmtcIiwgXCIjRDU1RTAwXCJdXG5dKVxuXG5mcmFtZXdvcmtOZXR3b3JrID0ge1xuICBjb25zdCBpdGVtcyA9IHRyYW5zcG9zZShmd19pdGVtcyk7XG4gIGNvbnN0IGxpbmtzID0gdHJhbnNwb3NlKGZ3X2xpbmtzKTtcbiAgY29uc3QgaW5kcyA9IFtcIlNlYWJpcmRzXCIsIFwiU2VhbHNcIiwgXCJTYWxtb25cIiwgXCJTZWEgdGVtcGVyYXR1cmVcIiwgXCJNUEFzIGFuZCAzMHgzMFwiXTtcbiAgY29uc3QgZmFtcyA9IFsuLi5mYW1Db2xvdXIua2V5cygpXTtcbiAgY29uc3QgaXRzID0gaXRlbXMuc2xpY2UoKS5zb3J0KChhLCBiKSA9PiBmYW1zLmluZGV4T2YoYS5mYW1pbHkpIC0gZmFtcy5pbmRleE9mKGIuZmFtaWx5KSk7XG4gIGNvbnN0IGZhbU9mID0gbmV3IE1hcChpdGVtcy5tYXAoZCA9PiBbZC5pdGVtLCBkLmZhbWlseV0pKTtcbiAgY29uc3QgYnlJZCA9IG5ldyBNYXAoaXRlbXMubWFwKGQgPT4gW2QuaXRlbSwgZF0pKTtcblxuICBjb25zdCB3aWRlID0gd2lkdGggPj0gOTAwO1xuICBjb25zdCBXID0gd2lkZSA/IE1hdGgucm91bmQod2lkdGggKiAwLjY0KSA6IE1hdGgubWF4KHdpZHRoLCA1MjApLCByb3dIID0gMTcuNSwgdG9wID0gMTA7XG4gIGNvbnN0IEggPSB0b3AgKyBpdHMubGVuZ3RoICogcm93SCArIDEwO1xuICBjb25zdCB4TCA9IE1hdGgubWluKDEzNSwgVyAqIDAuMjUpLCB4UiA9IFcgKiAwLjQyO1xuICBjb25zdCB5SXRlbSA9IG5ldyBNYXAoaXRzLm1hcCgoZCwgaSkgPT4gW2QuaXRlbSwgdG9wICsgaSAqIHJvd0ggKyByb3dIIC8gMl0pKTtcbiAgY29uc3Qgc3BhbiA9IGl0cy5sZW5ndGggKiByb3dIO1xuICBjb25zdCB5SW5kID0gbmV3IE1hcChpbmRzLm1hcCgoZCwgaSkgPT4gW2QsIHRvcCArIHNwYW4gKiAoaSArIDAuNSkgLyBpbmRzLmxlbmd0aF0pKTtcblxuICBjb25zdCBzdmcgPSBkMy5jcmVhdGUoXCJzdmdcIikuYXR0cihcInZpZXdCb3hcIiwgWzAsIDAsIFcsIEhdKS5hdHRyKFwid2lkdGhcIiwgVylcbiAgICAuYXR0cihcInJvbGVcIiwgXCJpbWdcIikuYXR0cihcImFyaWEtbGFiZWxcIiwgXCJOZXR3b3JrIGxpbmtpbmcgZml2ZSBpbmRpY2F0b3JzIHRvIGZyYW1ld29yayBpdGVtc1wiKVxuICAgIC5zdHlsZShcImZvbnRcIiwgXCIxMnB4IHN5c3RlbS11aSwgc2Fucy1zZXJpZlwiKS5zdHlsZShcIm1heC13aWR0aFwiLCBcIjEwMCVcIik7XG5cbiAgY29uc3QgcGF0aCA9IGQgPT4ge1xuICAgIGNvbnN0IHkwID0geUluZC5nZXQoZC5pbmRpY2F0b3IpLCB5MSA9IHlJdGVtLmdldChkLml0ZW0pLCB4MCA9IHhMICsgMTAsIHgxID0geFIgLSA4LCBteCA9ICh4MCArIHgxKSAvIDI7XG4gICAgcmV0dXJuIGBNJHt4MH0sJHt5MH1DJHtteH0sJHt5MH0gJHtteH0sJHt5MX0gJHt4MX0sJHt5MX1gO1xuICB9O1xuICBjb25zdCBsaW5rU2VsID0gc3ZnLmFwcGVuZChcImdcIikuYXR0cihcImZpbGxcIiwgXCJub25lXCIpLnNlbGVjdEFsbChcInBhdGhcIikuZGF0YShsaW5rcykuam9pbihcInBhdGhcIilcbiAgICAuYXR0cihcImRcIiwgcGF0aCkuYXR0cihcInN0cm9rZVwiLCBkID0+IGZhbUNvbG91ci5nZXQoZmFtT2YuZ2V0KGQuaXRlbSkpKVxuICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDEuOCkuYXR0cihcInN0cm9rZS1vcGFjaXR5XCIsIDAuNDUpO1xuXG4gIGNvbnN0IGluZFNlbCA9IHN2Zy5hcHBlbmQoXCJnXCIpLnNlbGVjdEFsbChcImdcIikuZGF0YShpbmRzKS5qb2luKFwiZ1wiKVxuICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIGQgPT4gYHRyYW5zbGF0ZSgke3hMfSwke3lJbmQuZ2V0KGQpfSlgKS5zdHlsZShcImN1cnNvclwiLCBcInBvaW50ZXJcIik7XG4gIGluZFNlbC5hcHBlbmQoXCJjaXJjbGVcIikuYXR0cihcInJcIiwgNikuYXR0cihcImN4XCIsIDYpLmF0dHIoXCJmaWxsXCIsIFwiIzExMTExMVwiKTtcbiAgaW5kU2VsLmFwcGVuZChcInRleHRcIikudGV4dChkID0+IGQpLmF0dHIoXCJ4XCIsIC02KS5hdHRyKFwiZHlcIiwgXCIwLjM1ZW1cIikuYXR0cihcInRleHQtYW5jaG9yXCIsIFwiZW5kXCIpXG4gICAgLmF0dHIoXCJmb250LXdlaWdodFwiLCA3MDApLmF0dHIoXCJmaWxsXCIsIFwiIzExMTExMVwiKTtcblxuICBjb25zdCBpdGVtU2VsID0gc3ZnLmFwcGVuZChcImdcIikuc2VsZWN0QWxsKFwiZ1wiKS5kYXRhKGl0cykuam9pbihcImdcIilcbiAgICAuYXR0cihcInRyYW5zZm9ybVwiLCBkID0+IGB0cmFuc2xhdGUoJHt4Un0sJHt5SXRlbS5nZXQoZC5pdGVtKX0pYCkuc3R5bGUoXCJjdXJzb3JcIiwgXCJwb2ludGVyXCIpO1xuICBpdGVtU2VsLmFwcGVuZChcImNpcmNsZVwiKS5hdHRyKFwiclwiLCA0LjUpLmF0dHIoXCJmaWxsXCIsIGQgPT4gZmFtQ29sb3VyLmdldChkLmZhbWlseSkpO1xuICBpdGVtU2VsLmFwcGVuZChcInRleHRcIikudGV4dChkID0+IGQubGFiZWwpLmF0dHIoXCJ4XCIsIDExKS5hdHRyKFwiZHlcIiwgXCIwLjM1ZW1cIikuYXR0cihcImZpbGxcIiwgXCIjMTExMTExXCIpO1xuXG4gIGNvbnN0IGluZm8gPSBodG1sYDxkaXYgY2xhc3M9XCJmdy1pbmZvXCI+PHN0cm9uZz5DbGljayBhbnkgaW5kaWNhdG9yIG9yIGZyYW1ld29yayBpdGVtLjwvc3Ryb25nPjwvZGl2PmA7XG4gIGxldCBjdXJyZW50ID0gbnVsbDtcblxuICBmdW5jdGlvbiByZXNldCgpIHtcbiAgICBjdXJyZW50ID0gbnVsbDtcbiAgICBsaW5rU2VsLmF0dHIoXCJzdHJva2Utb3BhY2l0eVwiLCAwLjQ1KS5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDEuOCk7XG4gICAgaW5kU2VsLmF0dHIoXCJvcGFjaXR5XCIsIDEpOyBpdGVtU2VsLmF0dHIoXCJvcGFjaXR5XCIsIDEpLnNlbGVjdChcInRleHRcIikuYXR0cihcImZvbnQtd2VpZ2h0XCIsIDQwMCk7XG4gICAgaW5mby5pbm5lckhUTUwgPSBcIjxzdHJvbmc+Q2xpY2sgYW55IGluZGljYXRvciBvciBmcmFtZXdvcmsgaXRlbS48L3N0cm9uZz5cIjtcbiAgfVxuICBmdW5jdGlvbiBzZWxlY3Qoa2luZCwga2V5KSB7XG4gICAgaWYgKGN1cnJlbnQgPT09IGtpbmQgKyBrZXkpIHJldHVybiByZXNldCgpO1xuICAgIGN1cnJlbnQgPSBraW5kICsga2V5O1xuICAgIGNvbnN0IG9uID0gbGlua3MuZmlsdGVyKGwgPT4ga2luZCA9PT0gXCJpbmRcIiA/IGwuaW5kaWNhdG9yID09PSBrZXkgOiBsLml0ZW0gPT09IGtleSk7XG4gICAgY29uc3Qgb25JbmRzID0gbmV3IFNldChvbi5tYXAobCA9PiBsLmluZGljYXRvcikpLCBvbkl0ZW1zID0gbmV3IFNldChvbi5tYXAobCA9PiBsLml0ZW0pKTtcbiAgICBsaW5rU2VsLmF0dHIoXCJzdHJva2Utb3BhY2l0eVwiLCBsID0+IG9uLmluY2x1ZGVzKGwpID8gMC45NSA6IDAuMDYpXG4gICAgICAgICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIGwgPT4gb24uaW5jbHVkZXMobCkgPyAyLjYgOiAxLjQpO1xuICAgIGluZFNlbC5hdHRyKFwib3BhY2l0eVwiLCBkID0+IG9uSW5kcy5oYXMoZCkgPyAxIDogMC4yNSk7XG4gICAgaXRlbVNlbC5hdHRyKFwib3BhY2l0eVwiLCBkID0+IG9uSXRlbXMuaGFzKGQuaXRlbSkgPyAxIDogMC4yNSlcbiAgICAgICAgICAgLnNlbGVjdChcInRleHRcIikuYXR0cihcImZvbnQtd2VpZ2h0XCIsIGQgPT4gb25JdGVtcy5oYXMoZC5pdGVtKSA/IDcwMCA6IDQwMCk7XG4gICAgaWYgKGtpbmQgPT09IFwiaW5kXCIpIHtcbiAgICAgIGNvbnN0IGdyb3VwZWQgPSBmYW1zLm1hcChmID0+IFtmLCBpdHMuZmlsdGVyKGQgPT4gZC5mYW1pbHkgPT09IGYgJiYgb25JdGVtcy5oYXMoZC5pdGVtKSldKS5maWx0ZXIoZyA9PiBnWzFdLmxlbmd0aCk7XG4gICAgICBpbmZvLmlubmVySFRNTCA9IGA8c3Ryb25nPiR7a2V5fTwvc3Ryb25nPiByZXBvcnRzIGFnYWluc3QgJHtvbi5sZW5ndGh9IGZyYW1ld29yayBpdGVtczpgICtcbiAgICAgICAgZ3JvdXBlZC5tYXAoKFtmLCB4c10pID0+IGA8ZGl2IGNsYXNzPVwiZnctcm93XCI+PHNwYW4gY2xhc3M9XCJmdy1kb3RcIiBzdHlsZT1cImJhY2tncm91bmQ6JHtmYW1Db2xvdXIuZ2V0KGYpfVwiPjwvc3Bhbj5gICtcbiAgICAgICAgICBgPGVtPiR7Zn06PC9lbT4gJHt4cy5tYXAoeCA9PiB4LmxhYmVsKS5qb2luKFwiOyBcIil9PC9kaXY+YCkuam9pbihcIlwiKTtcbiAgICB9IGVsc2Uge1xuICAgICAgY29uc3QgaXQgPSBieUlkLmdldChrZXkpO1xuICAgICAgaW5mby5pbm5lckhUTUwgPSBgPGRpdiBjbGFzcz1cImZ3LXJvd1wiPjxzcGFuIGNsYXNzPVwiZnctZG90XCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiR7ZmFtQ29sb3VyLmdldChpdC5mYW1pbHkpfVwiPjwvc3Bhbj5gICtcbiAgICAgICAgYDxlbT4ke2l0LmZhbWlseX08L2VtPjwvZGl2PjxzdHJvbmc+JHtpdC5sYWJlbH08L3N0cm9uZz48cD4ke2l0LmRlc2NyaXB0aW9ufTwvcD5gICtcbiAgICAgICAgYDxwPjxiPkluZm9ybWVkIGJ5OjwvYj4gJHtbLi4ub25JbmRzXS5qb2luKFwiLCBcIil9PC9wPmA7XG4gICAgfVxuICB9XG4gIGluZFNlbC5vbihcImNsaWNrXCIsIChlLCBkKSA9PiBzZWxlY3QoXCJpbmRcIiwgZCkpO1xuICBpdGVtU2VsLm9uKFwiY2xpY2tcIiwgKGUsIGQpID0+IHNlbGVjdChcIml0ZW1cIiwgZC5pdGVtKSk7XG5cbiAgY29uc3QgbGVnZW5kID0gaHRtbGA8ZGl2IGNsYXNzPVwibWFwLWtleVwiPiR7ZmFtcy5tYXAoZiA9PiBodG1sYDxzcGFuIGNsYXNzPVwia2V5XCI+XG4gICAgPHNwYW4gY2xhc3M9XCJzd2F0Y2hcIiBzdHlsZT1cImJhY2tncm91bmQ6JHtmYW1Db2xvdXIuZ2V0KGYpfVwiPjwvc3Bhbj4ke2Z9PC9zcGFuPmApfTwvZGl2PmA7XG4gIHJldHVybiBodG1sYDxkaXYgY2xhc3M9XCJmdy1uZXR3b3JrXCI+JHtsZWdlbmR9PGRpdiBjbGFzcz1cImZ3LWJvZHkgJHt3aWRlID8gXCJmdy13aWRlXCIgOiBcIlwifVwiPlxuICAgIDxkaXYgY2xhc3M9XCJmdy1jaGFydFwiPiR7c3ZnLm5vZGUoKX08L2Rpdj4ke2luZm99PC9kaXY+PC9kaXY+YDtcbn1cbiJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
